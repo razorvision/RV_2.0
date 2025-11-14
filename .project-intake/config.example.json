@@ -1,0 +1,41 @@
+{
+  "_comment": "This is an example config.json with realistic values filled in",
+  "_usage": "Copy this file to config.json and customize for your project",
+
+  "projectName": "TaskFlow",
+  "projectDescription": "A modern task management platform for agile teams",
+  "githubOwner": "acme-corp",
+  "githubRepo": "taskflow",
+  
+  "createProjectBoard": true,
+  "projectBoardName": "TaskFlow Development",
+  
+  "packageManager": "pnpm",
+  "primaryLanguage": "TypeScript",
+  
+  "hasBackend": true,
+  "backendFramework": "Express",
+  
+  "frontendFramework": "React 18",
+  "buildTool": "Vite",
+  "stylingApproach": "Tailwind CSS",
+  
+  "setupDatabase": true,
+  "databaseType": "PostgreSQL",
+  "databaseORM": "Drizzle ORM",
+  
+  "testingFramework": "Vitest + Playwright",
+  "installPlaywright": true,
+  
+  "installGitHooks": true,
+  "generateDocumentation": true,
+  
+  "teamMembers": [
+    "Jane Smith (Lead Developer)",
+    "John Doe (Backend Developer)",
+    "Sarah Johnson (Frontend Developer)"
+  ],
+  
+  "license": "MIT",
+  "supportEmail": "support@acmecorp.com"
+}

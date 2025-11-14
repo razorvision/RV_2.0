@@ -1,0 +1,27 @@
+{
+  "name": "project-intake-template",
+  "version": "1.0.0",
+  "description": "GitHub template repository with automated project setup system",
+  "type": "module",
+  "scripts": {
+    "validate-config": "node .project-intake/scripts/validate-config.cjs",
+    "health-check": "node .project-intake/scripts/health-check.cjs",
+    "process-templates": "node .project-intake/scripts/process-templates.cjs",
+    "check-node-version": "node .project-intake/scripts/check-node-version.cjs"
+  },
+  "keywords": [
+    "template",
+    "project-setup",
+    "automation",
+    "claude-code",
+    "best-practices",
+    "documentation",
+    "git-hooks",
+    "workflow"
+  ],
+  "author": "Andrew Tucker + Claude Code",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

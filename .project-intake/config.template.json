@@ -1,0 +1,75 @@
+{
+  "_instructions": "Copy this file to config.json and fill in your project details before running the intake system",
+
+  "projectName": "",
+  "_projectName_help": "The name of your project (e.g., 'MedNexus', 'TaskManager')",
+
+  "projectDescription": "",
+  "_projectDescription_help": "One-sentence description of what the project does",
+
+  "githubOwner": "",
+  "_githubOwner_help": "GitHub username or organization (e.g., 'andrew-tucker-razorvision')",
+
+  "githubRepo": "",
+  "_githubRepo_help": "GitHub repository name (e.g., 'Medical-Provider-Test-Project')",
+
+  "primaryLanguage": "TypeScript",
+  "_primaryLanguage_help": "Primary programming language (JavaScript, TypeScript, Python, etc.)",
+
+  "packageManager": "auto-detect",
+  "_packageManager_help": "Package manager to use: 'pnpm', 'npm', 'yarn', or 'auto-detect'",
+
+  "createProjectBoard": true,
+  "_createProjectBoard_help": "Create a GitHub project board with Kanban template (true/false)",
+
+  "projectBoardName": "",
+  "_projectBoardName_help": "Name for the project board (e.g., 'Project Development')",
+
+  "installGitHooks": true,
+  "_installGitHooks_help": "Install pre-commit hook to prevent direct commits to main (true/false)",
+
+  "generateDocumentation": true,
+  "_generateDocumentation_help": "Generate/update README and workflow guides (true/false)",
+
+  "setupDatabase": false,
+  "_setupDatabase_help": "Does this project use a database? (true/false)",
+
+  "databaseType": "",
+  "_databaseType_help": "Database type if applicable: 'postgresql', 'mysql', 'mongodb', 'sqlite', etc.",
+
+  "databaseORM": "",
+  "_databaseORM_help": "ORM/Query builder if applicable: 'drizzle', 'prisma', 'typeorm', etc.",
+
+  "hasBackend": false,
+  "_hasBackend_help": "Does this project have a backend/API? (true/false)",
+
+  "backendFramework": "",
+  "_backendFramework_help": "Backend framework if applicable: 'express', 'fastify', 'nestjs', etc.",
+
+  "frontendFramework": "",
+  "_frontendFramework_help": "Frontend framework: 'react', 'vue', 'angular', 'svelte', etc.",
+
+  "buildTool": "",
+  "_buildTool_help": "Build tool: 'vite', 'webpack', 'parcel', 'esbuild', etc.",
+
+  "stylingApproach": "",
+  "_stylingApproach_help": "Styling approach: 'tailwind', 'css-modules', 'styled-components', 'sass', etc.",
+
+  "testingFramework": "",
+  "_testingFramework_help": "Testing framework: 'vitest', 'jest', 'playwright', 'cypress', etc.",
+
+  "installPlaywright": false,
+  "_installPlaywright_help": "Install Playwright for screenshot automation (true/false)",
+
+  "teamMembers": [],
+  "_teamMembers_help": "Array of team member GitHub usernames (e.g., ['user1', 'user2'])",
+
+  "license": "MIT",
+  "_license_help": "Project license: 'MIT', 'Apache-2.0', 'GPL-3.0', etc.",
+
+  "supportEmail": "",
+  "_supportEmail_help": "Support/contact email for the project",
+
+  "customSettings": {},
+  "_customSettings_help": "Add any custom project-specific settings here"
+}

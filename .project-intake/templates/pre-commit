@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# Pre-commit hook to prevent direct commits to main branch and scan for secrets
+# This ensures all changes go through the feature branch → PR → merge workflow
+# and prevents accidental commits of sensitive data
+
+BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# Check 1: Prevent direct commits to main
+if [ "$BRANCH" = "main" ]; then
+  echo "❌ ERROR: Direct commits to 'main' branch are not allowed!"
+  echo ""
+  echo "Please follow the proper workflow:"
+  echo "  1. Create a feature branch:"
+  echo "     git checkout -b feature/your-feature-name"
+  echo ""
+  echo "  2. Make your changes and commit:"
+  echo "     git add ."
+  echo "     git commit -m \"feat: your description\""
+  echo ""
+  echo "  3. Push and create a PR:"
+  echo "     git push -u origin feature/your-feature-name"
+  echo "     gh pr create"
+  echo ""
+  echo "  4. Merge via PR:"
+  echo "     gh pr merge --squash"
+  echo ""
+  echo "If you absolutely need to commit to main (emergencies only):"
+  echo "  git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+# Check 2: Scan for secrets and sensitive files
+echo "🔍 Scanning for secrets and sensitive files..."
+
+# Get list of staged files
+STAGED_FILES=$(git diff --cached --name-only)
+
+# Check for .env files (should never be committed)
+if echo "$STAGED_FILES" | grep -qE '^\.env$|^\.env\.local$|^\.env\.production$'; then
+  echo "❌ ERROR: Attempting to commit .env file!"
+  echo ""
+  echo "Environment files contain sensitive data and should never be committed."
+  echo ""
+  echo "Files detected:"
+  echo "$STAGED_FILES" | grep -E '^\.env'
+  echo ""
+  echo "Action required:"
+  echo "  1. Remove from staging: git reset HEAD .env"
+  echo "  2. Add to .gitignore if not already there"
+  echo "  3. Use .env.example for template"
+  echo ""
+  exit 1
+fi
+
+# Check for common secret patterns in staged files
+SECRET_PATTERNS=(
+  "PRIVATE[_-]?KEY"
+  "API[_-]?KEY"
+  "API[_-]?SECRET"
+  "AWS[_-]?ACCESS[_-]?KEY"
+  "AWS[_-]?SECRET"
+  "DATABASE[_-]?URL.*postgres.*:.*@"
+  "PASSWORD\s*=\s*['\"][^'\"]+['\"]"
+  "TOKEN\s*=\s*['\"][^'\"]+['\"]"
+  "Bearer\s+[A-Za-z0-9\-_=]+\.[A-Za-z0-9\-_=]+\.?"
+  "-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----"
+)
+
+SECRETS_FOUND=0
+
+for file in $STAGED_FILES; do
+  # Skip binary files and deleted files
+  if [ ! -f "$file" ]; then
+    continue
+  fi
+
+  # Check each pattern
+  for pattern in "${SECRET_PATTERNS[@]}"; do
+    if grep -qiE "$pattern" "$file" 2>/dev/null; then
+      if [ $SECRETS_FOUND -eq 0 ]; then
+        echo "❌ ERROR: Potential secrets detected in staged files!"
+        echo ""
+      fi
+      echo "  File: $file"
+      echo "  Pattern: $pattern"
+      echo ""
+      SECRETS_FOUND=1
+    fi
+  done
+done
+
+if [ $SECRETS_FOUND -eq 1 ]; then
+  echo "Action required:"
+  echo "  1. Remove sensitive data from files"
+  echo "  2. Use environment variables instead"
+  echo "  3. Add patterns to .gitignore"
+  echo ""
+  echo "If these are false positives (test data, examples, etc.):"
+  echo "  git commit --no-verify"
+  echo ""
+  exit 1
+fi
+
+echo "✅ No secrets detected"
+exit 0
