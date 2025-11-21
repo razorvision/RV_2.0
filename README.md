@@ -54,6 +54,13 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 - Multi-browser compatibility testing
 - Network monitoring and performance analysis
 
+**Configuration (`.claude/`):**
+- [Claude Config README](.claude/README.md) - Complete configuration guide
+- `settings.json.template` - Project-scoped permissions template
+- `settings.local.json` - Machine-specific settings (git-ignored)
+- Permission management (allow, ask, deny)
+- Custom instructions and MCP server configuration
+
 **Slash Commands Library (`.claude/commands/`):**
 - [Command Library README](.claude/commands/README.md) - Complete slash commands documentation
 - `/review-security` - Comprehensive security audit
@@ -119,6 +126,9 @@ The Project Intake System automates the documentation and setup of existing proj
 ```
 project-intake-template/
 ├── .claude/                    # Claude Code configuration
+│   ├── README.md              # Configuration guide
+│   ├── settings.json.template # Project permissions template
+│   ├── settings.local.json    # Machine-specific settings (git-ignored)
 │   └── commands/               # Slash command library
 │       ├── README.md          # Commands documentation
 │       ├── review-security.md # Security audit command

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://claude.ai/schemas/settings-v1.json",
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep"
+    ],
+    "deny": [],
+    "ask": [
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "mcpServers": {},
+  "customInstructions": ""
+}
