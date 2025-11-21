@@ -121,6 +121,7 @@ project-intake-template/
 ├── DOCUMENTATION_GUIDELINES.md # Documentation best practices
 ├── MCP_SETUP.md               # MCP server setup
 ├── MCP_SECURITY.md            # MCP security best practices
+├── SECURITY.md                # Security policy and best practices
 ├── TEMPLATE_USAGE.md          # How to use this template
 ├── POST_TEMPLATE_CHECKLIST.md # Setup checklist
 ├── QUICKSTART.md              # Quick reference
@@ -186,7 +187,8 @@ project-intake-template/
 ### ✅ Quality Assurance
 
 - Code quality standards
-- Security best practices (SQL injection, XSS, auth)
+- Security policy and best practices (OWASP Top 10, input validation, auth)
+- MCP server security guidelines
 - Testing guidelines (unit, component, integration)
 - Code review checklists
 - Health check validation
@@ -292,9 +294,10 @@ gh issue list --label "status: needs-review"
 - Never commit secrets to version control
 - Use `.env` files for local development
 - Validate all user input
-- Follow security guidelines in CODING_STANDARDS.md
+- Follow security guidelines in [SECURITY.md](SECURITY.md) and [CODING_STANDARDS.md](CODING_STANDARDS.md)
 - Use parameterized queries (prevent SQL injection)
 - Sanitize HTML output (prevent XSS)
+- Review [MCP_SECURITY.md](MCP_SECURITY.md) before using MCP servers
 
 ### Code Quality
 
@@ -333,6 +336,7 @@ gh issue list --label "status: needs-review"
 - [CODING_STANDARDS.md](CODING_STANDARDS.md) - Code quality standards
 - [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) - Git workflow
 - [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md) - Documentation standards
+- [SECURITY.md](SECURITY.md) - Security policy and best practices
 - [MCP_SETUP.md](MCP_SETUP.md) - MCP integration guide
 - [MCP_SECURITY.md](MCP_SECURITY.md) - MCP security best practices
 - [CLAUDE_CODE_WORKFLOWS.md](CLAUDE_CODE_WORKFLOWS.md) - Claude Code best practices and workflows
