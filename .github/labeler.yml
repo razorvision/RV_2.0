@@ -1,0 +1,88 @@
+# Auto-labeler configuration for pull requests
+# https://github.com/actions/labeler
+
+# Documentation changes
+'type: documentation':
+  - changed-files:
+    - any-glob-to-any-file: '**/*.md'
+    - any-glob-to-any-file: 'docs/**/*'
+
+# Frontend changes
+'area: frontend':
+  - changed-files:
+    - any-glob-to-any-file: 'src/components/**/*'
+    - any-glob-to-any-file: 'src/pages/**/*'
+    - any-glob-to-any-file: 'src/styles/**/*'
+    - any-glob-to-any-file: '**/*.css'
+    - any-glob-to-any-file: '**/*.scss'
+
+# Backend changes
+'area: backend':
+  - changed-files:
+    - any-glob-to-any-file: 'server/**/*'
+    - any-glob-to-any-file: 'api/**/*'
+
+# Database changes
+'area: database':
+  - changed-files:
+    - any-glob-to-any-file: '**/schema.ts'
+    - any-glob-to-any-file: '**/migrations/**/*'
+    - any-glob-to-any-file: 'db/**/*'
+
+# Test changes
+'type: test':
+  - changed-files:
+    - any-glob-to-any-file: '**/*.test.ts'
+    - any-glob-to-any-file: '**/*.test.tsx'
+    - any-glob-to-any-file: '**/*.spec.ts'
+    - any-glob-to-any-file: 'tests/**/*'
+    - any-glob-to-any-file: '**/*.e2e.ts'
+
+# Configuration changes
+'type: config':
+  - changed-files:
+    - any-glob-to-any-file: '*.config.*'
+    - any-glob-to-any-file: '.*rc'
+    - any-glob-to-any-file: '.github/**/*'
+    - any-glob-to-any-file: 'package.json'
+    - any-glob-to-any-file: 'tsconfig.json'
+
+# Dependency updates
+'dependencies':
+  - changed-files:
+    - any-glob-to-any-file: 'package.json'
+    - any-glob-to-any-file: 'package-lock.json'
+    - any-glob-to-any-file: 'pnpm-lock.yaml'
+    - any-glob-to-any-file: 'yarn.lock'
+
+# Security related
+'security':
+  - changed-files:
+    - any-glob-to-any-file: '**/auth/**/*'
+    - any-glob-to-any-file: '**/security/**/*'
+    - any-glob-to-any-file: 'SECURITY.md'
+    - any-glob-to-any-file: '.github/workflows/codeql.yml'
+
+# MCP related
+'mcp':
+  - changed-files:
+    - any-glob-to-any-file: '.mcp.json'
+    - any-glob-to-any-file: 'MCP_*.md'
+
+# Claude Code related
+'claude-code':
+  - changed-files:
+    - any-glob-to-any-file: '.claude/**/*'
+    - any-glob-to-any-file: 'CLAUDE*.md'
+
+# GitHub Actions
+'github-actions':
+  - changed-files:
+    - any-glob-to-any-file: '.github/workflows/**/*'
+
+# Templates
+'templates':
+  - changed-files:
+    - any-glob-to-any-file: '.project-intake/**/*'
+    - any-glob-to-any-file: '.github/ISSUE_TEMPLATE/**/*'
+    - any-glob-to-any-file: '.github/pull_request_template.md'

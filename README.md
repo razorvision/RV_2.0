@@ -90,6 +90,14 @@ The Project Intake System automates the documentation and setup of existing proj
 
 ### 🔧 Automation Tools
 
+**GitHub Actions Workflows (`.github/workflows/`):**
+- [Workflows README](.github/workflows/README.md) - Complete workflows documentation
+- `ci.yml` - Continuous integration (lint, test, build, e2e)
+- `codeql.yml` - Security scanning and code analysis
+- `dependency-update.yml` - Automated weekly dependency updates
+- `pr-checks.yml` - Pull request validation (title, size, conflicts, TODOs)
+- `release.yml` - Automated releases with changelog generation
+
 **Scripts & Utilities:**
 - `setup-labels.sh` / `setup-labels.bat` - Automated label creation
 - `convert_drafts_to_issues_TEMPLATE.py` - Convert draft issues to GitHub issues
@@ -123,6 +131,14 @@ project-intake-template/
 │       └── debug.md           # Debugging assistance
 ├── .github/                    # GitHub configuration
 │   ├── ISSUE_TEMPLATE/        # Issue templates
+│   ├── workflows/             # GitHub Actions
+│   │   ├── README.md         # Workflows documentation
+│   │   ├── ci.yml            # Continuous integration
+│   │   ├── codeql.yml        # Security scanning
+│   │   ├── dependency-update.yml # Dependency updates
+│   │   ├── pr-checks.yml     # PR validation
+│   │   └── release.yml       # Release automation
+│   ├── labeler.yml           # Auto-label configuration
 │   ├── PROJECT_MANAGEMENT_GUIDE.md
 │   ├── PROJECT_VIEWS_GUIDE.md
 │   └── pull_request_template.md

@@ -1,0 +1,242 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  # Job 1: Validate PR Title
+  pr-title:
+    name: Validate PR Title
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check PR title format
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            test
+            chore
+            perf
+            ci
+            build
+            revert
+          requireScope: false
+          subjectPattern: ^[A-Z].+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            doesn't match the configured pattern. Please ensure that the subject
+            starts with an uppercase character.
+
+  # Job 2: Check PR Size
+  pr-size:
+    name: Check PR Size
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check changed lines
+        id: check-size
+        run: |
+          # Get number of changed lines
+          ADDITIONS=$(git diff --shortstat origin/${{ github.base_ref }}...HEAD | grep -oP '\d+(?= insertion)')
+          DELETIONS=$(git diff --shortstat origin/${{ github.base_ref }}...HEAD | grep -oP '\d+(?= deletion)')
+
+          ADDITIONS=${ADDITIONS:-0}
+          DELETIONS=${DELETIONS:-0}
+          TOTAL=$((ADDITIONS + DELETIONS))
+
+          echo "additions=$ADDITIONS" >> $GITHUB_OUTPUT
+          echo "deletions=$DELETIONS" >> $GITHUB_OUTPUT
+          echo "total=$TOTAL" >> $GITHUB_OUTPUT
+
+          # Warn if PR is large (>500 lines)
+          if [ $TOTAL -gt 500 ]; then
+            echo "⚠️ Large PR detected: $TOTAL lines changed"
+            echo "Consider splitting into smaller PRs for easier review"
+            echo "size=large" >> $GITHUB_OUTPUT
+          else
+            echo "✅ PR size is reasonable: $TOTAL lines changed"
+            echo "size=good" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment on large PR
+        if: steps.check-size.outputs.size == 'large'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ **Large PR Warning**\n\nThis PR has ${{ steps.check-size.outputs.total }} lines changed (+${{ steps.check-size.outputs.additions }} / -${{ steps.check-size.outputs.deletions }}).\n\nConsider:\n- Splitting into smaller, focused PRs\n- Providing detailed description and context\n- Adding more test coverage\n\nLarge PRs are harder to review and more likely to introduce bugs.'
+            })
+
+  # Job 3: Check for Merge Conflicts
+  merge-conflict:
+    name: Check Merge Conflicts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for conflicts
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          if git merge-tree $(git merge-base HEAD origin/${{ github.base_ref }}) HEAD origin/${{ github.base_ref }} | grep -q '<<<<<<<'; then
+            echo "❌ Merge conflicts detected"
+            echo "Please resolve conflicts with base branch"
+            exit 1
+          else
+            echo "✅ No merge conflicts"
+          fi
+
+  # Job 4: Check for TODO/FIXME Comments
+  todo-check:
+    name: Check for TODOs
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Find TODOs and FIXMEs
+        id: todos
+        run: |
+          # Search for TODO and FIXME comments
+          TODOS=$(grep -r -n "TODO\|FIXME" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx" . || true)
+
+          if [ -n "$TODOS" ]; then
+            echo "⚠️ Found TODO/FIXME comments:"
+            echo "$TODOS"
+            echo "todos<<EOF" >> $GITHUB_OUTPUT
+            echo "$TODOS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "✅ No TODO/FIXME comments found"
+          fi
+
+      - name: Comment on TODOs
+        if: steps.todos.outputs.todos != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const todos = `${{ steps.todos.outputs.todos }}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `⚠️ **TODO/FIXME Comments Found**\n\n\`\`\`\n${todos}\n\`\`\`\n\nConsider:\n- Creating issues for TODOs\n- Resolving FIXMEs before merging\n- Adding ticket references (e.g., TODO #123)`
+            })
+
+  # Job 5: Check Branch Naming
+  branch-name:
+    name: Check Branch Name
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Validate branch name
+        run: |
+          BRANCH="${{ github.head_ref }}"
+
+          # Valid prefixes from BRANCH_STRATEGY.md
+          VALID_PREFIXES="^(feature|bugfix|hotfix|docs|refactor|test|chore)/"
+
+          if [[ ! $BRANCH =~ $VALID_PREFIXES ]]; then
+            echo "❌ Invalid branch name: $BRANCH"
+            echo ""
+            echo "Branch names must start with one of:"
+            echo "  - feature/  (new features)"
+            echo "  - bugfix/   (bug fixes)"
+            echo "  - hotfix/   (critical production fixes)"
+            echo "  - docs/     (documentation only)"
+            echo "  - refactor/ (code refactoring)"
+            echo "  - test/     (test additions)"
+            echo "  - chore/    (maintenance tasks)"
+            echo ""
+            echo "Example: feature/add-user-dashboard"
+            exit 1
+          else
+            echo "✅ Valid branch name: $BRANCH"
+          fi
+
+  # Job 6: Check for Sensitive Files
+  sensitive-files:
+    name: Check Sensitive Files
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for .env files
+        run: |
+          # Check if .env files are being committed
+          ENV_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E "\.env$|\.env\.local$|\.env\.production$" || true)
+
+          if [ -n "$ENV_FILES" ]; then
+            echo "❌ Environment files detected in PR:"
+            echo "$ENV_FILES"
+            echo ""
+            echo "Never commit .env files!"
+            echo "They may contain secrets and credentials."
+            exit 1
+          else
+            echo "✅ No .env files in PR"
+          fi
+
+      - name: Check for large files
+        run: |
+          # Check for files larger than 1MB
+          LARGE_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | xargs -I {} sh -c 'test -f "{}" && test $(stat -f%z "{}" 2>/dev/null || stat -c%s "{}") -gt 1048576 && echo {}' || true)
+
+          if [ -n "$LARGE_FILES" ]; then
+            echo "⚠️ Large files detected (>1MB):"
+            echo "$LARGE_FILES"
+            echo ""
+            echo "Consider:"
+            echo "  - Using Git LFS for large files"
+            echo "  - Optimizing images/assets"
+            echo "  - Storing files externally"
+          else
+            echo "✅ No large files detected"
+          fi
+
+  # Job 7: Label PR Automatically
+  auto-label:
+    name: Auto Label PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Label based on files changed
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          sync-labels: true
