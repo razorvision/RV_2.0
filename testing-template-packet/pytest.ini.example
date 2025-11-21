@@ -1,0 +1,76 @@
+# Example pytest.ini configuration file
+# Copy this to your project root as pytest.ini and customize
+
+[pytest]
+# Django settings module for tests
+DJANGO_SETTINGS_MODULE = your_project.settings.test
+
+# Test file patterns
+python_files = tests.py test_*.py *_tests.py
+python_classes = Test* *TestCase
+python_functions = test_*
+
+# Test discovery paths
+testpaths = tests
+
+# Add current directory to Python path
+pythonpath = .
+
+# Pytest markers (register custom markers here)
+markers =
+    slow: marks tests as slow (deselect with '-m "not slow"')
+    playwright: marks tests requiring browser automation
+    unit: marks tests as unit tests
+    integration: marks tests as integration tests
+    api: marks tests that test API endpoints
+    database: marks tests that require database access
+    external: marks tests that call external services
+
+# Output options
+console_output_style = progress
+addopts =
+    --verbose
+    --strict-markers
+    --tb=short
+    --disable-warnings
+
+# Coverage options (requires pytest-cov)
+# Uncomment to enable coverage by default
+# addopts =
+#     --cov=your_app
+#     --cov-report=html
+#     --cov-report=term-missing
+#     --cov-branch
+
+# Django-specific options
+DJANGO_FIND_PROJECT = true
+
+# Ignore paths during test collection
+norecursedirs =
+    .git
+    .venv
+    venv
+    env
+    node_modules
+    migrations
+    static
+    media
+    htmlcov
+    dist
+    build
+    *.egg
+
+# Timeout for tests (requires pytest-timeout)
+# timeout = 300
+
+# Parallel execution (requires pytest-xdist)
+# addopts = -n auto
+
+# Warnings
+filterwarnings =
+    error
+    ignore::UserWarning
+    ignore::DeprecationWarning
+
+# Minimum Python version
+minversion = 3.8
