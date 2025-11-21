@@ -280,74 +280,134 @@ package-lock.json
 yarn.lock
 ```
 
-### Phase 4: Claude Code Auto-Approval Configuration
+### Phase 4: Claude Code Configuration
 
-Set up pre-approved commands for automated workflows.
+Set up Claude Code integration, permissions, MCP servers, and slash commands.
 
-#### 1. Check Existing Configuration
+#### 1. Review Permission Configuration
+
+Check if `.claude/settings.json` or `.claude/settings.json.template` exists:
 
 ```bash
-# Check if settings exist
-cat .claude/settings.local.json
+# Check existing configuration
+ls -la .claude/
+cat .claude/settings.json.template
 ```
 
-#### 2. Create/Update .claude/settings.local.json
+**If template exists**, copy to project configuration:
+```bash
+cp .claude/settings.json.template .claude/settings.json
+```
 
-Merge with existing settings or create new:
+**If no template**, create `.claude/settings.json` with recommended permissions:
 
 ```json
 {
-  "requireApproval": {
+  "$schema": "https://claude.ai/schemas/settings-v1.json",
+  "permissions": {
     "allow": [
-      "Bash(gh issue create*)",
-      "Bash(gh issue view*)",
-      "Bash(gh issue comment*)",
-      "Bash(gh issue close*)",
-      "Bash(gh issue list*)",
-      "Bash(gh pr create*)",
-      "Bash(gh pr view*)",
-      "Bash(gh pr comment*)",
-      "Bash(gh pr review*)",
-      "Bash(gh pr merge*)",
-      "Bash(gh pr list*)",
-      "Bash(gh project item-add*)",
-      "Bash(gh project item-edit*)",
-      "Bash(gh project list*)",
-      "Bash(gh api graphql*)",
-      "Bash(git status)",
-      "Bash(git log*)",
-      "Bash(git diff*)",
-      "Bash(git show*)",
-      "Bash(git add*)",
-      "Bash(git commit*)",
-      "Bash(git push*)",
-      "Bash(git pull*)",
-      "Bash(git checkout*)",
-      "Bash(git branch*)",
-      "Bash(docker ps*)",
-      "Bash(docker exec*)",
-      "Bash(docker logs*)",
-      "Bash(pnpm *)",
-      "Bash(npm *)",
-      "Bash(yarn *)",
-      "Bash(node *)",
-      "Bash(npx *)",
-      "Bash(curl*)",
-      "Bash(ls*)",
-      "Bash(cat*)",
-      "Bash(pwd)",
-      "Bash(echo*)"
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep"
     ],
     "deny": [],
-    "ask": []
+    "ask": [
+      "WebFetch",
+      "WebSearch"
+    ]
+  },
+  "mcpServers": {},
+  "customInstructions": ""
+}
+```
+
+See [.claude/README.md](../.claude/README.md) for complete configuration documentation.
+
+#### 2. Configure MCP Servers
+
+Review and customize `.mcp.json` for your project needs:
+
+**Available MCP servers:**
+- **Playwright** - Browser automation for testing
+- **Filesystem** - File system operations
+- **Git** - Git repository operations
+- **Memory** - Knowledge graph storage
+
+**Example configuration:**
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-playwright"]
+    },
+    "filesystem": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "/path/to/project"]
+    }
   }
 }
 ```
 
-**Customize for project:**
-- Replace `pnpm` with actual package manager
-- Add project-specific commands
-- Remove unused commands
+See [MCP_SETUP.md](../MCP_SETUP.md) and [MCP_SECURITY.md](../MCP_SECURITY.md) for full documentation.
+
+#### 3. Set Up Custom Slash Commands
+
+Review available slash commands in `.claude/commands/`:
+
+**Available commands:**
+- `/review-security` - Comprehensive security audit
+- `/review-code` - Code quality review
+- `/create-component` - Generate React components
+- `/create-api-route` - Create API endpoints
+- `/add-test` - Generate test files
+- `/refactor` - Code improvement and cleanup
+- `/optimize` - Performance optimization
+- `/debug` - Systematic troubleshooting
+
+**To add custom commands**, create files in `.claude/commands/`:
+
+```markdown
+# My Custom Command
+
+Description of what this command does.
+
+## Instructions
+
+1. Step one
+2. Step two
+...
+```
+
+See [.claude/commands/README.md](../.claude/commands/README.md) for complete documentation.
+
+#### 4. Create MCP Server Templates (Optional)
+
+If you need custom MCP servers, use the templates in `.mcp-templates/`:
+
+**Node.js/TypeScript template:**
+```bash
+cp -r .mcp-templates/nodejs my-mcp-server
+cd my-mcp-server
+npm install
+npm run build
+```
+
+**Python template:**
+```bash
+cp -r .mcp-templates/python my-mcp-server
+cd my-mcp-server
+python -m venv venv
+source venv/bin/activate
+pip install -e ".[dev]"
+```
+
+See [.mcp-templates/README.md](../.mcp-templates/README.md) for complete documentation.
 
 ### Phase 5: TypeScript Path Aliases (if applicable)
 
@@ -492,7 +552,10 @@ After completing this step, verify:
 - ✅ Prettier configured (`.prettierrc` exists)
 - ✅ `.prettierignore` created
 - ✅ Format scripts added to `package.json`
-- ✅ Claude Code auto-approvals configured (`.claude/settings.local.json`)
+- ✅ Claude Code permissions configured (`.claude/settings.json`)
+- ✅ MCP servers configured in `.mcp.json`
+- ✅ Custom slash commands reviewed and documented
+- ✅ MCP server templates available (if custom servers needed)
 - ✅ TypeScript path aliases verified
 - ✅ All package.json scripts tested
 - ✅ Database setup verified (if applicable)

@@ -8,24 +8,11 @@ Configure git workflows, install pre-commit hooks, establish branch naming conve
 
 ### Phase 1: Pre-Commit Hook Installation
 
-Install a pre-commit hook that prevents direct commits to the `main` branch, enforcing the feature branch workflow.
+Install pre-commit hooks for code quality, security, and workflow enforcement.
 
-#### 1. Detect Your Platform
+#### 1. Install Basic Hook (Prevents Direct Commits to Main)
 
-**Automatic Detection (Unix/Mac/Git Bash):**
-```bash
-bash .project-intake/scripts/detect-platform.sh
-```
-
-**Or check manually:**
-- **Windows (PowerShell/CMD):** Use PowerShell script
-- **Windows (Git Bash):** Use bash script
-- **Mac:** Use bash script
-- **Linux:** Use bash script
-
-#### 2. Install the Pre-Commit Hook
-
-**Option A: Automated Setup (Recommended)**
+**Automated Setup:**
 
 **Windows (PowerShell):**
 ```powershell
@@ -36,6 +23,38 @@ powershell -ExecutionPolicy Bypass -File .project-intake/scripts/setup-hooks.ps1
 ```bash
 bash .project-intake/scripts/setup-hooks.sh
 ```
+
+#### 2. Install Pre-Commit Framework (Recommended)
+
+For comprehensive code quality checks, install the pre-commit framework:
+
+**Node.js projects:**
+```bash
+npm install -D pre-commit
+npx pre-commit install
+npx pre-commit install --hook-type commit-msg
+npx pre-commit run --all-files  # Initial run
+```
+
+**Python projects:**
+```bash
+pip install pre-commit
+pre-commit install
+pre-commit install --hook-type commit-msg
+pre-commit run --all-files  # Initial run
+```
+
+**What this includes:**
+- ESLint and Prettier (code formatting)
+- TypeScript type checking
+- Secret detection (prevent credential leaks)
+- Security scanning (Bandit for Python)
+- Commit message validation (Conventional Commits)
+- Markdown, Docker, and shell script linting
+- Large file detection
+- Merge conflict detection
+
+See [.pre-commit-hooks-README.md](../.pre-commit-hooks-README.md) for complete documentation.
 
 **Option B: Manual Installation**
 
@@ -368,14 +387,17 @@ Add project-specific entries as needed.
 
 After completing this step, verify:
 
-- ✅ Pre-commit hook installed at `.git/hooks/pre-commit`
-- ✅ Hook tested and confirmed working
-- ✅ Hook documented in README or CONTRIBUTING
+- ✅ Basic pre-commit hook installed at `.git/hooks/pre-commit`
+- ✅ Pre-commit framework installed (optional but recommended)
+- ✅ Pre-commit hooks tested and confirmed working
+- ✅ Hooks documented in README or CONTRIBUTING
 - ✅ Branch naming conventions documented
 - ✅ Commit message standards documented
 - ✅ Git workflow guide created
 - ✅ Common commands reference added
 - ✅ .gitignore reviewed and updated if needed
+- ✅ Pre-commit configuration (`.pre-commit-config.yaml`) reviewed
+- ✅ Secret detection baseline (`.secrets.baseline`) created
 
 ## 🔒 Security Considerations
 
