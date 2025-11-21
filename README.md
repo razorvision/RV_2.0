@@ -1,104 +1,319 @@
-# Project Intake Template
+# Project Intake Template Repository
 
-A **GitHub template repository** with an automated project setup system that configures new repositories with best practices, documentation, workflows, and quality standards in **30-45 minutes** instead of **7-10 hours**.
+A comprehensive template repository for quickly bootstrapping new projects with best practices, established workflows, automated tooling, and complete documentation infrastructure.
 
-> **🎯 Use this template** to start new Node.js/TypeScript projects with professional setup included from day one.
-
-## ✨ What You Get
-
-When you create a new repository from this template, you automatically get:
-
-- ✅ **Complete Project Intake System** - Automated setup workflow with Claude Code
-- ✅ **Cross-Platform Scripts** - Windows (PowerShell), Mac/Linux (Bash), All (Node.js)
-- ✅ **Git Workflow Tools** - Pre-commit hooks, secret scanning, branch protection
-- ✅ **Documentation Templates** - README, workflow guides, onboarding checklists
-- ✅ **Quality Standards** - Coding conventions, security practices, architecture docs
-- ✅ **GitHub Integration** - Project board automation, issue/PR templates
+> **🎯 85-90% time savings** on project setup (7-10 hours → 1-2 hours)
 
 ## 🚀 Quick Start
 
-### 1. Create New Repository from Template
+### Use This Template
 
-Click the **"Use this template"** button at the top of this page, then:
-- Choose repository name
-- Select public/private
-- Click "Create repository from template"
+1. **Click "Use this template"** button above (green button)
+2. **Create your new repository** with your project name
+3. **Clone your new repository**:
+   ```bash
+   git clone https://github.com/your-username/your-new-repo.git
+   cd your-new-repo
+   ```
+4. **Follow the [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)** for complete setup
 
-### 2. Clone Your New Repository
+**📖 New to templates?** Read [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md) for detailed instructions.
+
+## What's Included
+
+### 📋 Project Management Infrastructure
+
+**Issue & PR Templates** (`.github/ISSUE_TEMPLATE/`)
+- Bug report template with reproduction steps
+- Feature request template with acceptance criteria
+- Epic template for large features
+- Pull request template with comprehensive checklist
+
+**Project Management Guides** (`.github/`)
+- [PROJECT_MANAGEMENT_GUIDE.md](.github/PROJECT_MANAGEMENT_GUIDE.md) - Complete PM workflows, commands, and best practices
+- [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md) - Step-by-step guide for GitHub Project board setup
+- [WEEKLY_STATUS_TEMPLATE.md](.github/WEEKLY_STATUS_TEMPLATE.md) - Status report templates
+- Example weekly status report
+
+### 📚 Development Guidelines
+
+**Core Standards & Practices:**
+- [CODING_STANDARDS.md](CODING_STANDARDS.md) - TypeScript, React, security, testing best practices
+- [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) - Git workflow, branch naming, commit conventions
+- [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md) - How to write and maintain documentation
+- [QUICKSTART.md](QUICKSTART.md) - Quick reference for common workflows
+
+### 🤖 MCP Integration (Model Context Protocol)
+
+**Automated Testing & Workflows:**
+- [MCP_SETUP.md](MCP_SETUP.md) - Complete guide for setting up MCP servers with Claude Code
+- [MCP_SECURITY.md](MCP_SECURITY.md) - Security best practices for MCP servers
+- `.mcp.json` - Pre-configured MCP servers (Playwright, filesystem, git, memory)
+- Enables subagent control for complex multi-step testing scenarios
+- Screenshot capture and visual regression testing
+- Multi-browser compatibility testing
+- Network monitoring and performance analysis
+
+### 🎯 Project Intake System (`.project-intake/`)
+
+**Automated Setup for Existing Codebases:**
+
+The Project Intake System automates the documentation and setup of existing projects:
+
+- **01-initial-analysis.md** - Systematic codebase exploration
+- **02-git-setup.md** - Git hooks, branch strategy, commit conventions
+- **03-documentation.md** - Automated README and guide generation
+- **04-dev-environment.md** - Tools installation and configuration
+- **05-github-integration.md** - Project board and GitHub CLI setup
+- **06-quality-standards.md** - Code quality and security documentation
+
+**Features:**
+- Codebase analysis and tech stack discovery
+- Automated documentation generation
+- Git workflow configuration with pre-commit hooks
+- GitHub Project board creation
+- Quality standards documentation
+- Health check validation
+
+**Time Savings:** 85-90% reduction in setup time
+
+### 🔧 Automation Tools
+
+**Scripts & Utilities:**
+- `setup-labels.sh` / `setup-labels.bat` - Automated label creation
+- `convert_drafts_to_issues_TEMPLATE.py` - Convert draft issues to GitHub issues
+- `create_issue.sh` - Create GitHub issues via CLI
+- `work-epic-issue.sh` - Workflow automation for epics
+- Health check validation scripts
+- Config validation utilities
+
+### 🛡️ Git Workflow Protection
+
+**Pre-Commit Hooks:**
+- Blocks direct commits to `main` branch
+- Enforces feature branch workflow
+- Ensures code review process
+- Cross-platform support (Mac/Linux/Windows)
+
+## Repository Structure
+
+```
+project-intake-template/
+├── .github/                    # GitHub configuration
+│   ├── ISSUE_TEMPLATE/        # Issue templates
+│   ├── PROJECT_MANAGEMENT_GUIDE.md
+│   ├── PROJECT_VIEWS_GUIDE.md
+│   └── pull_request_template.md
+├── .project-intake/           # Automated project setup system
+│   ├── 00-ORCHESTRATOR.md     # Master setup instructions
+│   ├── 01-initial-analysis.md # Codebase exploration
+│   ├── 02-git-setup.md        # Git workflow setup
+│   ├── 03-documentation.md    # Documentation generation
+│   ├── 04-dev-environment.md  # Dev tools setup
+│   ├── 05-github-integration.md # GitHub automation
+│   ├── 06-quality-standards.md # Quality documentation
+│   ├── config.template.json   # Configuration template
+│   ├── templates/             # Reusable file templates
+│   └── scripts/               # Setup automation scripts
+├── tools/                      # Automation utilities
+├── CODING_STANDARDS.md        # Code quality guidelines
+├── BRANCH_STRATEGY.md         # Git workflow guide
+├── DOCUMENTATION_GUIDELINES.md # Documentation best practices
+├── MCP_SETUP.md               # MCP server setup
+├── MCP_SECURITY.md            # MCP security best practices
+├── TEMPLATE_USAGE.md          # How to use this template
+├── POST_TEMPLATE_CHECKLIST.md # Setup checklist
+├── QUICKSTART.md              # Quick reference
+├── .mcp.json                  # MCP server configuration
+├── setup-labels.sh            # Label creation script (Unix)
+└── setup-labels.bat           # Label creation script (Windows)
+```
+
+## Usage Guide
+
+### For New Projects (No Existing Code)
+
+1. Click "Use this template" button
+2. Create your new repository
+3. Clone the repository
+4. Follow [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)
+5. Start building your application
+
+### For Existing Projects
+
+1. Copy files from this template to your existing repository
+2. Fill out `.project-intake/config.json`
+3. Run the Project Intake System:
+   - Tell Claude Code: "Execute the project intake system"
+4. Review and customize generated documentation
+5. Run health check: `node .project-intake/scripts/health-check.cjs`
+
+**Detailed instructions:** See [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
+
+## Key Features
+
+### ✅ Complete Documentation Infrastructure
+
+- README templates with tech stack, setup, and usage
+- Contributing guidelines
+- Coding standards and security practices
+- API documentation templates
+- Architecture and design patterns
+
+### ✅ GitHub Integration
+
+- Pre-configured issue and PR templates
+- Label system (priority, type, status, effort, phase)
+- Project board setup guides
+- Milestone templates
+- Weekly status reporting
+
+### ✅ Git Workflow Automation
+
+- Pre-commit hooks (prevent direct commits to main)
+- Branch naming conventions (feature/, bugfix/, hotfix/)
+- Conventional commit messages
+- Pull request workflows
+- Code review checklists
+
+### ✅ MCP Integration
+
+- Pre-configured Playwright for browser automation
+- Automated testing workflows
+- Subagent control for complex scenarios
+- Team collaboration setup
+
+### ✅ Quality Assurance
+
+- Code quality standards
+- Security best practices (SQL injection, XSS, auth)
+- Testing guidelines (unit, component, integration)
+- Code review checklists
+- Health check validation
+
+## Installation & Setup
+
+### Prerequisites
+
+- **Node.js 18+** - Required for scripts and validation
+- **Git** - Version control
+- **GitHub CLI** - For GitHub automation (recommended)
+- **Claude Code** - For MCP integration (optional)
+
+### Quick Setup
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
+# 1. Create from template (via GitHub)
+# Click "Use this template" button
+
+# 2. Clone your new repository
+git clone https://github.com/your-username/your-new-repo.git
+cd your-new-repo
+
+# 3. Install pre-commit hooks
+bash .project-intake/scripts/setup-hooks.sh  # Mac/Linux/Git Bash
+# OR
+powershell -ExecutionPolicy Bypass -File .project-intake/scripts/setup-hooks.ps1  # Windows
+
+# 4. Create labels (requires GitHub CLI)
+bash setup-labels.sh  # Mac/Linux
+# OR
+setup-labels.bat  # Windows
+
+# 5. Follow the checklist
+# See POST_TEMPLATE_CHECKLIST.md for complete setup
 ```
 
-### 3. Configure the Intake System
+## Customization
+
+### For Different Project Types
+
+**Web Application:**
+- Keep all features as-is
+- Add environment labels (`env: production`, `env: staging`)
+- Configure deployment workflows
+
+**Library/Package:**
+- Add version labels (`v1.x`, `v2.x`)
+- Include release process documentation
+- Configure npm publishing workflow
+
+**Mobile App:**
+- Add platform labels (`platform: ios`, `platform: android`)
+- Include device testing guidelines
+- Document app store deployment
+
+### Adapting Guidelines
+
+All guideline documents can be customized:
+
+- **CODING_STANDARDS.md** - Update for your tech stack
+- **BRANCH_STRATEGY.md** - Modify for your workflow
+- **DOCUMENTATION_GUIDELINES.md** - Adjust tone and requirements
+- **MCP_SETUP.md** - Add additional MCP servers
+
+## Project Management Workflow
+
+### Daily Workflow
 
 ```bash
-# Copy the configuration template
-cp .project-intake/config.template.json .project-intake/config.json
+# Open project board
+gh project view [PROJECT_NUMBER] --owner [OWNER] --web
 
-# Edit config.json with your project details
-# Required fields: projectName, githubOwner, githubRepo
+# Check for open PRs
+gh pr list
+
+# Check items needing review
+gh issue list --label "status: needs-review"
 ```
 
-### 4. Run the Intake System
+### Weekly Workflow
 
-Open Claude Code and say:
+1. Generate status report using `WEEKLY_STATUS_TEMPLATE.md`
+2. Review and close completed issues
+3. Triage new issues (add labels, milestones, estimates)
+4. Update project board views
+5. Plan next week's priorities
 
-```
-Please execute the project intake system in .project-intake/
-```
+### Label System
 
-Claude will automatically:
-- Analyze your codebase structure
-- Set up Git workflows with pre-commit hooks
-- Generate comprehensive documentation
-- Configure development environment
-- Create GitHub project board (optional)
-- Document quality standards
+**Comprehensive labeling includes:**
+- **Priority:** high, medium, low
+- **Type:** feature, bug, docs, refactor, test
+- **Status:** blocked, in-progress, needs-review, ready
+- **Effort:** small (<2h), medium (2-8h), large (>8h)
+- **Phase:** 1 (MVP), 2 (Enhancements), 3 (Advanced)
+- **Client Visibility:** visible, internal
 
-**Total time:** 30-45 minutes (automated) vs 7-10 hours (manual)
+## Best Practices
 
-### 5. Verify Setup
+### Security
 
-```bash
-# Run health check to validate everything
-node .project-intake/scripts/health-check.cjs
-```
+- Never commit secrets to version control
+- Use `.env` files for local development
+- Validate all user input
+- Follow security guidelines in CODING_STANDARDS.md
+- Use parameterized queries (prevent SQL injection)
+- Sanitize HTML output (prevent XSS)
 
-## 📁 What's Included
+### Code Quality
 
-### Project Intake System (`.project-intake/`)
+- Follow TypeScript best practices
+- Write meaningful tests
+- Document complex logic
+- Keep functions small and focused
+- Use consistent naming conventions
+- Review your own PRs before requesting review
 
-**31 Files Total:**
-- **7 Guide Files** - Step-by-step automation instructions for Claude Code
-- **10 Templates** - Reusable files with `{{placeholder}}` replacement
-- **8 Scripts** - Cross-platform validators, setup tools, health check
-- **4 Documentation** - README, team walkthrough, changelog, examples
-- **2 Configuration** - Template and filled example
+### Git Workflow
 
-### Key Features:
+- Always use feature branches
+- Write clear commit messages
+- Keep PRs focused and small
+- Respond to review feedback promptly
+- Delete branches after merging
 
-**📋 Automation Steps:**
-1. Initial codebase analysis
-2. Git workflow setup with hooks
-3. Documentation generation
-4. Development environment configuration
-5. GitHub integration
-6. Quality standards documentation
-
-**🔒 Security Built-In:**
-- Pre-commit hooks block direct main commits
-- Secret scanning (10+ patterns)
-- .env file protection
-- Config validation
-
-**🌐 Cross-Platform:**
-- Windows PowerShell scripts (.ps1)
-- Mac/Linux Bash scripts (.sh)
-- Universal Node.js scripts (.cjs)
-
-## ⏱️ Time Savings
+## Time Savings
 
 | Task | Manual | Automated | Savings |
 |------|--------|-----------|---------|
@@ -106,120 +321,77 @@ node .project-intake/scripts/health-check.cjs
 | README generation | 1-2 hours | 5 min | 95% |
 | Git workflow setup | 1 hour | 5 min | 90% |
 | Documentation | 2-3 hours | 15 min | 90% |
-| Project board | 30 min | 5 min | 80% |
+| Project board setup | 30 min | 5 min | 80% |
 | Quality standards | 1 hour | 10 min | 80% |
 | **Total** | **7-10 hours** | **50 min** | **85-90%** |
 
-## 📚 Documentation
+## Documentation
 
-### For Users:
-- [`.project-intake/README.md`](.project-intake/README.md) - Complete usage guide (390+ lines, 25+ FAQ)
-- [`.project-intake/TEAM_WALKTHROUGH.md`](.project-intake/TEAM_WALKTHROUGH.md) - Non-technical team guide
-- [`.project-intake/config.example.json`](.project-intake/config.example.json) - Example configuration
+### Essential Guides
+- [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md) - How to use this template
+- [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
+- [CODING_STANDARDS.md](CODING_STANDARDS.md) - Code quality standards
+- [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) - Git workflow
+- [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md) - Documentation standards
+- [MCP_SETUP.md](MCP_SETUP.md) - MCP integration guide
+- [MCP_SECURITY.md](MCP_SECURITY.md) - MCP security best practices
+- [CLAUDE_CODE_WORKFLOWS.md](CLAUDE_CODE_WORKFLOWS.md) - Claude Code best practices and workflows
 
-### For Claude Code:
-- [`.project-intake/00-ORCHESTRATOR.md`](.project-intake/00-ORCHESTRATOR.md) - Master automation instructions
-- [`.project-intake/01-06-*.md`](.project-intake/) - Step-by-step execution guides
+### Project Management
+- [PROJECT_MANAGEMENT_GUIDE.md](.github/PROJECT_MANAGEMENT_GUIDE.md) - Complete PM guide
+- [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md) - Project board setup
+- [QUICKSTART.md](QUICKSTART.md) - Quick reference
 
-## 🎯 Use Cases
+## Support & Resources
 
-Perfect for:
-- ✅ New Node.js/TypeScript projects
-- ✅ React/Vue/Svelte applications
-- ✅ Express/Fastify backend services
-- ✅ Full-stack applications
-- ✅ Team projects requiring consistency
-- ✅ Client projects with professional standards
+### Getting Help
 
-## 🔧 Configuration
+- **Template usage questions:** See [TEMPLATE_USAGE.md](TEMPLATE_USAGE.MD)
+- **Setup issues:** Check [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)
+- **Git workflow questions:** Review [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md)
+- **Code standards questions:** Check [CODING_STANDARDS.md](CODING_STANDARDS.md)
+- **MCP issues:** See [MCP_SETUP.md](MCP_SETUP.md) and [MCP_SECURITY.md](MCP_SECURITY.md)
 
-The intake system is highly configurable via `.project-intake/config.json`:
+### External Resources
 
-```json
-{
-  "projectName": "Your Project",
-  "githubOwner": "your-username",
-  "githubRepo": "your-repo",
-  "createProjectBoard": true,
-  "installGitHooks": true,
-  "setupDatabase": true,
-  "packageManager": "pnpm",
-  "frontendFramework": "react",
-  "databaseType": "postgresql"
-}
-```
+- [GitHub Projects Documentation](https://docs.github.com/en/issues/planning-and-tracking-with-projects)
+- [GitHub Issues Best Practices](https://docs.github.com/en/issues)
+- [GitHub CLI Documentation](https://cli.github.com/manual/)
+- [Claude Code Documentation](https://code.claude.com/docs)
+- [Model Context Protocol](https://modelcontextprotocol.io)
 
-See [`.project-intake/config.template.json`](.project-intake/config.template.json) for all options.
+## Contributing
 
-## ❓ Common Questions
+Improvements to this template are welcome! To contribute:
 
-**Q: Do I need Claude Code?**
-A: No, but it saves 85-90% of time. You can run steps manually using the guide files.
+1. Fork this repository
+2. Create a feature branch: `git checkout -b feature/improvement`
+3. Make your changes
+4. Test with a new project
+5. Submit a pull request
 
-**Q: Does this work on Windows?**
-A: Yes! Full Windows support with PowerShell scripts and Git Bash compatibility.
+## License
 
-**Q: Can I customize the templates?**
-A: Absolutely! Edit any file in `.project-intake/templates/` before running.
+This template is provided as-is for use in any project. Customize as needed for your team's workflow.
 
-**Q: What if I don't need all the features?**
-A: Set flags to `false` in config.json to skip steps (e.g., `createProjectBoard: false`).
+## Credits
 
-**Q: How do I update the intake system later?**
-A: Copy the updated `.project-intake/` folder from this template repo to your project.
-
-See the [full FAQ](.project-intake/README.md#-frequently-asked-questions) for 25+ questions answered.
-
-## 🔄 Workflow After Template Setup
-
-```
-1. Use template → New repo created with .project-intake/
-2. Clone repo locally
-3. Fill out .project-intake/config.json
-4. Run: "Please execute the project intake system"
-5. Start building your application
-6. Delete .project-intake/ folder when done (optional)
-```
-
-## 📦 What to Do After Setup
-
-After the intake system completes:
-
-1. **Review generated files** - README, workflow guides, documentation
-2. **Start building** - Add your application code
-3. **Optional:** Delete `.project-intake/` folder if you won't update it
-4. **Optional:** Keep `.project-intake/` for future improvements
-
-## 🌟 Based On
-
-This template captures best practices from the **MedNexus** medical-legal coordination platform:
-
-- Pre-commit hooks and branch protection
-- GitHub CLI workflows and automation
-- Semantic versioning and conventional commits
-- Comprehensive documentation standards
-- Security best practices
-- Quality standards and code review checklists
-
-## 📄 Version
-
-**Version:** 1.0.0
-**Created:** 2025-01-14
-**Maintained by:** Andrew Tucker + Claude Code
-**Source:** [MedNexus Project](https://github.com/razorvision/Medical-Provider-Test-Project)
-
-## 📞 Support
-
-- **Documentation:** See [.project-intake/README.md](.project-intake/README.md)
-- **Issues:** [GitHub Issues](https://github.com/razorvision/project-intake-template/issues)
-- **Questions:** Check [FAQ](.project-intake/README.md#-frequently-asked-questions)
-
-## 📜 License
-
-This template is open source and available for use in your projects.
+**Created by:** Andrew Tucker
+**Powered by:** Claude Code
+**Based on learnings from:** SafeQuote.io and MedNexus projects
 
 ---
 
-**Ready to save 85-90% of your project setup time?** 🚀
+**Template Version:** 1.0.0
+**Last Updated:** 2025-11-21
 
-Click **"Use this template"** to get started!
+---
+
+## What's Next?
+
+1. **Click "Use this template"** to create your new repository
+2. **Follow [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)** for complete setup
+3. **Read [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)** for detailed guidance
+4. **Start building** with confidence in your foundation
+
+**Questions?** Check the documentation or open an issue!
