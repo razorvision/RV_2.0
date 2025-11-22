@@ -25,7 +25,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(gh issue view:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git mv:*)",
+      "Bash(git rm:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

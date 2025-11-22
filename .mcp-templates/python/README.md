@@ -364,7 +364,7 @@ elif name == "read_file":
 - Implement rate limiting
 - Log security events
 - Follow least privilege principle
-- Review [MCP_SECURITY.md](../../MCP_SECURITY.md)
+- Review [MCP_SECURITY.md](../../docs/security/MCP_SECURITY.md)
 
 ## Type Checking
 
@@ -399,7 +399,7 @@ pip install --upgrade mcp
 
 - **Issues**: Open an issue on GitHub
 - **Discussions**: Ask questions in discussions
-- **Documentation**: Check [MCP_SETUP.md](../../MCP_SETUP.md)
+- **Documentation**: Check [MCP_SETUP.md](../../docs/integrations/MCP_SETUP.md)
 
 ---
 

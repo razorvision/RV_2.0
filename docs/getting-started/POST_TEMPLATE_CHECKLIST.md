@@ -161,7 +161,7 @@ powershell -ExecutionPolicy Bypass -File .project-intake/scripts/setup-hooks.ps1
 
 ### 3.3 Review Git Workflow Documentation
 
-- [ ] Read [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md)
+- [ ] Read [BRANCH_STRATEGY.md](../guides/BRANCH_STRATEGY.md)
 - [ ] Verify branch naming conventions work for your team
 - [ ] Customize if needed (e.g., different prefixes)
 - [ ] Ensure team understands commit message format
@@ -196,7 +196,7 @@ gh label create "priority: high" --color "d73a4a"
 
 ### 4.2 Set Up Project Board
 
-Follow [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md):
+Follow [PROJECT_VIEWS_GUIDE.md](../../.github/PROJECT_VIEWS_GUIDE.md):
 
 - [ ] Create new Project (Projects → New project)
 - [ ] Choose "Board" or "Table" view
@@ -251,7 +251,7 @@ gh --version
 
 ### 5.2 Configure MCP Servers
 
-Review [MCP_SETUP.md](MCP_SETUP.md):
+Review [MCP_SETUP.md](../integrations/MCP_SETUP.md):
 
 - [ ] Review `.mcp.json` configuration
 - [ ] Install Playwright (if using):
@@ -295,7 +295,7 @@ Review [MCP_SETUP.md](MCP_SETUP.md):
 
 ### 6.1 Customize Coding Standards
 
-Edit [CODING_STANDARDS.md](CODING_STANDARDS.md):
+Edit [CODING_STANDARDS.md](../guides/CODING_STANDARDS.md):
 
 - [ ] Update tech stack specific sections
 - [ ] Add project-specific patterns
@@ -305,7 +305,7 @@ Edit [CODING_STANDARDS.md](CODING_STANDARDS.md):
 
 ### 6.2 Customize Branch Strategy
 
-Edit [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md):
+Edit [BRANCH_STRATEGY.md](../guides/BRANCH_STRATEGY.md):
 
 - [ ] Verify branch prefixes match your needs
 - [ ] Update examples with your context
@@ -314,7 +314,7 @@ Edit [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md):
 
 ### 6.3 Customize Documentation Guidelines
 
-Edit [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md):
+Edit [DOCUMENTATION_GUIDELINES.md](../guides/DOCUMENTATION_GUIDELINES.md):
 
 - [ ] Add project-specific documentation requirements
 - [ ] Update examples with your tech stack
@@ -595,9 +595,9 @@ claude mcp reset-project-choices
 
 - **Documentation issues:** Open an issue in this repository
 - **Template questions:** Check [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
-- **Git workflow questions:** Review [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md)
-- **Coding questions:** Review [CODING_STANDARDS.md](CODING_STANDARDS.md)
-- **MCP issues:** Check [MCP_SETUP.md](MCP_SETUP.md)
+- **Git workflow questions:** Review [BRANCH_STRATEGY.md](../guides/BRANCH_STRATEGY.md)
+- **Coding questions:** Review [CODING_STANDARDS.md](../guides/CODING_STANDARDS.md)
+- **MCP issues:** Check [MCP_SETUP.md](../integrations/MCP_SETUP.md)
 
 ---
 

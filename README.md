@@ -44,9 +44,9 @@ A comprehensive template repository for quickly bootstrapping new projects with 
    git clone https://github.com/your-username/your-new-repo.git
    cd your-new-repo
    ```
-4. **Follow the [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)** for complete setup
+4. **Follow the [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)** for complete setup
 
-**📖 New to templates?** Read [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md) for detailed instructions.
+**📖 New to templates?** Read [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md) for detailed instructions.
 
 ## ✨ Key Highlights
 
@@ -111,16 +111,16 @@ Complete testing setup for Django projects with Docker containerization:
 ### 📚 Development Guidelines
 
 **Core Standards & Practices:**
-- [CODING_STANDARDS.md](CODING_STANDARDS.md) - TypeScript, React, security, testing best practices
-- [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) - Git workflow, branch naming, commit conventions
-- [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md) - How to write and maintain documentation
+- [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md) - TypeScript, React, security, testing best practices
+- [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md) - Git workflow, branch naming, commit conventions
+- [DOCUMENTATION_GUIDELINES.md](docs/guides/DOCUMENTATION_GUIDELINES.md) - How to write and maintain documentation
 - [QUICKSTART.md](QUICKSTART.md) - Quick reference for common workflows
 
 ### 🤖 Claude Code Integration
 
 **MCP Servers (Model Context Protocol):**
-- [MCP_SETUP.md](MCP_SETUP.md) - Complete guide for setting up MCP servers
-- [MCP_SECURITY.md](MCP_SECURITY.md) - Security best practices for MCP servers
+- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - Complete guide for setting up MCP servers
+- [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) - Security best practices for MCP servers
 - `.mcp.json` - Pre-configured MCP servers (Playwright, filesystem, git, memory)
 - Enables subagent control for complex multi-step testing scenarios
 - Screenshot capture and visual regression testing
@@ -190,7 +190,7 @@ The Project Intake System automates the documentation and setup of existing proj
 
 **Pre-Commit Hooks:**
 - [Pre-commit Configuration](.pre-commit-config.yaml) - Comprehensive code quality checks
-- [Pre-commit Hooks Guide](.pre-commit-hooks-README.md) - Setup and usage documentation
+- [Pre-commit Hooks Guide](docs/workflows/pre-commit-hooks.md) - Setup and usage documentation
 - **Automated Checks:**
   - ESLint and Prettier (formatting)
   - TypeScript type checking
@@ -258,25 +258,43 @@ project-intake-template/
 │   ├── .claude/commands/test.md # Custom test command
 │   ├── docs/TESTING.md       # Comprehensive testing guide
 │   └── tests/test_example.py # Example test patterns
-├── tools/                      # Automation utilities
-├── CODING_STANDARDS.md        # Code quality guidelines
-├── BRANCH_STRATEGY.md         # Git workflow guide
-├── DOCUMENTATION_GUIDELINES.md # Documentation best practices
-├── CODE_OF_CONDUCT.md         # Community guidelines
-├── MCP_SETUP.md               # MCP server setup
-├── MCP_SECURITY.md            # MCP security best practices
-├── SECURITY.md                # Security policy and best practices
-├── TEMPLATE_USAGE.md          # How to use this template
-├── POST_TEMPLATE_CHECKLIST.md # Setup checklist
+├── docs/                       # Documentation
+│   ├── README.md              # Documentation index
+│   ├── getting-started/       # Onboarding & setup docs
+│   │   ├── TEMPLATE_USAGE.md  # How to use template
+│   │   └── POST_TEMPLATE_CHECKLIST.md # Setup checklist
+│   ├── guides/                # Development guides
+│   │   ├── CODING_STANDARDS.md # Code quality
+│   │   ├── BRANCH_STRATEGY.md  # Git workflow
+│   │   ├── DOCUMENTATION_GUIDELINES.md # How to document
+│   │   ├── CODE_OF_CONDUCT.md  # Community guidelines
+│   │   └── PYPROJECT_GUIDE.md  # Python config guide
+│   ├── workflows/             # Workflow documentation
+│   │   ├── CLAUDE_CODE_WORKFLOWS.md # Claude Code best practices
+│   │   └── pre-commit-hooks.md # Pre-commit guide
+│   ├── security/              # Security docs
+│   │   ├── SECURITY.md        # Security policy
+│   │   └── MCP_SECURITY.md    # MCP security
+│   └── integrations/          # Integration guides
+│       └── MCP_SETUP.md       # MCP setup
+├── scripts/                    # Automation scripts
+│   ├── README.md              # Scripts documentation
+│   ├── setup-labels.sh        # Label creation (Unix)
+│   ├── setup-labels.bat       # Label creation (Windows)
+│   └── tools/                 # Automation utilities
+│       ├── convert_drafts_to_issues_TEMPLATE.py
+│       ├── create_issue.sh
+│       └── work-epic-issue.sh
+├── templates/                  # Standalone templates
+│   ├── README.md              # Templates guide
+│   └── pyproject.toml.template # Python config template
+├── README.md                   # Main entry point
 ├── QUICKSTART.md              # Quick reference
+├── .gitignore                 # Git ignore rules
 ├── .mcp.json                  # MCP server configuration
 ├── .pre-commit-config.yaml    # Pre-commit hooks configuration
-├── .pre-commit-hooks-README.md # Pre-commit setup guide
 ├── .secrets.baseline          # Secret detection baseline
-├── pyproject.toml.template    # Python project configuration template
-├── PYPROJECT_GUIDE.md         # Python configuration guide
-├── setup-labels.sh            # Label creation script (Unix)
-└── setup-labels.bat           # Label creation script (Windows)
+└── package.json               # NPM configuration
 ```
 
 ## Usage Guide
@@ -298,7 +316,7 @@ project-intake-template/
 4. Review and customize generated documentation
 5. Run health check: `node .project-intake/scripts/health-check.cjs`
 
-**Detailed instructions:** See [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)
+**Detailed instructions:** See [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md)
 
 ## Key Features
 
@@ -453,10 +471,10 @@ gh issue list --label "status: needs-review"
 - Never commit secrets to version control
 - Use `.env` files for local development
 - Validate all user input
-- Follow security guidelines in [SECURITY.md](SECURITY.md) and [CODING_STANDARDS.md](CODING_STANDARDS.md)
+- Follow security guidelines in [SECURITY.md](docs/security/SECURITY.md) and [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md)
 - Use parameterized queries (prevent SQL injection)
 - Sanitize HTML output (prevent XSS)
-- Review [MCP_SECURITY.md](MCP_SECURITY.md) before using MCP servers
+- Review [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) before using MCP servers
 
 ### Code Quality
 
@@ -491,15 +509,15 @@ gh issue list --label "status: needs-review"
 ## Documentation
 
 ### Essential Guides
-- [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md) - How to use this template
-- [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
-- [CODING_STANDARDS.md](CODING_STANDARDS.md) - Code quality standards
-- [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md) - Git workflow
-- [DOCUMENTATION_GUIDELINES.md](DOCUMENTATION_GUIDELINES.md) - Documentation standards
-- [SECURITY.md](SECURITY.md) - Security policy and best practices
-- [MCP_SETUP.md](MCP_SETUP.md) - MCP integration guide
-- [MCP_SECURITY.md](MCP_SECURITY.md) - MCP security best practices
-- [CLAUDE_CODE_WORKFLOWS.md](CLAUDE_CODE_WORKFLOWS.md) - Claude Code best practices and workflows
+- [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md) - How to use this template
+- [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
+- [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md) - Code quality standards
+- [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md) - Git workflow
+- [DOCUMENTATION_GUIDELINES.md](docs/guides/DOCUMENTATION_GUIDELINES.md) - Documentation standards
+- [SECURITY.md](docs/security/SECURITY.md) - Security policy and best practices
+- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - MCP integration guide
+- [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) - MCP security best practices
+- [CLAUDE_CODE_WORKFLOWS.md](docs/workflows/CLAUDE_CODE_WORKFLOWS.md) - Claude Code best practices and workflows
 
 ### Project Management
 - [PROJECT_MANAGEMENT_GUIDE.md](.github/PROJECT_MANAGEMENT_GUIDE.md) - Complete PM guide
@@ -510,11 +528,11 @@ gh issue list --label "status: needs-review"
 
 ### Getting Help
 
-- **Template usage questions:** See [TEMPLATE_USAGE.md](TEMPLATE_USAGE.MD)
-- **Setup issues:** Check [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)
-- **Git workflow questions:** Review [BRANCH_STRATEGY.md](BRANCH_STRATEGY.md)
-- **Code standards questions:** Check [CODING_STANDARDS.md](CODING_STANDARDS.md)
-- **MCP issues:** See [MCP_SETUP.md](MCP_SETUP.md) and [MCP_SECURITY.md](MCP_SECURITY.md)
+- **Template usage questions:** See [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md)
+- **Setup issues:** Check [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)
+- **Git workflow questions:** Review [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md)
+- **Code standards questions:** Check [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md)
+- **MCP issues:** See [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) and [MCP_SECURITY.md](docs/security/MCP_SECURITY.md)
 
 ### External Resources
 
@@ -554,8 +572,8 @@ This template is provided as-is for use in any project. Customize as needed for 
 ## What's Next?
 
 1. **Click "Use this template"** to create your new repository
-2. **Follow [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)** for complete setup
-3. **Read [TEMPLATE_USAGE.md](TEMPLATE_USAGE.md)** for detailed guidance
+2. **Follow [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)** for complete setup
+3. **Read [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md)** for detailed guidance
 4. **Start building** with confidence in your foundation
 
 **Questions?** Check the documentation or open an issue!

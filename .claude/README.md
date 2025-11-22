@@ -358,14 +358,14 @@ Machine-specific overrides. Good for:
 ## Resources
 
 - [Claude Code Documentation](https://code.claude.com/docs)
-- [MCP Setup Guide](../MCP_SETUP.md)
-- [MCP Security Guide](../MCP_SECURITY.md)
+- [MCP Setup Guide](../docs/integrations/MCP_SETUP.md)
+- [MCP Security Guide](../docs/security/MCP_SECURITY.md)
 - [Slash Commands](commands/README.md)
 
 ## Getting Help
 
 - **Configuration issues:** Check this README
-- **Permission questions:** Review [MCP_SECURITY.md](../MCP_SECURITY.md)
+- **Permission questions:** Review [MCP_SECURITY.md](../docs/security/MCP_SECURITY.md)
 - **Command usage:** See [commands/README.md](commands/README.md)
 - **General Claude Code:** [Claude Code Documentation](https://code.claude.com/docs)
 

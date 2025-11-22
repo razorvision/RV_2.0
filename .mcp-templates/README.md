@@ -195,7 +195,7 @@ pipx run mcp-server-example
 7. **Least privilege** - Request minimum permissions
 8. **Audit dependencies** - Keep packages updated
 
-See [MCP_SECURITY.md](../MCP_SECURITY.md) for comprehensive security guidelines.
+See [MCP_SECURITY.md](../docs/security/MCP_SECURITY.md) for comprehensive security guidelines.
 
 ## Example Servers
 
@@ -276,15 +276,15 @@ Each template includes:
 - Memory (knowledge graphs)
 
 ### Project Documentation
-- [MCP_SETUP.md](../MCP_SETUP.md) - Setup guide
-- [MCP_SECURITY.md](../MCP_SECURITY.md) - Security guide
-- [CLAUDE_CODE_WORKFLOWS.md](../CLAUDE_CODE_WORKFLOWS.md) - Workflows guide
+- [MCP_SETUP.md](../docs/integrations/MCP_SETUP.md) - Setup guide
+- [MCP_SECURITY.md](../docs/security/MCP_SECURITY.md) - Security guide
+- [CLAUDE_CODE_WORKFLOWS.md](../docs/workflows/CLAUDE_CODE_WORKFLOWS.md) - Workflows guide
 
 ## Support
 
 - **Questions**: Open a GitHub Discussion
 - **Issues**: Report bugs via GitHub Issues
-- **Security**: See [SECURITY.md](../SECURITY.md) for reporting vulnerabilities
+- **Security**: See [SECURITY.md](../docs/security/SECURITY.md) for reporting vulnerabilities
 
 ## Contributing
 
