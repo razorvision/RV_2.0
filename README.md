@@ -10,9 +10,96 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 
 > **🎯 85-90% time savings** on project setup (7-10 hours → 1-2 hours)
 
+---
+
+## 👋 New Here? Start Here!
+
+**This template gives you a complete project foundation with automated workflows, documentation, and best practices.**
+
+### Choose Your Path
+
+**🆕 Starting a brand new project?**
+→ Follow the [5-Minute Quick Start](#-5-minute-quick-start) below
+
+**📦 Have an existing codebase?**
+→ See [Existing Project Setup](#-existing-project-setup)
+
+**🧪 Just want testing infrastructure?**
+→ Jump to [Testing Template](testing-template-packet/START-HERE.md)
+
+**🤖 Just want Claude Code configuration?**
+→ Check out [Claude Code Setup](.claude/README.md)
+
+### Prerequisites
+
+**🔴 Required:**
+- Git
+- GitHub account
+
+**🟡 Optional (but recommended):**
+- Node.js 18+ (for validation scripts only)
+- [GitHub CLI](https://cli.github.com/) (for automation)
+- [Claude Code](https://code.claude.com) (for AI-assisted development)
+
+---
+
+## 🚀 5-Minute Quick Start
+
+**For brand new projects:**
+
+1. **Click "Use this template"** button at the top of this page
+   - ✅ *You should see: "Create a new repository" page*
+
+2. **Create your repository** with your project name
+   - ✅ *You should see: Your new repository page*
+
+3. **Clone and setup**:
+   ```bash
+   git clone https://github.com/your-username/your-new-repo.git
+   cd your-new-repo
+   bash scripts/setup-labels.sh  # Creates GitHub labels (Mac/Linux/Git Bash)
+   # OR: scripts\setup-labels.bat  (Windows)
+   ```
+   - ✅ *You should see: "Created label: priority: high" (and 40+ more labels)*
+
+4. **Done!** Start coding with best practices in place.
+
+**✅ You now have:** GitHub labels, issue templates, PR templates, documentation structure, and workflow guides.
+
+**🟡 Optional next steps:**
+- See [QUICKSTART.md](QUICKSTART.md) for daily workflows (5 min read)
+- See [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md) for deep customization (70-110 min, optional)
+
+---
+
+## 📦 Existing Project Setup
+
+**Adding this template to existing code:**
+
+1. **Copy template files** to your project:
+   ```bash
+   # Copy key directories
+   cp -r .github/ your-project/
+   cp -r .claude/ your-project/
+   cp -r docs/ your-project/
+   ```
+   - ✅ *You should see: New `.github/`, `.claude/`, and `docs/` directories in your project*
+
+2. **Run the Project Intake System**:
+   - Copy `.project-intake/config.template.json` to `config.json`
+   - Fill in your project details
+   - In Claude Code, say: *"Execute the project intake system"*
+   - ✅ *You should see: Generated README, setup documentation, and GitHub issues*
+
+3. **Customize** for your tech stack using the generated documentation
+   - ✅ *You should see: Documentation tailored to your codebase*
+
+**Time investment:** 15-30 minutes for basic setup, 1-2 hours for full automation
+
+---
+
 ## 📑 Table of Contents
 
-- [Quick Start](#-quick-start)
 - [What's Included](#whats-included)
   - [Testing Infrastructure](#-testing-infrastructure)
   - [Project Management Infrastructure](#-project-management-infrastructure)
@@ -22,45 +109,14 @@ A comprehensive template repository for quickly bootstrapping new projects with 
   - [Automation Tools](#-automation-tools)
   - [Git Workflow Protection](#️-git-workflow-protection)
 - [Repository Structure](#repository-structure)
-- [Usage Guide](#usage-guide)
 - [Key Features](#key-features)
-- [Installation & Setup](#installation--setup)
 - [Customization](#customization)
 - [Project Management Workflow](#project-management-workflow)
 - [Best Practices](#best-practices)
-- [Time Savings](#time-savings)
 - [Documentation](#documentation)
 - [Support & Resources](#support--resources)
 - [Contributing](#contributing)
 
-## 🚀 Quick Start
-
-### Use This Template
-
-1. **Click "Use this template"** button above (green button)
-2. **Create your new repository** with your project name
-3. **Clone your new repository**:
-   ```bash
-   git clone https://github.com/your-username/your-new-repo.git
-   cd your-new-repo
-   ```
-4. **Follow the [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)** for complete setup
-
-**📖 New to templates?** Read [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md) for detailed instructions.
-
-## ✨ Key Highlights
-
-| Feature | What You Get | Time Saved |
-|---------|-------------|------------|
-| 🚀 **Pre-commit Hooks** | 20+ automated quality checks (ESLint, Prettier, TypeScript, security scanning) | ~2 hours |
-| 🤖 **Claude Code Integration** | 8 custom slash commands + 16 pre-configured MCP servers | ~3 hours |
-| ⚙️ **GitHub Actions** | Complete CI/CD pipeline (testing, security, releases, PR validation) | ~2 hours |
-| 🧪 **Testing Infrastructure** | Django/Docker testing template with pytest, auto-discovery, custom commands | ~1-2 hours |
-| 📋 **Project Management** | Issue/PR templates, labels, project board guides with automation | ~1 hour |
-| 📚 **Documentation** | Comprehensive guides for coding standards, security, workflows | ~2-3 hours |
-| 🔒 **Security** | Secret detection, CodeQL scanning, security checklists, best practices | ~1-2 hours |
-
-**Total Time Savings: 12-15 hours → ~1 hour setup**
 
 ## What's Included
 
@@ -119,18 +175,35 @@ Complete testing setup for Django projects with Docker containerization:
 ### 🤖 Claude Code Integration
 
 **MCP Servers (Model Context Protocol):**
-- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - Complete guide for setting up 16 MCP servers
-- [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) - Security best practices for MCP servers
-- `.mcp.json` - 16 pre-configured MCP servers across multiple categories:
-  - **Browser Automation:** Playwright, Puppeteer for multi-browser testing
-  - **Database Operations:** PostgreSQL, SQLite for Django projects
-  - **Container Management:** Docker for testing workflow integration
-  - **Web Research:** Brave Search, Context7 for documentation lookup
-  - **File Operations:** Filesystem, Everything for project and system-wide search
-  - **Team Collaboration:** Slack, GitHub for workflow automation
-  - **Intelligence:** Memory, Sequential Thinking for enhanced reasoning
-  - **Monitoring:** Sentry for error tracking (optional)
-  - **Knowledge:** AWS KB for internal documentation (optional)
+
+16 pre-configured MCP servers are included. Most work without setup - just approve when prompted.
+
+**🟢 Core Servers (No Setup Required):**
+- **Filesystem** - File operations within your project
+- **Git** - Git operations and repository management
+- **Memory** - Persistent context across Claude sessions
+- **Sequential Thinking** - Enhanced reasoning for complex problems
+
+**🟡 Enhanced Servers (Minimal Setup):**
+- **Playwright** - Browser automation (run: `npx playwright install`)
+- **Puppeteer** - Alternative browser automation
+- **Context7** - Documentation search
+- **Everything** - System-wide file search (Windows)
+- **SQLite** - Local database operations
+
+**🔴 Advanced Servers (Require API Keys/Tokens):**
+- **GitHub** - Requires: `GITHUB_PERSONAL_ACCESS_TOKEN`
+- **Slack** - Requires: `SLACK_BOT_TOKEN`, `SLACK_TEAM_ID`
+- **Brave Search** - Requires: `BRAVE_API_KEY` (2K free/month)
+- **PostgreSQL** - Requires: `POSTGRES_CONNECTION_STRING`
+- **Docker** - Requires Docker Desktop running
+- **Sentry** - Requires: Sentry account and DSN
+- **AWS KB** - Requires: AWS credentials and knowledge base setup
+
+**📚 Documentation:**
+- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - Complete setup guide
+- [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) - Security best practices
+- `.mcp.json` - Configuration file
 
 **Configuration (`.claude/`):**
 - [Claude Config README](.claude/README.md) - Complete configuration guide
@@ -152,26 +225,29 @@ Complete testing setup for Django projects with Docker containerization:
 
 ### 🎯 Project Intake System (`.project-intake/`)
 
-**Automated Setup for Existing Codebases:**
+**For Existing Codebases Only** - This is different from the template!
 
-The Project Intake System automates the documentation and setup of existing projects:
+**When to use:**
+- You have an existing project with code already written
+- You want to add this template's structure to your existing repo
+- You need automated documentation generation for legacy code
 
-- **01-initial-analysis.md** - Systematic codebase exploration
-- **02-git-setup.md** - Git hooks, branch strategy, commit conventions
-- **03-documentation.md** - Automated README and guide generation
-- **04-dev-environment.md** - Tools installation and configuration
-- **05-github-integration.md** - Project board and GitHub CLI setup
-- **06-quality-standards.md** - Code quality and security documentation
+**What it does:**
+1. Analyzes your existing codebase and tech stack
+2. Generates customized README and documentation
+3. Sets up Git hooks and branch strategy
+4. Creates GitHub labels, issues, and project board
+5. Documents your code quality standards
 
-**Features:**
-- Codebase analysis and tech stack discovery
-- Automated documentation generation
-- Git workflow configuration with pre-commit hooks
-- GitHub Project board creation
-- Quality standards documentation
-- Health check validation
+**Quick Start:**
+1. Copy `.project-intake/config.template.json` to `config.json`
+2. Fill in your project details
+3. Tell Claude Code: *"Execute the project intake system"*
+4. Review and refine the generated docs
 
-**Time Savings:** 85-90% reduction in setup time
+**📖 [See the Existing Project Setup guide](#-existing-project-setup) above**
+
+**⚠️ Note:** If you're starting a NEW project from this template, you don't need this system.
 
 ### 🔧 Automation Tools
 
@@ -210,309 +286,33 @@ The Project Intake System automates the documentation and setup of existing proj
 
 ## Repository Structure
 
-```
-project-intake-template/
-├── .claude/                    # Claude Code configuration
-│   ├── README.md              # Configuration guide
-│   ├── settings.json.template # Project permissions template
-│   ├── settings.local.json    # Machine-specific settings (git-ignored)
-│   └── commands/               # Slash command library
-│       ├── README.md          # Commands documentation
-│       ├── review-security.md # Security audit command
-│       ├── review-code.md     # Code review command
-│       ├── create-component.md# Component generation
-│       ├── create-api-route.md# API endpoint generation
-│       ├── add-test.md        # Test generation
-│       ├── refactor.md        # Code refactoring
-│       ├── optimize.md        # Performance optimization
-│       └── debug.md           # Debugging assistance
-├── .github/                    # GitHub configuration
-│   ├── ISSUE_TEMPLATE/        # Issue templates
-│   ├── workflows/             # GitHub Actions
-│   │   ├── README.md         # Workflows documentation
-│   │   ├── ci.yml            # Continuous integration
-│   │   ├── codeql.yml        # Security scanning
-│   │   ├── dependency-update.yml # Dependency updates
-│   │   ├── pr-checks.yml     # PR validation
-│   │   └── release.yml       # Release automation
-│   ├── labeler.yml           # Auto-label configuration
-│   ├── PROJECT_MANAGEMENT_GUIDE.md
-│   ├── PROJECT_VIEWS_GUIDE.md
-│   └── pull_request_template.md
-├── .project-intake/           # Automated project setup system
-│   ├── 00-ORCHESTRATOR.md     # Master setup instructions
-│   ├── 01-initial-analysis.md # Codebase exploration
-│   ├── 02-git-setup.md        # Git workflow setup
-│   ├── 03-documentation.md    # Documentation generation
-│   ├── 04-dev-environment.md  # Dev tools setup
-│   ├── 05-github-integration.md # GitHub automation
-│   ├── 06-quality-standards.md # Quality documentation
-│   ├── config.template.json   # Configuration template
-│   ├── templates/             # Reusable file templates
-│   └── scripts/               # Setup automation scripts
-├── .mcp-templates/            # MCP server templates
-│   ├── README.md             # Templates overview
-│   ├── nodejs/               # Node.js/TypeScript template
-│   └── python/               # Python template
-├── testing-template-packet/   # Django/Docker testing template
-│   ├── README.md             # Testing setup overview
-│   ├── START-HERE.md         # Quick start guide
-│   ├── SETUP-CHECKLIST.md    # Step-by-step setup
-│   ├── QUICK-REFERENCE.md    # Command cheat sheet
-│   ├── pytest.ini.example    # Pytest configuration
-│   ├── .claude/commands/test.md # Custom test command
-│   ├── docs/TESTING.md       # Comprehensive testing guide
-│   └── tests/test_example.py # Example test patterns
-├── docs/                       # Documentation
-│   ├── README.md              # Documentation index
-│   ├── getting-started/       # Onboarding & setup docs
-│   │   ├── TEMPLATE_USAGE.md  # How to use template
-│   │   └── POST_TEMPLATE_CHECKLIST.md # Setup checklist
-│   ├── guides/                # Development guides
-│   │   ├── CODING_STANDARDS.md # Code quality
-│   │   ├── BRANCH_STRATEGY.md  # Git workflow
-│   │   ├── DOCUMENTATION_GUIDELINES.md # How to document
-│   │   ├── CODE_OF_CONDUCT.md  # Community guidelines
-│   │   └── PYPROJECT_GUIDE.md  # Python config guide
-│   ├── workflows/             # Workflow documentation
-│   │   ├── CLAUDE_CODE_WORKFLOWS.md # Claude Code best practices
-│   │   └── pre-commit-hooks.md # Pre-commit guide
-│   ├── security/              # Security docs
-│   │   ├── SECURITY.md        # Security policy
-│   │   └── MCP_SECURITY.md    # MCP security
-│   └── integrations/          # Integration guides
-│       └── MCP_SETUP.md       # MCP setup
-├── scripts/                    # Automation scripts
-│   ├── README.md              # Scripts documentation
-│   ├── setup-labels.sh        # Label creation (Unix)
-│   ├── setup-labels.bat       # Label creation (Windows)
-│   └── tools/                 # Automation utilities
-│       ├── convert_drafts_to_issues_TEMPLATE.py
-│       ├── create_issue.sh
-│       └── work-epic-issue.sh
-├── templates/                  # Standalone templates
-│   ├── README.md              # Templates guide
-│   └── pyproject.toml.template # Python config template
-├── README.md                   # Main entry point
-├── QUICKSTART.md              # Quick reference
-├── .gitignore                 # Git ignore rules
-├── .mcp.json                  # MCP server configuration
-├── .pre-commit-config.yaml    # Pre-commit hooks configuration
-├── .secrets.baseline          # Secret detection baseline
-└── package.json               # NPM configuration
-```
+**Key directories:**
+- `.claude/` - Claude Code configuration and custom slash commands
+- `.github/` - Issue templates, PR templates, GitHub Actions workflows
+- `docs/` - Complete documentation (guides, security, workflows)
+- `testing-template-packet/` - Django/Docker testing infrastructure
+- `scripts/` - Automation scripts for setup and maintenance
 
-## Usage Guide
+**📖 [See complete directory structure](docs/REPOSITORY_STRUCTURE.md)**
 
-### For New Projects (No Existing Code)
-
-1. Click "Use this template" button
-2. Create your new repository
-3. Clone the repository
-4. Follow [POST_TEMPLATE_CHECKLIST.md](POST_TEMPLATE_CHECKLIST.md)
-5. Start building your application
-
-### For Existing Projects
-
-1. Copy files from this template to your existing repository
-2. Fill out `.project-intake/config.json`
-3. Run the Project Intake System:
-   - Tell Claude Code: "Execute the project intake system"
-4. Review and customize generated documentation
-5. Run health check: `node .project-intake/scripts/health-check.cjs`
-
-**Detailed instructions:** See [TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md)
-
-## Key Features
-
-### ✅ Complete Documentation Infrastructure
-
-- README templates with tech stack, setup, and usage
-- Contributing guidelines
-- Coding standards and security practices
-- API documentation templates
-- Architecture and design patterns
-
-### ✅ GitHub Integration
-
-- Pre-configured issue and PR templates
-- Label system (priority, type, status, effort, phase)
-- Project board setup guides
-- Milestone templates
-- Weekly status reporting
-
-### ✅ Git Workflow Automation
-
-- Pre-commit hooks (prevent direct commits to main)
-- Branch naming conventions (feature/, bugfix/, hotfix/)
-- Conventional commit messages
-- Pull request workflows
-- Code review checklists
-
-### ✅ Claude Code Integration
-
-- 16 pre-configured MCP servers across 9 categories
-- Browser automation (Playwright, Puppeteer)
-- Database operations (PostgreSQL, SQLite)
-- Container management (Docker) - perfect for testing template
-- Web research (Brave Search, Context7)
-- Team collaboration (Slack, GitHub, Git)
-- 8 custom slash commands for common development tasks
-- Security review and code quality automation
-- Component and API generation
-- Automated testing workflows with Docker integration
-
-### ✅ Quality Assurance
-
-- Code quality standards
-- Security policy and best practices (OWASP Top 10, input validation, auth)
-- MCP server security guidelines
-- Testing guidelines (unit, component, integration)
-- Code review checklists
-- Health check validation
-
-## Installation & Setup
-
-### Prerequisites
-
-- **Node.js 18+** - Required for scripts and validation
-- **Git** - Version control
-- **GitHub CLI** - For GitHub automation (recommended)
-- **Claude Code** - For MCP integration (optional)
-
-### Quick Setup
-
-```bash
-# 1. Create from template (via GitHub)
-# Click "Use this template" button
-
-# 2. Clone your new repository
-git clone https://github.com/your-username/your-new-repo.git
-cd your-new-repo
-
-# 3. Install pre-commit hooks
-bash .project-intake/scripts/setup-hooks.sh  # Mac/Linux/Git Bash
-# OR
-powershell -ExecutionPolicy Bypass -File .project-intake/scripts/setup-hooks.ps1  # Windows
-
-# 3a. Install pre-commit framework (optional but recommended)
-npm install -D pre-commit      # Node.js projects
-# OR
-pip install pre-commit         # Python projects
-npx pre-commit install         # Install git hooks
-npx pre-commit run --all-files # Initial run
-
-# 4. Create labels (requires GitHub CLI)
-bash setup-labels.sh  # Mac/Linux
-# OR
-setup-labels.bat  # Windows
-
-# 5. Follow the checklist
-# See POST_TEMPLATE_CHECKLIST.md for complete setup
-```
 
 ## Customization
 
-### For Different Project Types
+All templates and guidelines can be adapted to your needs:
 
-**Web Application:**
-- Keep all features as-is
-- Add environment labels (`env: production`, `env: staging`)
-- Configure deployment workflows
+- **For your tech stack:** Update [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md) with your languages/frameworks
+- **For your workflow:** Modify [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md) branch prefixes and conventions
+- **For your project type:** Add custom labels (e.g., `platform: ios`, `env: production`)
+- **For your tools:** Customize MCP servers in `.mcp.json` or add more slash commands to `.claude/commands/`
 
-**Library/Package:**
-- Add version labels (`v1.x`, `v2.x`)
-- Include release process documentation
-- Configure npm publishing workflow
-
-**Mobile App:**
-- Add platform labels (`platform: ios`, `platform: android`)
-- Include device testing guidelines
-- Document app store deployment
-
-### Adapting Guidelines
-
-All guideline documents can be customized:
-
-- **CODING_STANDARDS.md** - Update for your tech stack
-- **BRANCH_STRATEGY.md** - Modify for your workflow
-- **DOCUMENTATION_GUIDELINES.md** - Adjust tone and requirements
-- **MCP_SETUP.md** - Add additional MCP servers
-
-## Project Management Workflow
-
-### Daily Workflow
-
-```bash
-# Open project board
-gh project view [PROJECT_NUMBER] --owner [OWNER] --web
-
-# Check for open PRs
-gh pr list
-
-# Check items needing review
-gh issue list --label "status: needs-review"
-```
-
-### Weekly Workflow
-
-1. Generate status report using `WEEKLY_STATUS_TEMPLATE.md`
-2. Review and close completed issues
-3. Triage new issues (add labels, milestones, estimates)
-4. Update project board views
-5. Plan next week's priorities
-
-### Label System
-
-**Comprehensive labeling includes:**
-- **Priority:** high, medium, low
-- **Type:** feature, bug, docs, refactor, test
-- **Status:** blocked, in-progress, needs-review, ready
-- **Effort:** small (<2h), medium (2-8h), large (>8h)
-- **Phase:** 1 (MVP), 2 (Enhancements), 3 (Advanced)
-- **Client Visibility:** visible, internal
+**💡 Tip:** Start with the defaults and customize as you go. The templates work well out-of-the-box.
 
 ## Best Practices
 
-### Security
-
-- Never commit secrets to version control
-- Use `.env` files for local development
-- Validate all user input
-- Follow security guidelines in [SECURITY.md](docs/security/SECURITY.md) and [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md)
-- Use parameterized queries (prevent SQL injection)
-- Sanitize HTML output (prevent XSS)
-- Review [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) before using MCP servers
-
-### Code Quality
-
-- Follow TypeScript best practices
-- Write meaningful tests
-- Document complex logic
-- Keep functions small and focused
-- Use consistent naming conventions
-- Review your own PRs before requesting review
-
-### Git Workflow
-
-- Always use feature branches
-- Write clear commit messages
-- Keep PRs focused and small
-- Respond to review feedback promptly
-- Delete branches after merging
-
-## Time Savings
-
-| Task | Manual | Automated | Savings |
-|------|--------|-----------|---------|
-| Codebase exploration | 2-3 hours | 10 min | 85% |
-| README generation | 1-2 hours | 5 min | 95% |
-| Git workflow setup | 1 hour | 5 min | 90% |
-| Testing infrastructure | 1-2 hours | 15 min | 85% |
-| Documentation | 2-3 hours | 15 min | 90% |
-| Project board setup | 30 min | 5 min | 80% |
-| Quality standards | 1 hour | 10 min | 80% |
-| **Total** | **8-12 hours** | **65 min** | **85-90%** |
+- **Security:** Never commit secrets · Use `.env` for config · Validate all input · See [SECURITY.md](docs/security/SECURITY.md)
+- **Code Quality:** Follow [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md) · Write tests · Keep functions focused
+- **Git Workflow:** Use feature branches · Write clear commits · Keep PRs small · See [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md)
+- **Project Management:** Use labels (priority/type/status) · See [PROJECT_MANAGEMENT_GUIDE.md](.github/PROJECT_MANAGEMENT_GUIDE.md)
 
 ## Documentation
 
