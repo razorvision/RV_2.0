@@ -46,6 +46,11 @@ Project-scoped MCP servers detected:
 - slack
 - github
 - sequential-thinking
+- puppeteer
+- postgres
+- sqlite
+- brave-search
+- everything
 
 Do you want to allow these servers? (yes/no)
 ```
@@ -70,7 +75,7 @@ You can also use the `/mcp` slash command within Claude Code to check server sta
 
 ### Current MCP Servers
 
-This template includes eight MCP servers for enhanced development capabilities:
+This template includes thirteen MCP servers for enhanced development capabilities:
 
 #### 1. Playwright MCP Server
 - **Purpose:** Browser automation and automated testing
@@ -174,6 +179,70 @@ This template includes eight MCP servers for enhanced development capabilities:
   - Thorough exploration of solutions
   - Better handling of ambiguous problems
 
+#### 9. Puppeteer MCP Server
+- **Purpose:** Alternative browser automation (Chrome/Chromium focused)
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-puppeteer`
+- **Capabilities:**
+  - Chrome DevTools Protocol access
+  - Browser automation and testing
+  - PDF generation from web pages
+  - Screenshot and performance profiling
+  - Network interception
+  - Complementary to Playwright for Chrome-specific tasks
+
+#### 10. PostgreSQL MCP Server
+- **Purpose:** PostgreSQL database operations
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-postgres`
+- **Environment Variables Required:**
+  - `POSTGRES_CONNECTION_STRING` - PostgreSQL connection string (e.g., `postgresql://user:password@localhost:5432/dbname`)
+- **Capabilities:**
+  - Execute SQL queries and commands
+  - Schema inspection and management
+  - Database performance analysis
+  - Table and index operations
+  - Perfect for Django projects using PostgreSQL
+  - Database migrations and debugging
+
+#### 11. SQLite MCP Server
+- **Purpose:** SQLite database operations
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-sqlite`
+- **Capabilities:**
+  - Lightweight local database operations
+  - Query execution and data inspection
+  - Schema management
+  - Perfect for Django development (default database)
+  - Testing database operations
+  - No configuration required for local .db files
+
+#### 12. Brave Search MCP Server
+- **Purpose:** Web search for research and documentation
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-brave-search`
+- **Environment Variables Required:**
+  - `BRAVE_API_KEY` - Brave Search API key
+- **Capabilities:**
+  - Web search for current information
+  - Documentation lookup
+  - Error message research
+  - Library and framework documentation finding
+  - Complements Context7 for comprehensive web research
+  - Privacy-focused search results
+
+#### 13. Everything MCP Server
+- **Purpose:** Fast file search across entire system
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-everything`
+- **Capabilities:**
+  - Lightning-fast file search (Windows only)
+  - Search across multiple projects
+  - Find files by name or pattern
+  - Locate configuration files
+  - Cross-project file discovery
+  - Complements filesystem server with broader scope
+
 ### Configuration File
 
 The `.mcp.json` file in the repository root contains:
@@ -234,6 +303,40 @@ The `.mcp.json` file in the repository root contains:
       "transport": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {}
+    },
+    "puppeteer": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {}
+    },
+    "postgres": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": ""
+      }
+    },
+    "sqlite": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sqlite"],
+      "env": {}
+    },
+    "brave-search": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": ""
+      }
+    },
+    "everything": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-everything"],
       "env": {}
     }
   }
@@ -306,6 +409,62 @@ To use the GitHub MCP server, you need a Personal Access Token (PAT):
    ```
 
 **Security Note:** Store tokens securely. Never commit them to repositories. Consider using a password manager or environment management tools like `direnv`.
+
+### Setting Up PostgreSQL MCP Server
+
+To use the PostgreSQL MCP server, configure your database connection:
+
+1. **Set Connection String:**
+   ```bash
+   export POSTGRES_CONNECTION_STRING="postgresql://username:password@localhost:5432/dbname"
+   ```
+
+2. **Connection String Format:**
+   ```
+   postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]
+   ```
+
+3. **Common Examples:**
+   - Local development: `postgresql://myuser:mypassword@localhost:5432/mydb`
+   - Docker container: `postgresql://postgres:postgres@db:5432/django_db`
+   - SSL connection: `postgresql://user:pass@host:5432/db?sslmode=require`
+
+### Setting Up Brave Search MCP Server
+
+To use the Brave Search MCP server, you need a Brave Search API key:
+
+1. **Get API Key:**
+   - Go to https://brave.com/search/api/
+   - Sign up for a free or paid plan
+   - Free tier includes 2,000 queries/month
+   - Navigate to your dashboard and copy your API key
+
+2. **Set Environment Variable:**
+   ```bash
+   export BRAVE_API_KEY="your-brave-api-key-here"
+   ```
+
+3. **Use Cases:**
+   - Research current libraries and frameworks
+   - Find error message solutions
+   - Look up API documentation
+   - Discover best practices and tutorials
+
+### Setting Up Everything MCP Server
+
+The Everything MCP server requires the Everything search engine (Windows only):
+
+1. **Install Everything:**
+   - Download from https://www.voidtools.com/
+   - Install and run Everything
+   - Let it index your drives (happens automatically)
+
+2. **No Configuration Required:**
+   - The MCP server automatically connects to Everything
+   - Works immediately after Everything is running
+   - Provides instant file search across all indexed drives
+
+3. **Note:** This server only works on Windows. For macOS/Linux, use the filesystem server or standard find tools.
 
 ## Using MCP Servers with Claude Code
 
