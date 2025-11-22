@@ -53,7 +53,7 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 | Feature | What You Get | Time Saved |
 |---------|-------------|------------|
 | 🚀 **Pre-commit Hooks** | 20+ automated quality checks (ESLint, Prettier, TypeScript, security scanning) | ~2 hours |
-| 🤖 **Claude Code Integration** | 8 custom slash commands + MCP server templates for extending capabilities | ~3 hours |
+| 🤖 **Claude Code Integration** | 8 custom slash commands + 16 pre-configured MCP servers | ~3 hours |
 | ⚙️ **GitHub Actions** | Complete CI/CD pipeline (testing, security, releases, PR validation) | ~2 hours |
 | 🧪 **Testing Infrastructure** | Django/Docker testing template with pytest, auto-discovery, custom commands | ~1-2 hours |
 | 📋 **Project Management** | Issue/PR templates, labels, project board guides with automation | ~1 hour |
@@ -119,13 +119,18 @@ Complete testing setup for Django projects with Docker containerization:
 ### 🤖 Claude Code Integration
 
 **MCP Servers (Model Context Protocol):**
-- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - Complete guide for setting up MCP servers
+- [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) - Complete guide for setting up 16 MCP servers
 - [MCP_SECURITY.md](docs/security/MCP_SECURITY.md) - Security best practices for MCP servers
-- `.mcp.json` - Pre-configured MCP servers (Playwright, filesystem, git, memory)
-- Enables subagent control for complex multi-step testing scenarios
-- Screenshot capture and visual regression testing
-- Multi-browser compatibility testing
-- Network monitoring and performance analysis
+- `.mcp.json` - 16 pre-configured MCP servers across multiple categories:
+  - **Browser Automation:** Playwright, Puppeteer for multi-browser testing
+  - **Database Operations:** PostgreSQL, SQLite for Django projects
+  - **Container Management:** Docker for testing workflow integration
+  - **Web Research:** Brave Search, Context7 for documentation lookup
+  - **File Operations:** Filesystem, Everything for project and system-wide search
+  - **Team Collaboration:** Slack, GitHub for workflow automation
+  - **Intelligence:** Memory, Sequential Thinking for enhanced reasoning
+  - **Monitoring:** Sentry for error tracking (optional)
+  - **Knowledge:** AWS KB for internal documentation (optional)
 
 **Configuration (`.claude/`):**
 - [Claude Config README](.claude/README.md) - Complete configuration guide
@@ -346,13 +351,16 @@ project-intake-template/
 
 ### ✅ Claude Code Integration
 
-- Pre-configured MCP servers (Playwright, filesystem, git, memory)
+- 16 pre-configured MCP servers across 9 categories
+- Browser automation (Playwright, Puppeteer)
+- Database operations (PostgreSQL, SQLite)
+- Container management (Docker) - perfect for testing template
+- Web research (Brave Search, Context7)
+- Team collaboration (Slack, GitHub, Git)
 - 8 custom slash commands for common development tasks
 - Security review and code quality automation
 - Component and API generation
-- Automated testing workflows
-- Subagent control for complex scenarios
-- Team collaboration setup
+- Automated testing workflows with Docker integration
 
 ### ✅ Quality Assurance
 

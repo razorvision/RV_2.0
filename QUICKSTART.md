@@ -1,101 +1,182 @@
 # Quick Start Guide
 
-Get your project management infrastructure up and running in 5 minutes.
+Get your project up and running with this template in **10 minutes**.
 
-## Step 1: Copy Files (1 minute)
+## Step 1: Create from Template (1 minute)
+
+1. Click the **"Use this template"** button at the top of this repository
+2. Name your new repository
+3. Choose public or private
+4. Click **"Create repository"**
+
+## Step 2: Clone and Setup (2 minutes)
 
 ```bash
-# Navigate to your repository
-cd /path/to/your/repo
+# Clone your new repository
+git clone https://github.com/your-username/your-new-repo.git
+cd your-new-repo
 
-# Copy the .github directory
-cp -r /path/to/pm-package/.github/* ./.github/
+# Install pre-commit hooks (optional but recommended)
+npm install -D pre-commit      # Node.js projects
+# OR
+pip install pre-commit         # Python projects
 
-# Make the setup script executable
-chmod +x /path/to/pm-package/setup-labels.sh
+# Install git hooks
+npx pre-commit install
 ```
 
-## Step 2: Run Setup Script (2 minutes)
+## Step 3: Create GitHub Labels (2 minutes)
 
 ```bash
-# Run the automated setup
-/path/to/pm-package/setup-labels.sh
+# Mac/Linux/Git Bash
+bash scripts/setup-labels.sh
+
+# Windows
+scripts\setup-labels.bat
 ```
 
 This creates:
-- ✅ 20 labels (priority, type, status, phase, client, effort, epic)
-- ✅ 3 milestones (Phase 1, 2, 3)
+- ✅ Priority labels (high, medium, low)
+- ✅ Type labels (feature, bug, docs, refactor, test)
+- ✅ Status labels (blocked, in-progress, needs-review, ready)
+- ✅ Effort labels (small, medium, large)
+- ✅ Phase labels (1, 2, 3)
 
-## Step 3: Create Project Board (2 minutes)
+## Step 4: Optional Enhancements
 
-1. Go to your repo on GitHub
-2. Click **Projects** tab → **New project**
-3. Select **Board** view
-4. Name it "Main Board" or "Development Board"
-5. Add columns: Backlog → Ready → In Progress → In Review → Done
+### MCP Servers (Highly Recommended)
 
-**Optional:** Follow [PROJECT_VIEWS_GUIDE.md](/.github/PROJECT_VIEWS_GUIDE.md) for 8 recommended views
+Configure 16 MCP servers for enhanced Claude Code capabilities:
 
-## Step 4: Daily Workflow Commands
+1. Start Claude Code in your repository:
+   ```bash
+   claude
+   ```
 
-Add these to your daily routine:
+2. Approve MCP servers when prompted (type `yes`)
+
+3. Configure environment variables for optional servers:
+   ```bash
+   # Slack (optional)
+   export SLACK_BOT_TOKEN="xoxb-..."
+   export SLACK_TEAM_ID="T12345678"
+
+   # GitHub (optional)
+   export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_..."
+
+   # PostgreSQL (optional)
+   export POSTGRES_CONNECTION_STRING="postgresql://user:pass@localhost:5432/db"
+
+   # Brave Search (optional - 2K free queries/month)
+   export BRAVE_API_KEY="your-key"
+   ```
+
+**See [MCP_SETUP.md](docs/integrations/MCP_SETUP.md) for complete guide.**
+
+### Testing Template (For Django/Docker Projects)
+
+If using Django with Docker:
+
+1. Copy files from `testing-template-packet/` to your project
+2. Follow `testing-template-packet/START-HERE.md`
+3. Customize container name and test paths
+4. Use `/test` slash command for auto-discovery testing
+
+**Time savings: 1-2 hours → 15 minutes**
+
+## Step 5: Customize for Your Project (5 minutes)
+
+1. **Update README.md:**
+   - Project name and description
+   - Installation instructions
+   - Tech stack
+   - Remove template-specific content
+
+2. **Configure for your stack:**
+   - Update [CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md) with your tech
+   - Modify [BRANCH_STRATEGY.md](docs/guides/BRANCH_STRATEGY.md) if needed
+   - Customize issue templates in `.github/ISSUE_TEMPLATE/`
+
+3. **Review and customize:**
+   - `.pre-commit-config.yaml` - Add/remove hooks
+   - `.github/workflows/` - Adjust CI/CD pipelines
+   - `.claude/commands/` - Customize slash commands
+
+## Daily Workflow
+
+### Common Commands
 
 ```bash
-# Morning standup: Check project board
-gh project view [NUMBER] --owner [OWNER] --web
+# Check project status
+gh issue list
 
-# Check PRs needing review
-gh pr list
-
-# Check issues needing attention
-gh issue list --label "status: needs-review"
-```
-
-Replace `[NUMBER]` and `[OWNER]` with your project details.
-
-## Step 5: Create Your First Issue
-
-```bash
-# Create a new issue (uses templates automatically)
+# Create new issue
 gh issue create
 
-# Or via GitHub web UI
-# Click Issues → New Issue → Choose template
+# Open project board
+gh project view [NUMBER] --owner [OWNER] --web
+
+# Check for PRs
+gh pr list
+
+# Run tests (with Docker MCP)
+# In Claude Code:
+/test
+
+# Security review (with slash command)
+# In Claude Code:
+/review-security
 ```
 
----
-
-## Common Customizations
-
-### Change Phase Labels to Sprints
+### Git Workflow
 
 ```bash
-# Delete phase labels
-gh label delete "phase: 1" "phase: 2" "phase: 3"
+# Create feature branch
+git checkout -b feature/your-feature
 
-# Create sprint labels
-gh label create "sprint-1" --color "d876e3"
-gh label create "sprint-2" --color "d876e3"
-# etc.
+# Make changes and commit
+git add .
+git commit -m "feat: add your feature"
+
+# Push and create PR
+git push -u origin feature/your-feature
+gh pr create
 ```
 
-### Add Environment Labels
+## Quick Reference
 
-```bash
-gh label create "env: production" --color "d73a4a"
-gh label create "env: staging" --color "fbca04"
-gh label create "env: development" --color "0e8a16"
-```
+### File Locations
 
-### Add Platform Labels (Mobile/Desktop)
+| What | Where |
+|------|-------|
+| Documentation | `docs/` |
+| Scripts | `scripts/` |
+| Templates | `templates/` |
+| Testing setup | `testing-template-packet/` |
+| MCP config | `.mcp.json` |
+| Slash commands | `.claude/commands/` |
+| GitHub workflows | `.github/workflows/` |
+| Issue templates | `.github/ISSUE_TEMPLATE/` |
 
-```bash
-gh label create "platform: ios" --color "000000"
-gh label create "platform: android" --color "3DDC84"
-gh label create "platform: web" --color "0066cc"
-```
+### Key Documentation
 
----
+- **[POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)** - Complete setup checklist
+- **[TEMPLATE_USAGE.md](docs/getting-started/TEMPLATE_USAGE.md)** - Detailed usage guide
+- **[MCP_SETUP.md](docs/integrations/MCP_SETUP.md)** - MCP server configuration
+- **[CODING_STANDARDS.md](docs/guides/CODING_STANDARDS.md)** - Code quality guide
+- **[PROJECT_MANAGEMENT_GUIDE.md](.github/PROJECT_MANAGEMENT_GUIDE.md)** - PM workflows
+
+### MCP Servers (16 Total)
+
+**Browser Automation:** Playwright, Puppeteer
+**Database:** PostgreSQL, SQLite
+**Containers:** Docker
+**Web Research:** Brave Search, Context7
+**Files:** Filesystem, Everything
+**Collaboration:** Slack, GitHub, Git
+**Intelligence:** Memory, Sequential Thinking
+**Monitoring:** Sentry
+**Knowledge:** AWS KB
 
 ## Troubleshooting
 
@@ -103,29 +184,40 @@ gh label create "platform: web" --color "0066cc"
 
 Install GitHub CLI: https://cli.github.com/
 
-### "Label already exists" errors
+### Pre-commit hooks not running
 
-This is normal if re-running the script. Existing labels are preserved.
+```bash
+# Reinstall hooks
+npx pre-commit install
 
-### Can't create milestones
+# Test hooks
+npx pre-commit run --all-files
+```
 
-Check repo permissions. You need admin or write access.
+### MCP servers not available
 
-### Project board not showing issues
+1. Ensure Claude Code is running in the project directory
+2. Approve servers when prompted
+3. Check `claude mcp list` to verify configuration
 
-Link the project to your repository:
-1. Project Settings → Manage access
-2. Link repository
+### Docker MCP can't connect
 
----
+```bash
+# Verify Docker is running
+docker ps
+
+# Restart Docker Desktop if needed
+```
 
 ## What's Next?
 
-- 📖 Read [PROJECT_MANAGEMENT_GUIDE.md](/.github/PROJECT_MANAGEMENT_GUIDE.md) for complete workflows
-- 📊 Set up advanced views with [PROJECT_VIEWS_GUIDE.md](/.github/PROJECT_VIEWS_GUIDE.md)
-- 📝 Review issue templates in `.github/ISSUE_TEMPLATE/`
-- 🔄 Try the weekly status report template
+1. **Review the checklist:** [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)
+2. **Set up project board:** [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md)
+3. **Configure MCP servers:** [MCP_SETUP.md](docs/integrations/MCP_SETUP.md)
+4. **Start coding:** You're ready to build!
 
 ---
 
-**Need Help?** Review the full [README.md](README.md) for detailed instructions.
+**Total Setup Time:** ~10 minutes (or 65 minutes for complete customization)
+
+**Need Help?** Check the [README.md](README.md) or open an issue.
