@@ -52,6 +52,8 @@ Project-scoped MCP servers detected:
 - brave-search
 - everything
 - docker
+- sentry
+- aws-kb
 
 Do you want to allow these servers? (yes/no)
 ```
@@ -76,7 +78,7 @@ You can also use the `/mcp` slash command within Claude Code to check server sta
 
 ### Current MCP Servers
 
-This template includes fourteen MCP servers for enhanced development capabilities:
+This template includes sixteen MCP servers for enhanced development capabilities:
 
 #### 1. Playwright MCP Server
 - **Purpose:** Browser automation and automated testing
@@ -259,6 +261,42 @@ This template includes fourteen MCP servers for enhanced development capabilitie
   - Debug containerized Django applications
   - Inspect test container state (e.g., `wiseloan-core-core-1`)
 
+#### 15. Sentry MCP Server
+- **Purpose:** Error tracking and monitoring integration
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-sentry`
+- **Environment Variables Required:**
+  - `SENTRY_AUTH_TOKEN` - Sentry authentication token
+  - `SENTRY_ORG` - Organization slug
+  - `SENTRY_PROJECT` - Project slug
+- **Capabilities:**
+  - View and search error reports
+  - Analyze error trends and patterns
+  - Access stack traces and context
+  - Track error resolution status
+  - Monitor application health metrics
+  - Link errors to code changes
+  - Prioritize bugs based on frequency and impact
+  - **Note:** Only configure if using Sentry for error tracking
+
+#### 16. AWS Knowledge Base MCP Server
+- **Purpose:** AWS Knowledge Base integration for retrieval
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-aws-kb-retrieval-server`
+- **Environment Variables Required:**
+  - `AWS_ACCESS_KEY_ID` - AWS access key
+  - `AWS_SECRET_ACCESS_KEY` - AWS secret key
+  - `AWS_REGION` - AWS region (e.g., `us-east-1`)
+  - `AWS_KB_ID` - Knowledge Base ID
+- **Capabilities:**
+  - Query AWS Knowledge Base for documentation
+  - Retrieve internal documentation and procedures
+  - Access company-specific knowledge
+  - Search through indexed documents
+  - Semantic search across knowledge base
+  - Context-aware information retrieval
+  - **Note:** Only configure if using AWS Knowledge Bases
+
 ### Configuration File
 
 The `.mcp.json` file in the repository root contains:
@@ -360,6 +398,27 @@ The `.mcp.json` file in the repository root contains:
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-docker"],
       "env": {}
+    },
+    "sentry": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sentry"],
+      "env": {
+        "SENTRY_AUTH_TOKEN": "",
+        "SENTRY_ORG": "",
+        "SENTRY_PROJECT": ""
+      }
+    },
+    "aws-kb": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-aws-kb-retrieval-server"],
+      "env": {
+        "AWS_ACCESS_KEY_ID": "",
+        "AWS_SECRET_ACCESS_KEY": "",
+        "AWS_REGION": "",
+        "AWS_KB_ID": ""
+      }
     }
   }
 }
@@ -520,6 +579,89 @@ The Docker MCP server works with your local Docker installation:
    ```
 
 **Perfect pairing with testing-template-packet:** The Docker MCP server directly enhances your Django/Docker testing workflow by providing container inspection and management without manual docker commands.
+
+### Setting Up Sentry MCP Server
+
+To use the Sentry MCP server, configure your Sentry integration:
+
+1. **Create Sentry Auth Token:**
+   - Go to https://sentry.io/settings/account/api/auth-tokens/
+   - Click "Create New Token"
+   - Select scopes:
+     - `project:read` - Read project data
+     - `event:read` - Read error events
+     - `issue:read` - Read issue data
+     - `org:read` - Read organization data
+   - Copy the generated token
+
+2. **Get Organization and Project Slugs:**
+   - Organization slug: Found in Sentry URL `https://sentry.io/organizations/{org-slug}/`
+   - Project slug: Found in project settings or URL `https://sentry.io/organizations/{org-slug}/projects/{project-slug}/`
+
+3. **Set Environment Variables:**
+   ```bash
+   export SENTRY_AUTH_TOKEN="your-auth-token"
+   export SENTRY_ORG="your-org-slug"
+   export SENTRY_PROJECT="your-project-slug"
+   ```
+
+4. **Use Cases:**
+   - View recent errors and exceptions
+   - Analyze error patterns and trends
+   - Debug production issues with stack traces
+   - Prioritize bug fixes by impact
+   - Track error resolution progress
+
+**Note:** Only configure if your project uses Sentry. Leave environment variables empty if not using.
+
+### Setting Up AWS Knowledge Base MCP Server
+
+To use the AWS Knowledge Base MCP server:
+
+1. **Prerequisites:**
+   - AWS account with Knowledge Base created
+   - IAM user with appropriate permissions
+
+2. **Create IAM User with Permissions:**
+   - Go to AWS IAM console
+   - Create new user or use existing
+   - Attach policy with these permissions:
+     ```json
+     {
+       "Version": "2012-10-17",
+       "Statement": [{
+         "Effect": "Allow",
+         "Action": [
+           "bedrock:Retrieve",
+           "bedrock:RetrieveAndGenerate"
+         ],
+         "Resource": "*"
+       }]
+     }
+     ```
+   - Generate access keys (Access Key ID + Secret Access Key)
+
+3. **Get Knowledge Base ID:**
+   - Go to AWS Bedrock console
+   - Navigate to Knowledge Bases
+   - Copy your Knowledge Base ID
+
+4. **Set Environment Variables:**
+   ```bash
+   export AWS_ACCESS_KEY_ID="your-access-key-id"
+   export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
+   export AWS_REGION="us-east-1"  # Your KB region
+   export AWS_KB_ID="your-knowledge-base-id"
+   ```
+
+5. **Use Cases:**
+   - Query internal documentation
+   - Retrieve company procedures and policies
+   - Access indexed technical documentation
+   - Search through knowledge base semantically
+   - Get context-aware answers from company knowledge
+
+**Note:** Only configure if using AWS Knowledge Bases for document retrieval. This is typically for enterprise projects with custom documentation systems.
 
 ## Using MCP Servers with Claude Code
 
