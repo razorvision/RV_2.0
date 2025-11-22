@@ -43,6 +43,9 @@ Project-scoped MCP servers detected:
 - git
 - memory
 - context7
+- slack
+- github
+- sequential-thinking
 
 Do you want to allow these servers? (yes/no)
 ```
@@ -67,7 +70,7 @@ You can also use the `/mcp` slash command within Claude Code to check server sta
 
 ### Current MCP Servers
 
-This template includes five MCP servers for enhanced development capabilities:
+This template includes eight MCP servers for enhanced development capabilities:
 
 #### 1. Playwright MCP Server
 - **Purpose:** Browser automation and automated testing
@@ -129,6 +132,48 @@ This template includes five MCP servers for enhanced development capabilities:
   - Handle dynamic content and JavaScript-rendered pages
   - Useful for research, documentation, and data gathering
 
+#### 6. Slack MCP Server
+- **Purpose:** Slack workspace integration
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-slack`
+- **Environment Variables Required:**
+  - `SLACK_BOT_TOKEN` - Bot user OAuth token
+  - `SLACK_TEAM_ID` - Workspace/team ID
+- **Capabilities:**
+  - Read and post messages to channels
+  - Manage conversations and threads
+  - Search message history
+  - User and channel management
+  - File uploads and downloads
+  - Automated notifications and updates
+
+#### 7. GitHub MCP Server
+- **Purpose:** GitHub repository management and automation
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-github`
+- **Environment Variables Required:**
+  - `GITHUB_PERSONAL_ACCESS_TOKEN` - GitHub PAT with appropriate scopes
+- **Capabilities:**
+  - Read and create issues, pull requests
+  - Manage labels, milestones, projects
+  - Search repositories and code
+  - Review code and discussions
+  - Autonomous repository operations
+  - Workflow automation
+  - **Note:** Complements GitHub CLI with direct API access for Claude
+
+#### 8. Sequential Thinking MCP Server
+- **Purpose:** Enhanced reasoning and problem-solving
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-sequential-thinking`
+- **Capabilities:**
+  - Extended thinking and reasoning
+  - Multi-step problem decomposition
+  - Detailed analysis and planning
+  - Complex decision-making support
+  - Thorough exploration of solutions
+  - Better handling of ambiguous problems
+
 ### Configuration File
 
 The `.mcp.json` file in the repository root contains:
@@ -167,6 +212,29 @@ The `.mcp.json` file in the repository root contains:
       "command": "npx",
       "args": ["-y", "@context7/mcp"],
       "env": {}
+    },
+    "slack": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "",
+        "SLACK_TEAM_ID": ""
+      }
+    },
+    "github": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    },
+    "sequential-thinking": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {}
     }
   }
 }
@@ -176,6 +244,68 @@ The `.mcp.json` file in the repository root contains:
 - `-y` flag automatically installs packages without prompting
 - `${PROJECT_ROOT}` and `${PWD}` are environment variables expanded at runtime
 - Each server runs as a separate process via `stdio` transport
+
+### Setting Up Slack MCP Server
+
+To use the Slack MCP server, you need to create a Slack app and obtain credentials:
+
+1. **Create a Slack App:**
+   - Go to https://api.slack.com/apps
+   - Click "Create New App" → "From scratch"
+   - Name your app and select your workspace
+
+2. **Configure Bot Token Scopes:**
+   - Navigate to "OAuth & Permissions"
+   - Add required bot token scopes:
+     - `channels:history` - Read messages from public channels
+     - `channels:read` - View basic channel info
+     - `channels:write` - Post messages to channels
+     - `chat:write` - Send messages as the bot
+     - `users:read` - View users in workspace
+     - `files:write` - Upload files
+     - `files:read` - Read files
+
+3. **Install App to Workspace:**
+   - Click "Install to Workspace"
+   - Authorize the app
+   - Copy the "Bot User OAuth Token" (starts with `xoxb-`)
+
+4. **Get Team ID:**
+   - In Slack, click workspace name → "Settings & administration" → "Workspace settings"
+   - Team ID is in the URL: `https://app.slack.com/client/T12345678/...`
+   - Copy the T12345678 value
+
+5. **Set Environment Variables:**
+   ```bash
+   export SLACK_BOT_TOKEN="xoxb-your-token-here"
+   export SLACK_TEAM_ID="T12345678"
+   ```
+
+### Setting Up GitHub MCP Server
+
+To use the GitHub MCP server, you need a Personal Access Token (PAT):
+
+1. **Create a Personal Access Token:**
+   - Go to https://github.com/settings/tokens
+   - Click "Generate new token" → "Generate new token (classic)"
+   - Name your token (e.g., "Claude Code MCP")
+   - Select scopes based on your needs:
+     - `repo` - Full repository access (required for private repos)
+     - `read:org` - Read organization data
+     - `write:discussion` - Access discussions
+     - `admin:repo_hook` - Manage repository webhooks
+     - `project` - Access projects
+
+2. **Generate and Copy Token:**
+   - Click "Generate token"
+   - Copy the token immediately (you won't see it again)
+
+3. **Set Environment Variable:**
+   ```bash
+   export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_your_token_here"
+   ```
+
+**Security Note:** Store tokens securely. Never commit them to repositories. Consider using a password manager or environment management tools like `direnv`.
 
 ## Using MCP Servers with Claude Code
 
