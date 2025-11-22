@@ -51,6 +51,7 @@ Project-scoped MCP servers detected:
 - sqlite
 - brave-search
 - everything
+- docker
 
 Do you want to allow these servers? (yes/no)
 ```
@@ -75,7 +76,7 @@ You can also use the `/mcp` slash command within Claude Code to check server sta
 
 ### Current MCP Servers
 
-This template includes thirteen MCP servers for enhanced development capabilities:
+This template includes fourteen MCP servers for enhanced development capabilities:
 
 #### 1. Playwright MCP Server
 - **Purpose:** Browser automation and automated testing
@@ -243,6 +244,21 @@ This template includes thirteen MCP servers for enhanced development capabilitie
   - Cross-project file discovery
   - Complements filesystem server with broader scope
 
+#### 14. Docker MCP Server
+- **Purpose:** Docker container management and inspection
+- **Transport:** stdio (local process)
+- **Command:** `npx -y @modelcontextprotocol/server-docker`
+- **Capabilities:**
+  - List and inspect containers
+  - View container logs in real-time
+  - Execute commands inside containers
+  - Manage container lifecycle (start, stop, restart)
+  - Inspect images and volumes
+  - Monitor container resource usage
+  - Perfect for testing-template-packet Docker workflows
+  - Debug containerized Django applications
+  - Inspect test container state (e.g., `wiseloan-core-core-1`)
+
 ### Configuration File
 
 The `.mcp.json` file in the repository root contains:
@@ -337,6 +353,12 @@ The `.mcp.json` file in the repository root contains:
       "transport": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-everything"],
+      "env": {}
+    },
+    "docker": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-docker"],
       "env": {}
     }
   }
@@ -465,6 +487,39 @@ The Everything MCP server requires the Everything search engine (Windows only):
    - Provides instant file search across all indexed drives
 
 3. **Note:** This server only works on Windows. For macOS/Linux, use the filesystem server or standard find tools.
+
+### Setting Up Docker MCP Server
+
+The Docker MCP server works with your local Docker installation:
+
+1. **Prerequisites:**
+   - Docker Desktop installed and running
+   - Docker daemon accessible (default socket connection)
+   - No additional configuration required
+
+2. **Verify Docker is Running:**
+   ```bash
+   docker ps
+   ```
+   If this command works, the MCP server will work too.
+
+3. **Use Cases for Testing Template:**
+   - View logs from test containers: `wiseloan-core-core-1`
+   - Execute test commands inside containers
+   - Inspect container state during test runs
+   - Debug Django application in Docker
+   - Monitor resource usage during tests
+   - Restart containers without leaving Claude Code
+
+4. **Example Commands:**
+   ```
+   Show me logs from the wiseloan-core-core-1 container
+   Execute pytest inside the Django container
+   List all running containers
+   Restart the test container
+   ```
+
+**Perfect pairing with testing-template-packet:** The Docker MCP server directly enhances your Django/Docker testing workflow by providing container inspection and management without manual docker commands.
 
 ## Using MCP Servers with Claude Code
 
