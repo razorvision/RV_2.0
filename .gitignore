@@ -52,3 +52,6 @@ Thumbs.db
 
 # Config files that might contain secrets
 .project-intake/config.json
+
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json

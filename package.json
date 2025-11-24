@@ -7,7 +7,13 @@
     "validate-config": "node .project-intake/scripts/validate-config.cjs",
     "health-check": "node .project-intake/scripts/health-check.cjs",
     "process-templates": "node .project-intake/scripts/process-templates.cjs",
-    "check-node-version": "node .project-intake/scripts/check-node-version.cjs"
+    "check-node-version": "node .project-intake/scripts/check-node-version.cjs",
+    "lint": "echo 'No linting configured. Add ESLint to your project and update this script.'",
+    "format:check": "echo 'No formatting check configured. Add Prettier to your project and update this script.'",
+    "typecheck": "echo 'No type checking configured. Add TypeScript to your project and update this script.'",
+    "test": "echo 'No tests configured. Add a test framework to your project and update this script.'",
+    "test:e2e": "echo 'No E2E tests configured. Add Playwright or Cypress to your project and update this script.'",
+    "build": "echo 'No build configured. Add build tools to your project and update this script.'"
   },
   "keywords": [
     "template",
