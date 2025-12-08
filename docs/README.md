@@ -8,11 +8,16 @@ Comprehensive documentation for the project-intake-template repository.
 
 ### 🚀 Getting Started
 New to this template? Start here:
+- **[Setup Checklist](../SETUP_CHECKLIST.md)** - Single source of truth for dev environment setup
 - **[Common Tasks](COMMON_TASKS.md)** - Quick reference for everyday development (start here after setup!)
 - [TEMPLATE_USAGE.md](getting-started/TEMPLATE_USAGE.md) - How to use this template
 - [POST_TEMPLATE_CHECKLIST.md](getting-started/POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
 - [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup checklist
 - [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md) - IDE, Claude Code, and tooling setup
+
+### 📋 Reference
+Quick-access reference documentation:
+- **[Environment Variables](reference/ENV_VARIABLES.md)** - All env vars with descriptions and where to get them
 
 ### 📖 Development Guides
 Organized by category in [guides/](guides/):
@@ -29,6 +34,8 @@ Organized by category in [guides/](guides/):
 
 **Infrastructure:**
 - [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md) - GitHub repository and project board setup
+- [Database Setup](guides/infrastructure/DATABASE_SETUP.md) - PostgreSQL, MySQL, SQLite, MongoDB setup
+- [Docker Guide](guides/infrastructure/DOCKER_GUIDE.md) - Containerization and Docker Compose
 - [Deployment Guide](guides/infrastructure/DEPLOYMENT_GUIDE.md) - CI/CD and hosting setup
 - [Incident Response](guides/infrastructure/INCIDENT_RESPONSE.md) - Production issue handling
 - [Monitoring & Observability](guides/infrastructure/MONITORING_OBSERVABILITY.md) - Sentry and error tracking
@@ -68,8 +75,9 @@ Security policies and best practices:
 
 ### 🔌 Integrations
 Integration and setup guides:
-- [MCP_SETUP.md](integrations/MCP_SETUP.md) - Model Context Protocol setup
-- [MCP_SERVERS_GUIDE.md](integrations/MCP_SERVERS_GUIDE.md) - Complete MCP servers guide
+- **[MCP Quick Start](integrations/MCP_QUICKSTART.md)** - 5-minute MCP setup guide
+- [MCP_SETUP.md](integrations/MCP_SETUP.md) - Complete Model Context Protocol setup
+- [MCP_SERVERS_GUIDE.md](integrations/MCP_SERVERS_GUIDE.md) - All 16 MCP servers documented
 - [MCP_TROUBLESHOOTING.md](integrations/MCP_TROUBLESHOOTING.md) - MCP troubleshooting guide
 
 ## 🔍 Quick Links

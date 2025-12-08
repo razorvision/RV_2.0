@@ -45,12 +45,14 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 
 | I want to... | Go to... | Time |
 |--------------|----------|------|
+| **Get my environment ready** | [Setup Checklist](SETUP_CHECKLIST.md) | 15-30 min |
+| Set up database | [Database Setup](docs/guides/infrastructure/DATABASE_SETUP.md) | 10 min |
+| Add authentication | [Auth Guide](docs/frameworks/AUTH_IMPLEMENTATION_GUIDE.md) (has 5-min quick start!) | 5-60 min |
+| Configure Claude Code + MCP | [MCP Quick Start](docs/integrations/MCP_QUICKSTART.md) | 5 min |
+| Set up Docker | [Docker Guide](docs/guides/infrastructure/DOCKER_GUIDE.md) | 15 min |
 | Set up testing (Django/Docker) | [Testing Template](testing-template-packet/START-HERE.md) | 30 min |
-| Configure Claude Code + MCP | [Claude Setup](.claude/README.md) → [MCP Setup](docs/integrations/MCP_SETUP.md) | 15 min |
-| Add authentication | [Auth Implementation](docs/frameworks/AUTH_IMPLEMENTATION_GUIDE.md) | 1-2 hrs |
-| Set up dev environment | [Dev Environment](docs/guides/DEV_ENVIRONMENT_SETUP.md) | 20 min |
 | Learn coding standards | [Coding Standards](docs/guides/development/CODING_STANDARDS.md) | 15 min |
-| See common tasks | [Common Tasks](docs/COMMON_TASKS.md) | 5 min |
+| See all env variables | [Environment Variables Reference](docs/reference/ENV_VARIABLES.md) | Reference |
 
 ### Quick Links
 
@@ -58,6 +60,7 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 |------|-------------|
 | **🆕 [5-Minute Quick Start](#-5-minute-quick-start)** | Create new repo from this template |
 | **📦 [Existing Project Setup](#-existing-project-setup)** | Add template to existing codebase |
+| **🔧 [Setup Checklist](SETUP_CHECKLIST.md)** | Single source of truth for dev setup |
 | **📋 [Common Tasks](docs/COMMON_TASKS.md)** | Day-to-day development reference |
 | **📖 [Full Documentation](docs/README.md)** | Complete documentation index |
 
@@ -88,18 +91,31 @@ A comprehensive template repository for quickly bootstrapping new projects with 
    ```bash
    git clone https://github.com/your-username/your-new-repo.git
    cd your-new-repo
-   bash scripts/setup-labels.sh  # Creates GitHub labels (Mac/Linux/Git Bash)
-   # OR: scripts\setup-labels.bat  (Windows)
+   npm install                      # Install dependencies
+   cp .env.example .env.local       # Create your environment file
+   bash scripts/setup-labels.sh     # Create GitHub labels (Mac/Linux/Git Bash)
+   # OR: scripts\setup-labels.bat   # (Windows)
    ```
    - ✅ *You should see: "Created label: priority: high" (and 40+ more labels)*
 
-4. **Done!** Start coding with best practices in place.
+4. **Configure environment** - Edit `.env.local` with your values:
+   ```bash
+   DATABASE_URL=postgresql://...    # Your database connection
+   AUTH_SECRET=...                  # Run: openssl rand -base64 32
+   ```
+   See [ENV_VARIABLES.md](docs/reference/ENV_VARIABLES.md) for all options.
+
+5. **Done!** Start coding with best practices in place.
+   ```bash
+   npm run dev  # Start the development server
+   ```
 
 **✅ You now have:** GitHub labels, issue templates, PR templates, documentation structure, and workflow guides.
 
-**🟡 Optional next steps:**
-- See [QUICKSTART.md](QUICKSTART.md) for daily workflows (5 min read)
-- See [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md) for deep customization (70-110 min, optional)
+**🟡 Next steps:**
+- **[Setup Checklist](SETUP_CHECKLIST.md)** - Complete dev environment setup (15 min)
+- [QUICKSTART.md](QUICKSTART.md) - Daily workflow reference
+- [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md) - Deep customization (optional)
 
 ---
 
