@@ -211,10 +211,11 @@ docker ps
 
 ## What's Next?
 
-1. **Review the checklist:** [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md)
-2. **Set up project board:** [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md)
-3. **Configure MCP servers:** [MCP_SETUP.md](docs/integrations/MCP_SETUP.md)
-4. **Start coding:** You're ready to build!
+1. **Bookmark common tasks:** [COMMON_TASKS.md](docs/COMMON_TASKS.md) - Your go-to reference for daily development
+2. **Review the checklist:** [POST_TEMPLATE_CHECKLIST.md](docs/getting-started/POST_TEMPLATE_CHECKLIST.md) - Deep customization
+3. **Set up project board:** [PROJECT_VIEWS_GUIDE.md](.github/PROJECT_VIEWS_GUIDE.md)
+4. **Configure MCP servers:** [MCP_SETUP.md](docs/integrations/MCP_SETUP.md)
+5. **Start coding:** You're ready to build!
 
 ---
 

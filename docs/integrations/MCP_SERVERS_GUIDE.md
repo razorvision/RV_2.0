@@ -271,7 +271,26 @@ tail -f ~/.config/claude/logs/mcp-*.log
 
 ## Creating Custom MCP Servers
 
-For team-specific tools, you can create custom MCP servers:
+For team-specific tools, you can create custom MCP servers.
+
+### Starter Templates
+
+We provide ready-to-use templates for building custom MCP servers:
+
+| Language | Template | Description |
+|----------|----------|-------------|
+| **Node.js** | [.mcp-templates/nodejs/](../../.mcp-templates/nodejs/) | TypeScript MCP server with example tools |
+| **Python** | [.mcp-templates/python/](../../.mcp-templates/python/) | Python MCP server with example tools |
+
+These templates include:
+- Project structure and configuration
+- Basic server setup with tool registration
+- Example tool implementations
+- Build and run scripts
+
+### Basic Example
+
+Here's a minimal MCP server in TypeScript:
 
 ```typescript
 // simple-server.ts

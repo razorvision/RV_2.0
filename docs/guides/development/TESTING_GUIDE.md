@@ -2,6 +2,18 @@
 
 Comprehensive testing strategies for maintaining code quality and preventing regressions.
 
+## Framework-Specific Testing
+
+This guide covers general testing patterns. For framework-specific setups:
+
+| Framework | Guide | Description |
+|-----------|-------|-------------|
+| **Django + Docker** | [Testing Template Packet](../../../testing-template-packet/START-HERE.md) | Complete Django/pytest/Docker setup with `/test` Claude command |
+| Next.js | See [E2E Testing](#e2e-testing) below | Playwright-based testing |
+| API Routes | See [Integration Testing](#integration-testing) below | Route handler testing patterns |
+
+> **Using Django?** The [Testing Template Packet](../../../testing-template-packet/START-HERE.md) provides a complete testing infrastructure with Claude Code integration, Docker support, and example tests. Start there instead of building from scratch.
+
 ## Table of Contents
 
 - [Testing Philosophy](#testing-philosophy)

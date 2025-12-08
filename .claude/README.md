@@ -2,6 +2,8 @@
 
 This directory contains configuration files for Claude Code to enhance your development workflow.
 
+> **Full Setup Guide:** For complete development environment setup including VS Code, Git, Node.js, and MCP servers, see [DEV_ENVIRONMENT_SETUP.md](../docs/guides/DEV_ENVIRONMENT_SETUP.md).
+
 ## Files
 
 ### `settings.json.template`

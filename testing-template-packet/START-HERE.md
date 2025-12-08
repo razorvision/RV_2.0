@@ -155,6 +155,12 @@ Each file includes:
 
 Start with the README, follow the checklist, and you'll have comprehensive testing set up in 30 minutes!
 
+## 📚 Related Documentation
+
+For general testing concepts that apply to any framework:
+- [Testing Guide](../docs/guides/development/TESTING_GUIDE.md) - Testing philosophy, patterns, and best practices
+- [Code Quality Policy](../docs/guides/CODE_QUALITY_POLICY.md) - Test requirements and standards
+
 ---
 
 **Ready to begin? Open `README.md` next!**

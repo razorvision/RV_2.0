@@ -2,10 +2,13 @@
 
 Comprehensive documentation for the project-intake-template repository.
 
+> **Looking for quick answers?** See [Common Tasks](COMMON_TASKS.md) for day-to-day development reference.
+
 ## 📚 Documentation Structure
 
 ### 🚀 Getting Started
 New to this template? Start here:
+- **[Common Tasks](COMMON_TASKS.md)** - Quick reference for everyday development (start here after setup!)
 - [TEMPLATE_USAGE.md](getting-started/TEMPLATE_USAGE.md) - How to use this template
 - [POST_TEMPLATE_CHECKLIST.md](getting-started/POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
 - [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup checklist
@@ -21,17 +24,22 @@ Organized by category in [guides/](guides/):
 - [API Patterns](guides/development/API_PATTERNS.md) - REST conventions and validation
 - [State Management](guides/development/STATE_MANAGEMENT.md) - React state strategies
 - [Error Handling](guides/development/ERROR_HANDLING.md) - Error boundaries and logging
+- [Feature Flags](guides/development/FEATURE_FLAGS.md) - Safe rollouts and A/B testing
+- [Technical Debt](guides/development/TECHNICAL_DEBT.md) - Identifying and paying down debt
 
 **Infrastructure:**
 - [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md) - GitHub repository and project board setup
 - [Deployment Guide](guides/infrastructure/DEPLOYMENT_GUIDE.md) - CI/CD and hosting setup
 - [Incident Response](guides/infrastructure/INCIDENT_RESPONSE.md) - Production issue handling
+- [Monitoring & Observability](guides/infrastructure/MONITORING_OBSERVABILITY.md) - Sentry and error tracking
+- [Environment Management](guides/infrastructure/ENVIRONMENT_MANAGEMENT.md) - Env vars and secrets
 
 **Team:**
 - [Branch Strategy](guides/team/BRANCH_STRATEGY.md) - Git workflow guide
 - [Code Review Guidelines](guides/team/CODE_REVIEW_GUIDELINES.md) - Review process and feedback
 - [Documentation Guidelines](guides/team/DOCUMENTATION_GUIDELINES.md) - Documentation best practices
 - [Code of Conduct](guides/team/CODE_OF_CONDUCT.md) - Community guidelines
+- [Onboarding Checklist](guides/team/ONBOARDING_CHECKLIST.md) - New team member setup
 
 **Special:**
 - [PyProject Guide](guides/PYPROJECT_GUIDE.md) - Python project configuration

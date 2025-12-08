@@ -234,60 +234,33 @@ gh api repos/:owner/:repo/milestones -f title="Phase 2: Enhancements" -f descrip
 
 ## Phase 5: Development Tools
 
-### 5.1 Install GitHub CLI
+> **Full Setup Guide:** For detailed instructions including VS Code extensions, Git configuration, and troubleshooting, see [DEV_ENVIRONMENT_SETUP.md](../guides/DEV_ENVIRONMENT_SETUP.md).
 
-**Check if installed:**
-```bash
-gh --version
-```
+### Quick Checklist
 
-**Install if needed:**
-- **Mac:** `brew install gh`
-- **Windows:** `winget install GitHub.cli`
-- **Linux:** See [GitHub CLI installation](https://github.com/cli/cli#installation)
+- [ ] **Node.js 18+** installed: `node --version`
+- [ ] **GitHub CLI** installed and authenticated: `gh auth login`
+- [ ] **Claude Code** installed (optional): [Download](https://code.claude.com)
+- [ ] **MCP servers** approved in Claude Code
+- [ ] **VS Code extensions** installed (ESLint, Prettier, Tailwind CSS)
 
-- [ ] GitHub CLI installed
-- [ ] Authenticated: `gh auth login`
+### MCP Server Setup
 
-### 5.2 Configure MCP Servers
+1. Start Claude Code in your project: `claude`
+2. Approve MCP servers when prompted
+3. Verify: `claude mcp list`
 
-Review [MCP_SETUP.md](../integrations/MCP_SETUP.md):
+For advanced MCP configuration, see [MCP Setup Guide](../integrations/MCP_SETUP.md).
 
-- [ ] Review `.mcp.json` configuration
-- [ ] Install Playwright (if using):
-  ```bash
-  npx playwright install
-  ```
-- [ ] Test in Claude Code:
-  ```bash
-  claude
-  # Approve MCP servers when prompted
-  ```
-- [ ] Add additional MCP servers as needed
+### Additional Tools (as needed)
 
-### 5.3 Install Claude Code (Optional)
-
-- [ ] Download from [claude.com/code](https://code.claude.com)
-- [ ] Install for your platform
-- [ ] Test basic commands
-- [ ] Configure auto-approvals (optional)
-
-### 5.4 Package Manager
-
-- [ ] Verify Node.js installed: `node --version` (18+ required)
-- [ ] Install/verify package manager:
-  - **npm:** Comes with Node.js
-  - **pnpm:** `npm install -g pnpm`
-  - **yarn:** `npm install -g yarn`
-
-### 5.5 Additional Tools (as needed)
-
-- [ ] Docker (if using databases)
-- [ ] PostgreSQL/MySQL (if applicable)
-- [ ] Redis (if applicable)
-- [ ] VS Code extensions (ESLint, Prettier, etc.)
+- [ ] Docker (if using databases or containers)
+- [ ] Playwright browsers: `npx playwright install`
+- [ ] Package manager (npm comes with Node.js, or use pnpm/yarn)
 
 **Checkpoint:** All development tools installed ✅
+
+[Full setup guide →](../guides/DEV_ENVIRONMENT_SETUP.md)
 
 ---
 

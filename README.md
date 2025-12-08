@@ -16,19 +16,50 @@ A comprehensive template repository for quickly bootstrapping new projects with 
 
 **This template gives you a complete project foundation with automated workflows, documentation, and best practices.**
 
-### Choose Your Path
+### Which Path Are You?
 
-**🆕 Starting a brand new project?**
-→ Follow the [5-Minute Quick Start](#-5-minute-quick-start) below
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        START HERE                               │
+│                                                                 │
+│  What are you trying to do?                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+       ┌──────────────────────┼──────────────────────┐
+       │                      │                      │
+       ▼                      ▼                      ▼
+ ┌───────────┐         ┌───────────┐         ┌───────────┐
+ │    NEW    │         │ EXISTING  │         │  SPECIFIC │
+ │  PROJECT  │         │  PROJECT  │         │  FEATURE  │
+ └───────────┘         └───────────┘         └───────────┘
+       │                      │                      │
+       ▼                      ▼                      ▼
+  5-Min Quick           Project Intake        See Feature
+  Start below              System            Guides below
+       │                      │
+       ▼                      ▼
+  QUICKSTART.md        .project-intake/
+```
 
-**📦 Have an existing codebase?**
-→ See [Existing Project Setup](#-existing-project-setup)
+### Feature Guides (Pick What You Need)
 
-**🧪 Just want testing infrastructure?**
-→ Jump to [Testing Template](testing-template-packet/START-HERE.md)
+| I want to... | Go to... | Time |
+|--------------|----------|------|
+| Set up testing (Django/Docker) | [Testing Template](testing-template-packet/START-HERE.md) | 30 min |
+| Configure Claude Code + MCP | [Claude Setup](.claude/README.md) → [MCP Setup](docs/integrations/MCP_SETUP.md) | 15 min |
+| Add authentication | [Auth Implementation](docs/frameworks/AUTH_IMPLEMENTATION_GUIDE.md) | 1-2 hrs |
+| Set up dev environment | [Dev Environment](docs/guides/DEV_ENVIRONMENT_SETUP.md) | 20 min |
+| Learn coding standards | [Coding Standards](docs/guides/development/CODING_STANDARDS.md) | 15 min |
+| See common tasks | [Common Tasks](docs/COMMON_TASKS.md) | 5 min |
 
-**🤖 Just want Claude Code configuration?**
-→ Check out [Claude Code Setup](.claude/README.md)
+### Quick Links
+
+| Path | Description |
+|------|-------------|
+| **🆕 [5-Minute Quick Start](#-5-minute-quick-start)** | Create new repo from this template |
+| **📦 [Existing Project Setup](#-existing-project-setup)** | Add template to existing codebase |
+| **📋 [Common Tasks](docs/COMMON_TASKS.md)** | Day-to-day development reference |
+| **📖 [Full Documentation](docs/README.md)** | Complete documentation index |
 
 ### Prerequisites
 

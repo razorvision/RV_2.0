@@ -220,6 +220,13 @@ Example test file showing:
 
 ## 🔗 Resources
 
+### General Testing (Any Framework)
+
+- [Testing Guide](../docs/guides/development/TESTING_GUIDE.md) - Unit, integration, and E2E testing patterns
+- [Code Quality Policy](../docs/guides/CODE_QUALITY_POLICY.md) - Test coverage requirements and standards
+
+### Django/Pytest Specific
+
 - [pytest documentation](https://docs.pytest.org/)
 - [pytest-django documentation](https://pytest-django.readthedocs.io/)
 - [Django testing documentation](https://docs.djangoproject.com/en/stable/topics/testing/)
