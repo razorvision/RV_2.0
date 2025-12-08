@@ -12,14 +12,38 @@ New to this template? Start here:
 - [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md) - IDE, Claude Code, and tooling setup
 
 ### 📖 Development Guides
-Best practices and standards:
-- [CODING_STANDARDS.md](guides/CODING_STANDARDS.md) - Code quality guidelines
+Organized by category in [guides/](guides/):
+
+**Development:**
+- [Coding Standards](guides/development/CODING_STANDARDS.md) - Code quality guidelines
 - [CODE_QUALITY_POLICY.md](guides/CODE_QUALITY_POLICY.md) - TODO/FIXME policy, PR standards
+- [Testing Guide](guides/development/TESTING_GUIDE.md) - Unit, integration, and E2E testing
+- [API Patterns](guides/development/API_PATTERNS.md) - REST conventions and validation
+- [State Management](guides/development/STATE_MANAGEMENT.md) - React state strategies
+- [Error Handling](guides/development/ERROR_HANDLING.md) - Error boundaries and logging
+
+**Infrastructure:**
 - [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md) - GitHub repository and project board setup
-- [BRANCH_STRATEGY.md](guides/BRANCH_STRATEGY.md) - Git workflow guide
-- [DOCUMENTATION_GUIDELINES.md](guides/DOCUMENTATION_GUIDELINES.md) - Documentation best practices
-- [CODE_OF_CONDUCT.md](guides/CODE_OF_CONDUCT.md) - Community guidelines
-- [PYPROJECT_GUIDE.md](guides/PYPROJECT_GUIDE.md) - Python project configuration
+- [Deployment Guide](guides/infrastructure/DEPLOYMENT_GUIDE.md) - CI/CD and hosting setup
+- [Incident Response](guides/infrastructure/INCIDENT_RESPONSE.md) - Production issue handling
+
+**Team:**
+- [Branch Strategy](guides/team/BRANCH_STRATEGY.md) - Git workflow guide
+- [Code Review Guidelines](guides/team/CODE_REVIEW_GUIDELINES.md) - Review process and feedback
+- [Documentation Guidelines](guides/team/DOCUMENTATION_GUIDELINES.md) - Documentation best practices
+- [Code of Conduct](guides/team/CODE_OF_CONDUCT.md) - Community guidelines
+
+**Special:**
+- [PyProject Guide](guides/PYPROJECT_GUIDE.md) - Python project configuration
+
+### 🔧 Framework Guides
+Technology-specific patterns in [frameworks/](frameworks/):
+- [Database Patterns](frameworks/DATABASE_PATTERNS.md) - Prisma, transactions, audit trails
+- [Performance Guide](frameworks/PERFORMANCE_GUIDE.md) - Core Web Vitals, caching
+- [NEXTJS_PATTERNS.md](frameworks/NEXTJS_PATTERNS.md) - Next.js App Router, caching, env vars
+- [PRISMA_PATTERNS.md](frameworks/PRISMA_PATTERNS.md) - ORM patterns, migrations, connections
+- [NEXTAUTH_PATTERNS.md](frameworks/NEXTAUTH_PATTERNS.md) - Authentication patterns and rate limiting
+- [AUTH_IMPLEMENTATION_GUIDE.md](frameworks/AUTH_IMPLEMENTATION_GUIDE.md) - Step-by-step auth setup
 
 ### 🔄 Workflows
 Development workflow documentation:
@@ -28,14 +52,6 @@ Development workflow documentation:
 - [VISUAL_DEVELOPMENT_WORKFLOW.md](workflows/VISUAL_DEVELOPMENT_WORKFLOW.md) - UI quality control
 - [CI_MONITORING_GUIDE.md](workflows/CI_MONITORING_GUIDE.md) - Automated PR status monitoring
 - [pre-commit-hooks.md](workflows/pre-commit-hooks.md) - Pre-commit hooks guide
-
-### 🔧 Framework Guides
-Framework-specific patterns and gotchas:
-- [frameworks/README.md](frameworks/README.md) - Framework guides index
-- [NEXTJS_PATTERNS.md](frameworks/NEXTJS_PATTERNS.md) - Next.js App Router, caching, env vars
-- [PRISMA_PATTERNS.md](frameworks/PRISMA_PATTERNS.md) - ORM patterns, migrations, connections
-- [NEXTAUTH_PATTERNS.md](frameworks/NEXTAUTH_PATTERNS.md) - Authentication patterns and rate limiting
-- [AUTH_IMPLEMENTATION_GUIDE.md](frameworks/AUTH_IMPLEMENTATION_GUIDE.md) - Step-by-step auth setup
 
 ### 🔒 Security
 Security policies and best practices:
@@ -54,13 +70,13 @@ Integration and setup guides:
 1. Read [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md)
 2. Set up environment with [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md)
 3. Configure repo with [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md)
-4. Customize [CLAUDE.md](../CLAUDE.md) for your project
+4. Review [Coding Standards](guides/development/CODING_STANDARDS.md)
 
 **For Contributors:**
-1. Review [CODE_OF_CONDUCT.md](guides/CODE_OF_CONDUCT.md)
-2. Follow [BRANCH_STRATEGY.md](guides/BRANCH_STRATEGY.md)
-3. Understand [CHANGE_REQUEST_WORKFLOW.md](workflows/CHANGE_REQUEST_WORKFLOW.md)
-4. Check [CODE_QUALITY_POLICY.md](guides/CODE_QUALITY_POLICY.md)
+1. Review [Code of Conduct](guides/team/CODE_OF_CONDUCT.md)
+2. Follow [Branch Strategy](guides/team/BRANCH_STRATEGY.md)
+3. Check [Code Review Guidelines](guides/team/CODE_REVIEW_GUIDELINES.md)
+4. Understand [CHANGE_REQUEST_WORKFLOW.md](workflows/CHANGE_REQUEST_WORKFLOW.md)
 
 **For Security:**
 1. Read [SECURITY.md](security/SECURITY.md) for reporting issues

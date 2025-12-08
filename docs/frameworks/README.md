@@ -10,6 +10,8 @@ This directory contains framework-specific documentation, patterns, and gotchas 
 | [PRISMA_PATTERNS.md](PRISMA_PATTERNS.md) | Prisma | ORM patterns, migrations, connections |
 | [NEXTAUTH_PATTERNS.md](NEXTAUTH_PATTERNS.md) | NextAuth.js | Authentication patterns, sessions, rate limiting |
 | [AUTH_IMPLEMENTATION_GUIDE.md](AUTH_IMPLEMENTATION_GUIDE.md) | Auth | Step-by-step authentication implementation |
+| [Database Patterns](DATABASE_PATTERNS.md) | Prisma | Transactions, soft deletes, audit trails |
+| [Performance Guide](PERFORMANCE_GUIDE.md) | General | Core Web Vitals, Next.js optimization, caching |
 
 ## When to Use These Guides
 
@@ -27,6 +29,11 @@ When introducing a new framework to an existing project:
 1. Check if a guide exists here
 2. Review the patterns before implementing
 3. Update CLAUDE.md with framework-specific notes
+
+### Deep Dives
+
+- **Database Patterns** - When working with Prisma, designing schemas, or implementing data patterns like soft deletes or audit logging
+- **Performance Guide** - When optimizing page load times, addressing Core Web Vitals, or implementing caching
 
 ### Troubleshooting
 
@@ -59,47 +66,10 @@ When adding a new framework guide:
 3. Add to the table above
 4. Cross-reference from CLAUDE.md
 
-## Guide Structure
-
-Each guide follows this structure:
-
-```markdown
-# [Framework] Patterns
-
-## Table of Contents
-
-## Overview
-[What this framework is and when to use it]
-
-## Quick Start
-[Getting started commands and setup]
-
-## Core Patterns
-[Essential patterns for this framework]
-
-## Configuration
-[How to configure the framework]
-
-## Common Gotchas
-[Issues you'll encounter and how to solve them]
-
-## Commands Reference
-[Frequently used commands]
-
-## Related Documentation
-[Links to other docs and external resources]
-```
-
----
-
 ## Related Documentation
 
 - [CLAUDE.md](../../CLAUDE.md) - Project guidelines (includes framework section)
-- [Coding Standards](../guides/CODING_STANDARDS.md) - General code quality
+- [Development Guides](../guides/development/) - General coding patterns
+- [API Patterns](../guides/development/API_PATTERNS.md) - REST API conventions
 - [MCP Setup](../integrations/MCP_SETUP.md) - Database server setup
 - [Project Intake Checklist](../guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup
-
----
-
-**Last Updated:** 2024-12-08
-**Maintained By:** Development Team
