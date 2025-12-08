@@ -8,11 +8,14 @@ Comprehensive documentation for the project-intake-template repository.
 New to this template? Start here:
 - [TEMPLATE_USAGE.md](getting-started/TEMPLATE_USAGE.md) - How to use this template
 - [POST_TEMPLATE_CHECKLIST.md](getting-started/POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
+- [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup checklist
+- [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md) - IDE, Claude Code, and tooling setup
 
 ### 📖 Development Guides
 Best practices and standards:
 - [CODING_STANDARDS.md](guides/CODING_STANDARDS.md) - Code quality guidelines
 - [CODE_QUALITY_POLICY.md](guides/CODE_QUALITY_POLICY.md) - TODO/FIXME policy, PR standards
+- [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md) - GitHub repository and project board setup
 - [BRANCH_STRATEGY.md](guides/BRANCH_STRATEGY.md) - Git workflow guide
 - [DOCUMENTATION_GUIDELINES.md](guides/DOCUMENTATION_GUIDELINES.md) - Documentation best practices
 - [CODE_OF_CONDUCT.md](guides/CODE_OF_CONDUCT.md) - Community guidelines
@@ -31,7 +34,8 @@ Framework-specific patterns and gotchas:
 - [frameworks/README.md](frameworks/README.md) - Framework guides index
 - [NEXTJS_PATTERNS.md](frameworks/NEXTJS_PATTERNS.md) - Next.js App Router, caching, env vars
 - [PRISMA_PATTERNS.md](frameworks/PRISMA_PATTERNS.md) - ORM patterns, migrations, connections
-- [NEXTAUTH_PATTERNS.md](frameworks/NEXTAUTH_PATTERNS.md) - Authentication, sessions, rate limiting
+- [NEXTAUTH_PATTERNS.md](frameworks/NEXTAUTH_PATTERNS.md) - Authentication patterns and rate limiting
+- [AUTH_IMPLEMENTATION_GUIDE.md](frameworks/AUTH_IMPLEMENTATION_GUIDE.md) - Step-by-step auth setup
 
 ### 🔒 Security
 Security policies and best practices:
@@ -41,21 +45,22 @@ Security policies and best practices:
 ### 🔌 Integrations
 Integration and setup guides:
 - [MCP_SETUP.md](integrations/MCP_SETUP.md) - Model Context Protocol setup
+- [MCP_SERVERS_GUIDE.md](integrations/MCP_SERVERS_GUIDE.md) - Complete MCP servers guide
 - [MCP_TROUBLESHOOTING.md](integrations/MCP_TROUBLESHOOTING.md) - MCP troubleshooting guide
 
 ## 🔍 Quick Links
 
 **For New Projects:**
-1. Read [TEMPLATE_USAGE.md](getting-started/TEMPLATE_USAGE.md)
-2. Follow [POST_TEMPLATE_CHECKLIST.md](getting-started/POST_TEMPLATE_CHECKLIST.md)
-3. Review [CODING_STANDARDS.md](guides/CODING_STANDARDS.md)
+1. Read [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md)
+2. Set up environment with [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md)
+3. Configure repo with [REPO_SETUP_GUIDE.md](guides/REPO_SETUP_GUIDE.md)
 4. Customize [CLAUDE.md](../CLAUDE.md) for your project
 
 **For Contributors:**
 1. Review [CODE_OF_CONDUCT.md](guides/CODE_OF_CONDUCT.md)
 2. Follow [BRANCH_STRATEGY.md](guides/BRANCH_STRATEGY.md)
-3. Check [DOCUMENTATION_GUIDELINES.md](guides/DOCUMENTATION_GUIDELINES.md)
-4. Understand [CHANGE_REQUEST_WORKFLOW.md](workflows/CHANGE_REQUEST_WORKFLOW.md)
+3. Understand [CHANGE_REQUEST_WORKFLOW.md](workflows/CHANGE_REQUEST_WORKFLOW.md)
+4. Check [CODE_QUALITY_POLICY.md](guides/CODE_QUALITY_POLICY.md)
 
 **For Security:**
 1. Read [SECURITY.md](security/SECURITY.md) for reporting issues
@@ -63,8 +68,13 @@ Integration and setup guides:
 
 **For Framework Setup:**
 1. Review relevant guide in [frameworks/](frameworks/)
-2. Customize CLAUDE.md framework section for your stack
-3. Follow patterns for your tech stack
+2. Follow [AUTH_IMPLEMENTATION_GUIDE.md](frameworks/AUTH_IMPLEMENTATION_GUIDE.md) for auth
+3. Customize CLAUDE.md framework section for your stack
+
+**For AI Tooling:**
+1. Set up Claude Code with [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md)
+2. Configure MCP servers with [MCP_SERVERS_GUIDE.md](integrations/MCP_SERVERS_GUIDE.md)
+3. Troubleshoot issues with [MCP_TROUBLESHOOTING.md](integrations/MCP_TROUBLESHOOTING.md)
 
 ## 📂 Other Documentation
 

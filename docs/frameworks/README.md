@@ -8,7 +8,8 @@ This directory contains framework-specific documentation, patterns, and gotchas 
 |-------|-----------|-------------|
 | [NEXTJS_PATTERNS.md](NEXTJS_PATTERNS.md) | Next.js | App Router, caching, environment variables |
 | [PRISMA_PATTERNS.md](PRISMA_PATTERNS.md) | Prisma | ORM patterns, migrations, connections |
-| [NEXTAUTH_PATTERNS.md](NEXTAUTH_PATTERNS.md) | NextAuth.js | Authentication, sessions, rate limiting |
+| [NEXTAUTH_PATTERNS.md](NEXTAUTH_PATTERNS.md) | NextAuth.js | Authentication patterns, sessions, rate limiting |
+| [AUTH_IMPLEMENTATION_GUIDE.md](AUTH_IMPLEMENTATION_GUIDE.md) | Auth | Step-by-step authentication implementation |
 
 ## When to Use These Guides
 
@@ -17,6 +18,7 @@ This directory contains framework-specific documentation, patterns, and gotchas 
 1. Review relevant guides for your tech stack
 2. Copy patterns that apply to your project
 3. Customize the [CLAUDE.md](../../CLAUDE.md) framework section
+4. Follow [AUTH_IMPLEMENTATION_GUIDE.md](AUTH_IMPLEMENTATION_GUIDE.md) for auth setup
 
 ### Adding a New Framework
 
@@ -95,6 +97,7 @@ Each guide follows this structure:
 - [CLAUDE.md](../../CLAUDE.md) - Project guidelines (includes framework section)
 - [Coding Standards](../guides/CODING_STANDARDS.md) - General code quality
 - [MCP Setup](../integrations/MCP_SETUP.md) - Database server setup
+- [Project Intake Checklist](../guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup
 
 ---
 
