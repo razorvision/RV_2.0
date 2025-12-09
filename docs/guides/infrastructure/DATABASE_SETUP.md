@@ -70,13 +70,17 @@ Download from [postgresapp.com](https://postgresapp.com/), install, and start.
 
 ### Cloud Providers (Free Tiers)
 
-![Supabase - The Open Source Firebase Alternative](../../assets/screenshots/supabase-landing.png)
-
 #### Supabase (Recommended for beginners)
 
 1. Create account at [supabase.com](https://supabase.com)
-2. Create new project
-3. Go to **Settings > Database**
+2. Create new project from the dashboard:
+
+![Supabase Dashboard - Create a project](../../assets/screenshots/supabase-quickstart.png)
+
+3. Go to **Settings > Database** or use the connection documentation:
+
+![Supabase connection documentation](../../assets/screenshots/supabase-connection-docs.png)
+
 4. Copy connection string (use "Connection pooling" for serverless)
 
 ```bash
@@ -85,11 +89,14 @@ DATABASE_URL="postgresql://postgres:[PASSWORD]@db.[PROJECT_REF].supabase.co:5432
 
 #### Neon (Recommended for serverless)
 
-![Neon - Serverless Postgres](../../assets/screenshots/neon-landing.png)
-
 1. Create account at [neon.tech](https://neon.tech)
-2. Create new project
-3. Copy connection string from dashboard
+2. Create new project - the dashboard shows your connection details:
+
+![Neon Project Dashboard](../../assets/screenshots/neon-quickstart.png)
+
+3. Click **Connect** to get your connection string:
+
+![Neon connection documentation](../../assets/screenshots/neon-connection-docs.png)
 
 ```bash
 DATABASE_URL="postgresql://[USER]:[PASSWORD]@[HOST]/[DATABASE]?sslmode=require"

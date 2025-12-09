@@ -414,27 +414,36 @@ export async function GET() {
 
 ### GitHub OAuth
 
-![GitHub OAuth app creation documentation](../assets/screenshots/github-oauth-docs.png)
-
 1. Go to **GitHub > Settings > Developer settings > OAuth Apps**
+
+![GitHub Developer Settings showing OAuth Apps](../assets/screenshots/github-developer-settings.png)
+
 2. Click **New OAuth App**
-3. Fill in:
+3. Fill in the registration form:
    - **Application name**: Your app name
    - **Homepage URL**: `http://localhost:3000` (dev) or production URL
    - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
+
+![GitHub OAuth App registration form](../assets/screenshots/github-oauth-create-app.png)
+
 4. Copy Client ID and generate Client Secret
 
 ### Google OAuth
 
-![Google OAuth documentation](../assets/screenshots/google-oauth-docs.png)
-
 1. Go to **Google Cloud Console > APIs & Services > Credentials**
+
+![Google Cloud Console Credentials page](../assets/screenshots/google-cloud-credentials.png)
+
 2. Click **Create Credentials > OAuth client ID**
-3. Application type: **Web application**
-4. Add authorized redirect URIs:
+3. Configure the OAuth consent screen if prompted:
+
+![Google OAuth consent screen setup](../assets/screenshots/google-oauth-setup-docs.png)
+
+4. Application type: **Web application**
+5. Add authorized redirect URIs:
    - `http://localhost:3000/api/auth/callback/google`
    - `https://yourdomain.com/api/auth/callback/google`
-5. Copy Client ID and Client Secret
+6. Copy Client ID and Client Secret
 
 ![NextAuth.js documentation](../assets/screenshots/nextauth-docs.png)
 

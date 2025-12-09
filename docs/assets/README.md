@@ -75,14 +75,22 @@ pngquant --quality=65-80 docs/assets/screenshots/*.png
 
 | Screenshot | Description | Used In |
 |------------|-------------|---------|
+| `github-developer-settings.png` | GitHub Developer Settings > OAuth Apps page | AUTH_IMPLEMENTATION_GUIDE.md |
+| `github-oauth-create-app.png` | GitHub OAuth app registration form | AUTH_IMPLEMENTATION_GUIDE.md |
 | `github-oauth-docs.png` | GitHub OAuth app creation docs | AUTH_IMPLEMENTATION_GUIDE.md |
+| `google-cloud-credentials.png` | Google Cloud Console credentials page | AUTH_IMPLEMENTATION_GUIDE.md |
+| `google-oauth-setup-docs.png` | Google OAuth consent screen setup | AUTH_IMPLEMENTATION_GUIDE.md |
 | `google-oauth-docs.png` | Google OAuth documentation | AUTH_IMPLEMENTATION_GUIDE.md |
 
 ### Database Providers
 
 | Screenshot | Description | Used In |
 |------------|-------------|---------|
+| `supabase-quickstart.png` | Supabase dashboard - organization projects view | DATABASE_SETUP.md |
+| `supabase-connection-docs.png` | Supabase "Connect to your database" docs | DATABASE_SETUP.md |
 | `supabase-landing.png` | Supabase landing page | DATABASE_SETUP.md |
+| `neon-quickstart.png` | Neon project dashboard with branches | DATABASE_SETUP.md |
+| `neon-connection-docs.png` | Neon connection modal with connection string | DATABASE_SETUP.md |
 | `neon-landing.png` | Neon database landing page | DATABASE_SETUP.md |
 | `planetscale-landing.png` | PlanetScale landing page | DATABASE_SETUP.md |
 
