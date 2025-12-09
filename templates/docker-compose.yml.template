@@ -1,0 +1,133 @@
+# =============================================================================
+# DOCKER COMPOSE - LOCAL DEVELOPMENT
+# =============================================================================
+# Provides PostgreSQL, Redis, and optional services for local development.
+#
+# Usage:
+#   docker compose up -d          # Start all services
+#   docker compose down           # Stop all services
+#   docker compose logs -f db     # View database logs
+#   docker compose exec db psql   # Connect to PostgreSQL
+#
+# Copy to: docker-compose.yml (root of your project)
+# =============================================================================
+
+version: '3.8'
+
+services:
+  # ===========================================================================
+  # DATABASE - PostgreSQL
+  # ===========================================================================
+  db:
+    image: postgres:16-alpine
+    container_name: ${PROJECT_NAME:-myapp}-db
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-myapp_dev}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Optional: Initialize with SQL scripts
+      # - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-postgres}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================================================
+  # CACHE - Redis
+  # ===========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: ${PROJECT_NAME:-myapp}-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===========================================================================
+  # OPTIONAL: DATABASE ADMIN UI - pgAdmin
+  # ===========================================================================
+  # Uncomment to enable web-based PostgreSQL administration
+  # Access at: http://localhost:5050
+  # ===========================================================================
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: ${PROJECT_NAME:-myapp}-pgadmin
+  #   restart: unless-stopped
+  #   ports:
+  #     - '5050:80'
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@example.com}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+  #   volumes:
+  #     - pgadmin_data:/var/lib/pgadmin
+  #   depends_on:
+  #     - db
+
+  # ===========================================================================
+  # OPTIONAL: EMAIL TESTING - Mailhog
+  # ===========================================================================
+  # Catches all outgoing emails for testing
+  # Web UI: http://localhost:8025
+  # SMTP: localhost:1025
+  # ===========================================================================
+  # mailhog:
+  #   image: mailhog/mailhog:latest
+  #   container_name: ${PROJECT_NAME:-myapp}-mailhog
+  #   restart: unless-stopped
+  #   ports:
+  #     - '1025:1025'  # SMTP
+  #     - '8025:8025'  # Web UI
+
+  # ===========================================================================
+  # OPTIONAL: S3-COMPATIBLE STORAGE - MinIO
+  # ===========================================================================
+  # Local S3-compatible storage for file uploads
+  # Console: http://localhost:9001
+  # API: http://localhost:9000
+  # ===========================================================================
+  # minio:
+  #   image: minio/minio:latest
+  #   container_name: ${PROJECT_NAME:-myapp}-minio
+  #   restart: unless-stopped
+  #   ports:
+  #     - '9000:9000'
+  #     - '9001:9001'
+  #   environment:
+  #     MINIO_ROOT_USER: ${MINIO_USER:-minio}
+  #     MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD:-minio123}
+  #   command: server /data --console-address ":9001"
+  #   volumes:
+  #     - minio_data:/data
+
+# =============================================================================
+# VOLUMES
+# =============================================================================
+volumes:
+  postgres_data:
+    name: ${PROJECT_NAME:-myapp}-postgres-data
+  redis_data:
+    name: ${PROJECT_NAME:-myapp}-redis-data
+  # pgadmin_data:
+  #   name: ${PROJECT_NAME:-myapp}-pgadmin-data
+  # minio_data:
+  #   name: ${PROJECT_NAME:-myapp}-minio-data
+
+# =============================================================================
+# NETWORKS (optional - use if you need service isolation)
+# =============================================================================
+# networks:
+#   backend:
+#     driver: bridge

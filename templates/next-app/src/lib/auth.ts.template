@@ -1,0 +1,195 @@
+// =============================================================================
+// NEXTAUTH.JS CONFIGURATION
+// =============================================================================
+// Central authentication configuration for NextAuth.js.
+// Supports multiple OAuth providers and database sessions via Prisma.
+//
+// Copy to: src/lib/auth.ts
+// =============================================================================
+
+import { NextAuthOptions } from 'next-auth'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import GitHubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
+import CredentialsProvider from 'next-auth/providers/credentials'
+import { prisma } from './prisma'
+
+// =============================================================================
+// AUTH OPTIONS
+// =============================================================================
+
+export const authOptions: NextAuthOptions = {
+  // Database adapter for session persistence
+  adapter: PrismaAdapter(prisma),
+
+  // Session configuration
+  session: {
+    strategy: 'jwt', // Use JWT for stateless sessions (recommended for serverless)
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+
+  // OAuth providers
+  providers: [
+    // =========================================================================
+    // GitHub OAuth
+    // =========================================================================
+    // Setup: https://github.com/settings/developers
+    // Callback: /api/auth/callback/github
+    // =========================================================================
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+    }),
+
+    // =========================================================================
+    // Google OAuth
+    // =========================================================================
+    // Setup: https://console.cloud.google.com/apis/credentials
+    // Callback: /api/auth/callback/google
+    // =========================================================================
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+
+    // =========================================================================
+    // Credentials (Email/Password) - Optional
+    // =========================================================================
+    // Only enable if you need email/password authentication.
+    // Requires additional password hashing and validation logic.
+    // =========================================================================
+    // CredentialsProvider({
+    //   name: 'credentials',
+    //   credentials: {
+    //     email: { label: 'Email', type: 'email' },
+    //     password: { label: 'Password', type: 'password' },
+    //   },
+    //   async authorize(credentials) {
+    //     if (!credentials?.email || !credentials?.password) {
+    //       return null
+    //     }
+    //
+    //     const user = await prisma.user.findUnique({
+    //       where: { email: credentials.email },
+    //     })
+    //
+    //     if (!user || !user.password) {
+    //       return null
+    //     }
+    //
+    //     // Compare password (use bcrypt or similar)
+    //     // const isValid = await bcrypt.compare(credentials.password, user.password)
+    //     // if (!isValid) return null
+    //
+    //     return {
+    //       id: user.id,
+    //       email: user.email,
+    //       name: user.name,
+    //       image: user.image,
+    //     }
+    //   },
+    // }),
+  ],
+
+  // Callbacks for customizing session and JWT
+  callbacks: {
+    // Add user ID to session
+    async session({ session, token }) {
+      if (session.user && token.sub) {
+        session.user.id = token.sub
+        // Add custom fields from token
+        // session.user.role = token.role as string
+      }
+      return session
+    },
+
+    // Add custom fields to JWT
+    async jwt({ token, user, trigger, session }) {
+      if (user) {
+        token.id = user.id
+        // Add custom fields from user
+        // token.role = user.role
+      }
+
+      // Handle session updates
+      if (trigger === 'update' && session) {
+        // Update token with new session data
+        token.name = session.name
+      }
+
+      return token
+    },
+
+    // Control sign-in behavior
+    async signIn({ user, account, profile }) {
+      // Example: Block specific email domains
+      // if (user.email?.endsWith('@blocked.com')) {
+      //   return false
+      // }
+
+      return true
+    },
+
+    // Customize redirect after sign-in
+    async redirect({ url, baseUrl }) {
+      // Redirect to dashboard after sign-in
+      if (url.startsWith('/')) return `${baseUrl}${url}`
+      if (url.startsWith(baseUrl)) return url
+      return baseUrl
+    },
+  },
+
+  // Custom pages
+  pages: {
+    signIn: '/auth/signin',
+    // signOut: '/auth/signout',
+    // error: '/auth/error',
+    // verifyRequest: '/auth/verify-request',
+    // newUser: '/auth/new-user',
+  },
+
+  // Events for logging/analytics
+  events: {
+    async signIn({ user, account, isNewUser }) {
+      // Log sign-in events
+      console.log(`User ${user.email} signed in via ${account?.provider}`)
+      if (isNewUser) {
+        console.log('New user registered!')
+        // Send welcome email, create default data, etc.
+      }
+    },
+    // async signOut({ token }) {
+    //   console.log(`User signed out`)
+    // },
+  },
+
+  // Debug mode (enable in development)
+  debug: process.env.NODE_ENV === 'development',
+}
+
+// =============================================================================
+// HELPER FUNCTIONS
+// =============================================================================
+
+import { getServerSession } from 'next-auth'
+
+/**
+ * Get the current session on the server.
+ * Use in Server Components, API routes, or Server Actions.
+ */
+export async function getCurrentUser() {
+  const session = await getServerSession(authOptions)
+  return session?.user
+}
+
+/**
+ * Require authentication - throws if not authenticated.
+ * Use in API routes or Server Actions.
+ */
+export async function requireAuth() {
+  const user = await getCurrentUser()
+  if (!user) {
+    throw new Error('Unauthorized')
+  }
+  return user
+}

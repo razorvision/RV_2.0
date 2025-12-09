@@ -1,0 +1,107 @@
+# =============================================================================
+# DOCKERFILE - PRODUCTION BUILD
+# =============================================================================
+# Multi-stage build for optimized production image.
+# Supports Next.js standalone output for minimal image size.
+#
+# Build: docker build -t myapp .
+# Run:   docker run -p 3000:3000 myapp
+#
+# Copy to: Dockerfile (root of your project)
+# =============================================================================
+
+# =============================================================================
+# STAGE 1: Dependencies
+# =============================================================================
+FROM node:20-alpine AS deps
+WORKDIR /app
+
+# Install dependencies for native modules
+RUN apk add --no-cache libc6-compat
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# =============================================================================
+# STAGE 2: Builder
+# =============================================================================
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Copy dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Generate Prisma client (if using Prisma)
+RUN npx prisma generate || true
+
+# Set environment for build
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+
+# Build the application
+RUN npm run build
+
+# =============================================================================
+# STAGE 3: Runner (Production)
+# =============================================================================
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+# Set environment
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Create non-root user for security
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy public assets
+COPY --from=builder /app/public ./public
+
+# Set up standalone output directory
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
+
+# Copy standalone build (requires output: 'standalone' in next.config.js)
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Copy Prisma files if needed
+# COPY --from=builder /app/prisma ./prisma
+# COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+
+# Switch to non-root user
+USER nextjs
+
+# Expose port
+EXPOSE 3000
+
+# Set hostname for Docker
+ENV HOSTNAME="0.0.0.0"
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/api/health || exit 1
+
+# Start the application
+CMD ["node", "server.js"]
+
+# =============================================================================
+# ALTERNATIVE: Development Dockerfile
+# =============================================================================
+# If you need a development-specific Dockerfile, create Dockerfile.dev:
+#
+# FROM node:20-alpine
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# EXPOSE 3000
+# CMD ["npm", "run", "dev"]
+#
+# Run with: docker build -f Dockerfile.dev -t myapp-dev .
+# =============================================================================

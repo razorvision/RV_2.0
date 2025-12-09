@@ -1,0 +1,115 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // ==========================================================================
+  // EXPERIMENTAL FEATURES
+  // ==========================================================================
+  experimental: {
+    // Enable Server Actions (stable in Next.js 14+)
+    // serverActions: true,
+
+    // Typed routes for better TypeScript support
+    typedRoutes: true,
+  },
+
+  // ==========================================================================
+  // IMAGES
+  // ==========================================================================
+  images: {
+    // Remote image domains (add domains you'll load images from)
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '/**',
+      },
+      // Add more domains as needed:
+      // {
+      //   protocol: 'https',
+      //   hostname: 'your-cdn.com',
+      //   pathname: '/images/**',
+      // },
+    ],
+  },
+
+  // ==========================================================================
+  // REDIRECTS & REWRITES
+  // ==========================================================================
+  async redirects() {
+    return [
+      // Example: Redirect old URLs to new ones
+      // {
+      //   source: '/old-page',
+      //   destination: '/new-page',
+      //   permanent: true,
+      // },
+    ]
+  },
+
+  async rewrites() {
+    return [
+      // Example: Proxy API requests
+      // {
+      //   source: '/api/external/:path*',
+      //   destination: 'https://external-api.com/:path*',
+      // },
+    ]
+  },
+
+  // ==========================================================================
+  // HEADERS
+  // ==========================================================================
+  async headers() {
+    return [
+      {
+        // Apply security headers to all routes
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+    ]
+  },
+
+  // ==========================================================================
+  // WEBPACK CONFIG (if needed)
+  // ==========================================================================
+  // webpack: (config, { isServer }) => {
+  //   // Custom webpack config
+  //   return config
+  // },
+
+  // ==========================================================================
+  // OTHER OPTIONS
+  // ==========================================================================
+
+  // Enable React strict mode
+  reactStrictMode: true,
+
+  // Disable X-Powered-By header
+  poweredByHeader: false,
+
+  // Enable output file tracing for smaller deployments
+  output: 'standalone',
+}
+
+module.exports = nextConfig

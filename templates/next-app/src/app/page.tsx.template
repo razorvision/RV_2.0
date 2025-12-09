@@ -1,0 +1,71 @@
+import Link from 'next/link'
+
+export default function HomePage() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-8">
+      {/* Hero Section */}
+      <div className="text-center">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          Welcome to{' '}
+          <span className="gradient-text">YOUR_APP_NAME</span>
+        </h1>
+        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+          YOUR_APP_DESCRIPTION
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <Link
+            href="/dashboard"
+            className="btn-primary"
+          >
+            Get started
+          </Link>
+          <Link
+            href="/docs"
+            className="btn-outline"
+          >
+            Learn more <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* Feature Cards */}
+      <div className="mt-20 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <FeatureCard
+          title="Fast Development"
+          description="Start building immediately with pre-configured tooling and best practices."
+          icon="🚀"
+        />
+        <FeatureCard
+          title="Type Safe"
+          description="Full TypeScript support with strict mode enabled for better DX."
+          icon="🔒"
+        />
+        <FeatureCard
+          title="Production Ready"
+          description="Optimized for performance with security headers and SEO configured."
+          icon="✨"
+        />
+      </div>
+    </main>
+  )
+}
+
+function FeatureCard({
+  title,
+  description,
+  icon,
+}: {
+  title: string
+  description: string
+  icon: string
+}) {
+  return (
+    <div className="card group transition-all hover:shadow-md">
+      <div className="text-3xl">{icon}</div>
+      <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        {description}
+      </p>
+    </div>
+  )
+}

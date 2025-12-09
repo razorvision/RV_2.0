@@ -4,13 +4,38 @@ This directory contains framework-specific documentation, patterns, and gotchas 
 
 ## Available Guides
 
+### Web Frameworks
+
 | Guide | Framework | Description |
 |-------|-----------|-------------|
 | [NEXTJS_PATTERNS.md](NEXTJS_PATTERNS.md) | Next.js | App Router, caching, environment variables |
+| [FASTAPI_PATTERNS.md](FASTAPI_PATTERNS.md) | FastAPI | Python API patterns, SQLAlchemy, authentication |
+
+### Mobile
+
+| Guide | Framework | Description |
+|-------|-----------|-------------|
+| [REACT_NATIVE_PATTERNS.md](REACT_NATIVE_PATTERNS.md) | React Native | Expo, navigation, state management, push notifications |
+
+### Backend Services
+
+| Guide | Framework | Description |
+|-------|-----------|-------------|
+| [SUPABASE_PATTERNS.md](SUPABASE_PATTERNS.md) | Supabase | Auth, database, real-time, storage, RLS |
 | [PRISMA_PATTERNS.md](PRISMA_PATTERNS.md) | Prisma | ORM patterns, migrations, connections |
+| [Database Patterns](DATABASE_PATTERNS.md) | Prisma | Transactions, soft deletes, audit trails |
+
+### Authentication
+
+| Guide | Framework | Description |
+|-------|-----------|-------------|
 | [NEXTAUTH_PATTERNS.md](NEXTAUTH_PATTERNS.md) | NextAuth.js | Authentication patterns, sessions, rate limiting |
 | [AUTH_IMPLEMENTATION_GUIDE.md](AUTH_IMPLEMENTATION_GUIDE.md) | Auth | Step-by-step authentication implementation |
-| [Database Patterns](DATABASE_PATTERNS.md) | Prisma | Transactions, soft deletes, audit trails |
+
+### Performance
+
+| Guide | Framework | Description |
+|-------|-----------|-------------|
 | [Performance Guide](PERFORMANCE_GUIDE.md) | General | Core Web Vitals, Next.js optimization, caching |
 
 ## When to Use These Guides

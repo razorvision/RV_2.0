@@ -4,6 +4,51 @@ Custom slash commands for Claude Code to streamline common development tasks.
 
 ## Available Commands
 
+### Project Setup
+
+#### `/init-project`
+Initialize a new project from templates
+- Copies starter templates (Next.js, Prisma, Docker)
+- Configures package.json with project name
+- Sets up authentication
+- Generates .env.example
+- Interactive tech stack selection
+
+#### `/init-database`
+Set up database connection and Prisma ORM
+- Supports Supabase, Neon, PlanetScale, local PostgreSQL, SQLite
+- Installs Prisma dependencies
+- Copies schema template with common models
+- Configures connection for chosen provider
+- Generates Prisma client
+
+#### `/init-auth`
+Set up authentication with your chosen provider
+- Supports NextAuth.js, Clerk, Supabase Auth
+- Creates auth configuration
+- Sets up API routes
+- Configures OAuth providers
+- Creates sign-in page (optional)
+
+#### `/generate-env`
+Interactively create .env.local file
+- Reads .env.example for required variables
+- Generates secrets automatically
+- Asks for values interactively
+- Validates configuration
+- Creates .env.local with proper formatting
+
+#### `/check-setup`
+Validate development environment
+- Checks required files exist
+- Validates environment variables
+- Tests database connection
+- Verifies dependencies installed
+- Runs TypeScript check
+- Generates summary report
+
+---
+
 ### Code Review & Quality
 
 #### `/review-security`
@@ -195,6 +240,13 @@ Add your command to this README.
 5. **Document decisions** - Note why changes were made
 
 ## Command Categories
+
+### 🚀 Project Setup
+- `/init-project` - Initialize new project
+- `/init-database` - Set up database
+- `/init-auth` - Configure authentication
+- `/generate-env` - Create environment file
+- `/check-setup` - Validate configuration
 
 ### 🔍 Analysis
 - `/review-security` - Security audit

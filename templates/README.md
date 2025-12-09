@@ -4,6 +4,101 @@ Standalone templates for common project configurations.
 
 ## 📦 Available Templates
 
+### Next.js Application Starter
+
+**[next-app/](next-app/)** - Complete Next.js 14+ starter kit
+
+Production-ready templates for full-stack Next.js applications:
+
+| Template | Purpose |
+|----------|---------|
+| `package.json.template` | Dependencies and scripts |
+| `tsconfig.json.template` | TypeScript strict configuration |
+| `tailwind.config.ts.template` | Tailwind with custom theme |
+| `next.config.js.template` | Security headers, images, standalone |
+| `src/app/layout.tsx.template` | Root layout with SEO metadata |
+| `src/app/providers.tsx.template` | Session + Theme providers |
+| `src/app/globals.css.template` | Utility CSS classes |
+| `src/app/page.tsx.template` | Homepage template |
+| `src/lib/prisma.ts.template` | Prisma client singleton |
+| `src/lib/auth.ts.template` | NextAuth.js configuration |
+
+**Quick Start:**
+```bash
+cp -r templates/next-app/* your-project/
+cd your-project && npm install
+```
+
+**Documentation:** See [next-app/README.md](next-app/README.md)
+
+---
+
+### API Route Template
+
+**[api-route.ts.template](api-route.ts.template)**
+
+Next.js API route with validation, authentication, and pagination:
+
+- Zod schema validation
+- NextAuth.js authentication
+- Prisma database queries
+- Error handling patterns
+- GET, POST, PUT, DELETE examples
+
+**Usage:**
+```bash
+cp templates/api-route.ts.template src/app/api/your-route/route.ts
+```
+
+---
+
+### Prisma Schema Template
+
+**[prisma-schema.prisma.template](prisma-schema.prisma.template)**
+
+Complete database schema with common models:
+
+- NextAuth.js compatible User/Account/Session models
+- Post, Comment, Category example models
+- Soft delete support
+- Audit timestamps
+- Optional subscription/billing models
+- Index optimization
+
+**Usage:**
+```bash
+cp templates/prisma-schema.prisma.template prisma/schema.prisma
+npx prisma db push && npx prisma generate
+```
+
+---
+
+### Docker Templates
+
+**[docker-compose.yml.template](docker-compose.yml.template)**
+
+Local development services:
+- PostgreSQL 16
+- Redis 7
+- Optional: pgAdmin, Mailhog, MinIO
+
+**[Dockerfile.template](Dockerfile.template)**
+
+Multi-stage production build:
+- Node.js 20 Alpine
+- Standalone Next.js output
+- Non-root user
+- Health check
+
+**Usage:**
+```bash
+cp templates/docker-compose.yml.template docker-compose.yml
+cp templates/Dockerfile.template Dockerfile
+docker compose up -d
+```
+
+---
+
 ### Python Project Configuration
 
 **[pyproject.toml.template](pyproject.toml.template)**

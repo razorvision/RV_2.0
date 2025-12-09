@@ -4,6 +4,68 @@ Automation scripts and utilities for the project-intake-template repository.
 
 ## 📜 Available Scripts
 
+### Project Setup Scripts
+
+**setup-wizard.js** (Interactive Setup Wizard)
+```bash
+node scripts/setup-wizard.js
+```
+
+Guides you through complete project setup:
+- Project name and description
+- Framework selection (Next.js, FastAPI, Express)
+- Database provider selection (Supabase, Neon, Railway)
+- Authentication setup (NextAuth, Clerk, Supabase Auth)
+- Optional features (Stripe, email, uploads, analytics)
+- Generates .env.local with all required variables
+- Optionally installs dependencies and generates Prisma client
+
+**generate-env.js** (Environment File Generator)
+```bash
+node scripts/generate-env.js              # Interactive mode
+node scripts/generate-env.js --auto       # Auto-generate secrets
+node scripts/generate-env.js --template supabase  # Use template
+node scripts/generate-env.js --force      # Overwrite existing
+```
+
+Available templates: `supabase`, `neon`, `clerk`, `nextauth`, `stripe`
+
+---
+
+### Validation & Health Check Scripts
+
+**validate-setup.js** (Cross-Platform - Recommended)
+```bash
+node scripts/validate-setup.js          # Run validation
+node scripts/validate-setup.js --fix    # Auto-fix issues
+node scripts/validate-setup.js --quiet  # Only show errors
+```
+
+**validate-setup.sh** (Mac/Linux/Git Bash)
+```bash
+bash scripts/validate-setup.sh          # Run validation
+bash scripts/validate-setup.sh --fix    # Auto-fix issues
+```
+
+**health-check.sh** (Mac/Linux/Git Bash)
+```bash
+bash scripts/health-check.sh                    # Check localhost:3000
+bash scripts/health-check.sh http://example.com # Check custom URL
+bash scripts/health-check.sh --services-only    # Only check services
+```
+
+These scripts validate:
+- Required files (package.json, tsconfig.json, etc.)
+- Environment variables (.env.local)
+- Dependencies (node_modules, Prisma client)
+- TypeScript compilation
+- Linting
+- Database connection
+- Docker services (if configured)
+- Git configuration
+
+---
+
 ### Label Setup Scripts
 
 **setup-labels.sh** (Mac/Linux/Git Bash)

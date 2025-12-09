@@ -63,6 +63,36 @@ See [MCP Servers Guide](MCP_SERVERS_GUIDE.md#creating-custom-mcp-servers) for im
 
 ---
 
+## Service Integrations
+
+Step-by-step guides for integrating common third-party services.
+
+### Payments
+
+| Guide | Service | Use Case |
+|-------|---------|----------|
+| [Stripe Integration](STRIPE_INTEGRATION.md) | Stripe | Payments, subscriptions, checkout |
+
+### Communication
+
+| Guide | Service | Use Case |
+|-------|---------|----------|
+| [Email Integration](EMAIL_INTEGRATION.md) | Resend, SendGrid | Transactional email, templates |
+
+### Storage
+
+| Guide | Service | Use Case |
+|-------|---------|----------|
+| [File Upload Integration](FILE_UPLOAD_INTEGRATION.md) | UploadThing, S3 | File uploads, image storage |
+
+### Analytics
+
+| Guide | Service | Use Case |
+|-------|---------|----------|
+| [Analytics Integration](ANALYTICS_INTEGRATION.md) | PostHog, Plausible | User tracking, A/B testing |
+
+---
+
 ## Other Integrations
 
 - **GitHub Actions:** See [.github/workflows/](../../.github/workflows/)

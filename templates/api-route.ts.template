@@ -1,0 +1,216 @@
+// =============================================================================
+// API ROUTE TEMPLATE
+// =============================================================================
+// Copy this file to: src/app/api/YOUR_ROUTE/route.ts
+// Replace YOUR_ROUTE with your endpoint path (e.g., users, posts, etc.)
+// =============================================================================
+
+import { NextRequest, NextResponse } from 'next/server'
+import { getServerSession } from 'next-auth'
+import { z } from 'zod'
+import { authOptions } from '@/lib/auth'
+import { prisma } from '@/lib/prisma'
+
+// =============================================================================
+// VALIDATION SCHEMAS
+// =============================================================================
+
+// Define your request body schema
+const createSchema = z.object({
+  name: z.string().min(1, 'Name is required').max(100),
+  email: z.string().email('Invalid email address'),
+  // Add more fields as needed
+})
+
+const updateSchema = createSchema.partial()
+
+// Query params schema
+const querySchema = z.object({
+  page: z.coerce.number().min(1).default(1),
+  limit: z.coerce.number().min(1).max(100).default(10),
+  search: z.string().optional(),
+})
+
+// =============================================================================
+// GET - Fetch resources
+// =============================================================================
+export async function GET(request: NextRequest) {
+  try {
+    // Optional: Require authentication
+    // const session = await getServerSession(authOptions)
+    // if (!session) {
+    //   return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    // }
+
+    // Parse query parameters
+    const { searchParams } = new URL(request.url)
+    const query = querySchema.parse({
+      page: searchParams.get('page'),
+      limit: searchParams.get('limit'),
+      search: searchParams.get('search'),
+    })
+
+    // Calculate pagination
+    const skip = (query.page - 1) * query.limit
+
+    // Fetch data from database
+    const [items, total] = await Promise.all([
+      prisma.yourModel.findMany({
+        where: query.search
+          ? {
+              OR: [
+                { name: { contains: query.search, mode: 'insensitive' } },
+                { email: { contains: query.search, mode: 'insensitive' } },
+              ],
+            }
+          : undefined,
+        skip,
+        take: query.limit,
+        orderBy: { createdAt: 'desc' },
+      }),
+      prisma.yourModel.count({
+        where: query.search
+          ? {
+              OR: [
+                { name: { contains: query.search, mode: 'insensitive' } },
+                { email: { contains: query.search, mode: 'insensitive' } },
+              ],
+            }
+          : undefined,
+      }),
+    ])
+
+    return NextResponse.json({
+      data: items,
+      pagination: {
+        page: query.page,
+        limit: query.limit,
+        total,
+        totalPages: Math.ceil(total / query.limit),
+      },
+    })
+  } catch (error) {
+    console.error('GET /api/your-route error:', error)
+
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid query parameters', details: error.errors },
+        { status: 400 }
+      )
+    }
+
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+// =============================================================================
+// POST - Create resource
+// =============================================================================
+export async function POST(request: NextRequest) {
+  try {
+    // Require authentication
+    const session = await getServerSession(authOptions)
+    if (!session?.user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Parse and validate request body
+    const body = await request.json()
+    const data = createSchema.parse(body)
+
+    // Create resource in database
+    const item = await prisma.yourModel.create({
+      data: {
+        ...data,
+        userId: session.user.id,
+      },
+    })
+
+    return NextResponse.json({ data: item }, { status: 201 })
+  } catch (error) {
+    console.error('POST /api/your-route error:', error)
+
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Validation failed', details: error.errors },
+        { status: 400 }
+      )
+    }
+
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+// =============================================================================
+// For dynamic routes: src/app/api/your-route/[id]/route.ts
+// =============================================================================
+// export async function GET(
+//   request: NextRequest,
+//   { params }: { params: { id: string } }
+// ) {
+//   const item = await prisma.yourModel.findUnique({
+//     where: { id: params.id },
+//   })
+//
+//   if (!item) {
+//     return NextResponse.json({ error: 'Not found' }, { status: 404 })
+//   }
+//
+//   return NextResponse.json({ data: item })
+// }
+
+// =============================================================================
+// PUT/PATCH - Update resource
+// =============================================================================
+// export async function PUT(
+//   request: NextRequest,
+//   { params }: { params: { id: string } }
+// ) {
+//   try {
+//     const session = await getServerSession(authOptions)
+//     if (!session?.user) {
+//       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+//     }
+//
+//     const body = await request.json()
+//     const data = updateSchema.parse(body)
+//
+//     const item = await prisma.yourModel.update({
+//       where: { id: params.id },
+//       data,
+//     })
+//
+//     return NextResponse.json({ data: item })
+//   } catch (error) {
+//     // Handle errors...
+//   }
+// }
+
+// =============================================================================
+// DELETE - Remove resource
+// =============================================================================
+// export async function DELETE(
+//   request: NextRequest,
+//   { params }: { params: { id: string } }
+// ) {
+//   try {
+//     const session = await getServerSession(authOptions)
+//     if (!session?.user) {
+//       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+//     }
+//
+//     await prisma.yourModel.delete({
+//       where: { id: params.id },
+//     })
+//
+//     return new NextResponse(null, { status: 204 })
+//   } catch (error) {
+//     // Handle errors...
+//   }
+// }
