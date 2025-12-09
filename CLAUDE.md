@@ -108,6 +108,23 @@ NOT: `Closes #101, #102` (comma-separated won't auto-close)
 
 ## MCP Tool Usage
 
+### Global vs Project MCP Configuration
+
+MCP servers are configured in two places:
+
+1. **Global MCPs** (`~/.claude/settings.json` or VS Code global settings)
+   - Loaded for all projects automatically
+   - Include general-purpose tools: Playwright, GitHub, Brave Search, Context7, etc.
+   - Configured once, available everywhere
+
+2. **Project MCPs** (`.mcp.json` in project root)
+   - Project-specific servers only
+   - Example: project-specific database connections, custom tools
+   - The `.mcp.json` in this template is primarily for **documentation/reference**
+   - Actual MCP loading comes from global settings unless project-specific servers are needed
+
+**Important:** If an MCP tool isn't available, check that it's configured in your global Claude settings, not just the project `.mcp.json`.
+
 ### Playwright Browser Automation
 
 Use `mcp__playwright__*` tools for E2E testing, visual verification, and debugging.

@@ -3,7 +3,7 @@
     "playwright": {
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-playwright"],
+      "args": ["-y", "@playwright/mcp@latest"],
       "env": {}
     },
     "filesystem": {
@@ -24,12 +24,14 @@
       "transport": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "env": {}
+      "env": {
+        "MEMORY_FILE_PATH": "${PWD}/.claude/memory.jsonl"
+      }
     },
     "context7": {
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@context7/mcp"],
+      "args": ["-y", "@upstash/context7-mcp"],
       "env": {}
     },
     "slack": {
@@ -46,7 +48,7 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
     },
     "sequential-thinking": {
@@ -80,7 +82,7 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-brave-search"],
       "env": {
-        "BRAVE_API_KEY": ""
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     },
     "everything": {
