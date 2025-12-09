@@ -2,6 +2,145 @@
 
 Step-by-step guide for implementing authentication in web applications, with a focus on NextAuth.js but applicable patterns for other providers.
 
+---
+
+## TL;DR - 5 Minute Auth Setup
+
+**Just want auth working quickly?** Here's the fastest path:
+
+### 1. Install
+
+```bash
+npm install next-auth @auth/prisma-adapter
+```
+
+### 2. Set Environment Variables
+
+```bash
+# .env.local
+AUTH_SECRET=run-this-command-openssl-rand-base64-32
+NEXTAUTH_URL=http://localhost:3000
+
+# Pick ONE provider to start:
+GITHUB_CLIENT_ID=your-id
+GITHUB_CLIENT_SECRET=your-secret
+```
+
+### 3. Create Auth Route
+
+```typescript
+// app/api/auth/[...nextauth]/route.ts
+import NextAuth from 'next-auth'
+import GitHub from 'next-auth/providers/github'
+
+const handler = NextAuth({
+  providers: [
+    GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+    }),
+  ],
+})
+
+export { handler as GET, handler as POST }
+```
+
+### 4. Done!
+
+Visit `http://localhost:3000/api/auth/signin` to test.
+
+**Want more?** Read the full guide below.
+
+---
+
+## Which Auth Provider Should I Use?
+
+```
+                    START HERE
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+        ▼               ▼               ▼
+   Need it       Using Next.js?    Enterprise
+   FAST?              │            requirements?
+        │        ┌────┴────┐            │
+        ▼        ▼         ▼            ▼
+     CLERK    Yes         No         AUTH0
+   (5 min)     │           │       (compliance,
+              ▼           ▼         SSO, SAML)
+         NEXTAUTH    Consider:
+         (free,      - Supabase Auth
+         flexible)   - Firebase Auth
+                     - Lucia
+```
+
+### Decision Matrix
+
+| If you need... | Use | Why |
+|---------------|-----|-----|
+| Fastest setup, don't care about vendor lock-in | **Clerk** | Pre-built UI, 5-minute setup |
+| Free, full control, Next.js app | **NextAuth.js** | Open source, flexible, great ecosystem |
+| Already using Supabase | **Supabase Auth** | Integrated, row-level security |
+| Already using Firebase | **Firebase Auth** | Integrated, good mobile support |
+| Enterprise SSO, SAML, compliance | **Auth0** | Enterprise features, SOC2 ready |
+| Non-Next.js Node app | **Lucia** | Framework agnostic, lightweight |
+
+### Quick Environment Variables by Provider
+
+<details>
+<summary><strong>NextAuth.js</strong></summary>
+
+```bash
+AUTH_SECRET=generate-with-openssl-rand-base64-32
+NEXTAUTH_URL=http://localhost:3000
+
+# GitHub OAuth
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+# Google OAuth
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+```
+</details>
+
+<details>
+<summary><strong>Clerk</strong></summary>
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxx
+CLERK_SECRET_KEY=sk_test_xxx
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/dashboard
+```
+</details>
+
+<details>
+<summary><strong>Auth0</strong></summary>
+
+```bash
+AUTH0_SECRET=generate-with-openssl-rand-hex-32
+AUTH0_BASE_URL=http://localhost:3000
+AUTH0_ISSUER_BASE_URL=https://YOUR_TENANT.auth0.com
+AUTH0_CLIENT_ID=
+AUTH0_CLIENT_SECRET=
+```
+</details>
+
+<details>
+<summary><strong>Supabase Auth</strong></summary>
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx
+SUPABASE_SERVICE_ROLE_KEY=eyJxxx
+```
+</details>
+
+---
+
 ## Choosing an Auth Provider
 
 | Provider | Best For | Complexity | Cost |
@@ -276,22 +415,37 @@ export async function GET() {
 ### GitHub OAuth
 
 1. Go to **GitHub > Settings > Developer settings > OAuth Apps**
+
+![GitHub Developer Settings showing OAuth Apps](../assets/screenshots/github-developer-settings.png)
+
 2. Click **New OAuth App**
-3. Fill in:
+3. Fill in the registration form:
    - **Application name**: Your app name
    - **Homepage URL**: `http://localhost:3000` (dev) or production URL
    - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
+
+![GitHub OAuth App registration form](../assets/screenshots/github-oauth-create-app.png)
+
 4. Copy Client ID and generate Client Secret
 
 ### Google OAuth
 
 1. Go to **Google Cloud Console > APIs & Services > Credentials**
+
+![Google Cloud Console Credentials page](../assets/screenshots/google-cloud-credentials.png)
+
 2. Click **Create Credentials > OAuth client ID**
-3. Application type: **Web application**
-4. Add authorized redirect URIs:
+3. Configure the OAuth consent screen if prompted:
+
+![Google OAuth consent screen setup](../assets/screenshots/google-oauth-setup-docs.png)
+
+4. Application type: **Web application**
+5. Add authorized redirect URIs:
    - `http://localhost:3000/api/auth/callback/google`
    - `https://yourdomain.com/api/auth/callback/google`
-5. Copy Client ID and Client Secret
+6. Copy Client ID and Client Secret
+
+![NextAuth.js documentation](../assets/screenshots/nextauth-docs.png)
 
 ## TypeScript Extensions
 

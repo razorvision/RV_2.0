@@ -48,6 +48,8 @@ A template repository is a special type of GitHub repository that serves as a st
    - Select public or private
    - Choose "Create repository from template"
 
+![GitHub issue template chooser showing available templates](../assets/screenshots/github-issue-templates.png)
+
 4. **Clone your new repository:**
    ```bash
    git clone https://github.com/your-username/your-new-repo.git

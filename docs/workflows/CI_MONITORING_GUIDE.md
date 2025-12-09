@@ -37,6 +37,8 @@ Most modern CI systems (including GitHub Actions) use the Check Runs API.
 
 ## Why Use the Check-Runs API
 
+![GitHub Actions workflows tab showing CI/CD pipelines](../assets/screenshots/github-actions.png)
+
 ### The Problem
 
 The legacy status API (`GET /repos/{owner}/{repo}/commits/{ref}/status`) doesn't work reliably with GitHub Actions. It often returns "pending" even when all checks have completed.

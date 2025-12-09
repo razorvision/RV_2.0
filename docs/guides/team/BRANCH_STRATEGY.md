@@ -408,6 +408,10 @@ gh pr create \
 # 6. Click "Create pull request"
 ```
 
+![Pull request creation page with template](../../assets/screenshots/github-pr-template.png)
+
+![Pull requests list showing open PRs](../../assets/screenshots/github-pull-requests.png)
+
 ### PR Guidelines
 
 **Title:** Use conventional commit format

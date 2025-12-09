@@ -2,6 +2,50 @@
 
 This repository uses Model Context Protocol (MCP) servers to enhance Claude Code's capabilities for automated testing and workflow automation.
 
+> **Want the quick version?** See [MCP Quick Start](MCP_QUICKSTART.md) for a 5-minute setup guide.
+
+---
+
+## Quick Reference: Environment Variables
+
+Copy this block to your shell profile (`~/.bashrc`, `~/.zshrc`, or PowerShell profile):
+
+```bash
+# ==============================================================
+# MCP SERVER ENVIRONMENT VARIABLES
+# ==============================================================
+# Only set the ones you need. Most MCP servers work without any config!
+
+# GitHub MCP Server (recommended)
+# Get token: https://github.com/settings/tokens
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
+
+# Slack MCP Server (optional)
+# Get tokens: https://api.slack.com/apps
+export SLACK_BOT_TOKEN="xoxb-xxxxxxxxxxxx"
+export SLACK_TEAM_ID="T12345678"
+
+# Brave Search MCP Server (optional - 2,000 free queries/month)
+# Get key: https://brave.com/search/api/
+export BRAVE_API_KEY="BSAxxxxxxxxxxxxxxxxxxxx"
+
+# PostgreSQL MCP Server (optional - uses project DATABASE_URL if not set)
+export POSTGRES_CONNECTION_STRING="postgresql://user:pass@host:5432/db"
+
+# Sentry MCP Server (optional)
+# Get from: https://sentry.io/settings/account/api/auth-tokens/
+export SENTRY_AUTH_TOKEN="sntrys_xxxx"
+```
+
+**After adding, reload your shell:**
+```bash
+source ~/.bashrc  # or ~/.zshrc
+```
+
+For detailed variable documentation, see [Environment Variables Reference](../reference/ENV_VARIABLES.md).
+
+---
+
 ## What is MCP?
 
 Model Context Protocol (MCP) allows Claude Code to connect to external tools and services. For this project, we use the Playwright MCP server to enable:
