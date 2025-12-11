@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quality Policy | RazorVision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rv-blue: #43B6E7;
+            --rv-dark: #393939;
+            --rv-light: #F5F5F5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            color: var(--rv-dark);
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; margin: 1.5em 0 0.5em; }
+        h1 { font-size: 2.25rem; color: var(--rv-dark); margin-top: 0; }
+        h2 { font-size: 1.5rem; color: var(--rv-blue); border-bottom: 2px solid var(--rv-blue); padding-bottom: 0.25em; margin-top: 2em; }
+        h3 { font-size: 1.15rem; color: var(--rv-dark); margin-top: 1.5em; }
+        h4 { font-size: 1rem; color: var(--rv-blue); margin-top: 1.25em; }
+
+        p { margin: 0.75em 0; }
+        a { color: var(--rv-blue); }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--rv-light);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre {
+            background: var(--rv-dark);
+            color: #f8f8f8;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1em 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        pre code { background: none; padding: 0; color: inherit; }
+
+        .tip, .warning, .info, .note {
+            padding: 1em 1em 1em 1.25em;
+            border-radius: 8px;
+            margin: 1.25em 0;
+        }
+
+        .tip { background: #E8F8EE; border-left: 4px solid #28A745; }
+        .warning { background: #FFF8E6; border-left: 4px solid #FFC107; }
+        .info { background: #E7F4FB; border-left: 4px solid var(--rv-blue); }
+        .note { background: #F3E8FF; border-left: 4px solid #9D4EDD; }
+        .tip strong, .warning strong, .info strong, .note strong { display: block; margin-bottom: 0.25em; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        th, td { padding: 0.6em 0.75em; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: var(--rv-light); font-weight: 700; }
+        tr:hover { background: rgba(67, 182, 231, 0.05); }
+
+        ul, ol { margin: 0.75em 0 0.75em 1.5em; }
+        li { margin: 0.35em 0; }
+
+        .toc {
+            background: var(--rv-light);
+            padding: 1.25em 1.5em;
+            border-radius: 8px;
+            margin: 1.5em 0 2em;
+        }
+        .toc h3 { margin-top: 0; color: var(--rv-dark); }
+        .toc ul { list-style: none; margin: 0.5em 0 0 0; }
+        .toc li { margin: 0.4em 0; }
+        .toc a { text-decoration: none; }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-left { display: flex; align-items: center; gap: 0.75rem; }
+        .header-right { color: var(--rv-blue); font-size: 0.85rem; }
+
+        .subtitle { color: #666; font-size: 1rem; margin-top: 0.5em; font-weight: 400; }
+
+        .check { color: #28A745; }
+        .cross { color: #DC3545; }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5em 0;
+        }
+        .comparison-grid > div {
+            background: var(--rv-light);
+            padding: 1.25em;
+            border-radius: 8px;
+        }
+        .good-example { border-top: 4px solid #28A745; }
+        .bad-example { border-top: 4px solid #DC3545; }
+        .good-example h4 { color: #28A745; margin-top: 0; }
+        .bad-example h4 { color: #DC3545; margin-top: 0; }
+
+        .checklist { list-style: none; margin-left: 0; }
+        .checklist li {
+            position: relative;
+            padding-left: 2em;
+            margin: 0.5em 0;
+        }
+        .checklist li::before {
+            content: '\2610';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            color: var(--rv-blue);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <svg height="36" viewBox="0 0 297.7 51.02" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#43b6e7" d="m47.34,0h-13.12L15.4,51.02h13.12L47.34,0Z"/>
+                <path fill="#393939" d="m10.16.34H.07v10.9h6.52c.63,0,1.26.11,1.85.34.59.24,1.12.59,1.57,1.04.45.45.81.98,1.05,1.56.24.59.37,1.22.37,1.85s-.13,1.27-.37,1.85c-.24.59-.6,1.12-1.05,1.56-.45.45-.99.8-1.57,1.04-.59.24-1.22.35-1.85.34H.07v2.03h-.02l-.05,11.68,13.01,15.78,4.4-12.22-5.76-7.32c3.38-.37,6.51-1.98,8.79-4.52,2.27-2.54,3.53-5.84,3.53-9.25v-2.8c0-1.82-.36-3.62-1.05-5.3-.69-1.68-1.71-3.21-2.99-4.5-1.28-1.29-2.81-2.31-4.48-3-1.68-.7-3.47-1.06-5.29-1.06Z"/>
+                <path fill="#393939" d="m74.61,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.57v24h1.74v-7.86h6.83c.78,0,1.55-.06,2.32-.17l5.71,8.03h1.99l-5.99-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.21,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <path fill="#393939" d="m100.86,25.52l-5.5-12h-1.74l-11,24h1.88l3.04-6.76h13.87l3.07,6.76h1.88l-5.5-12Zm-12.64,3.77l3.13-6.93,3.13-6.93,6.29,13.86h-6.27s-6.27,0-6.27,0Z"/>
+                <polygon fill="#393939" points="127.4 35.93 110.56 35.93 127.03 14.75 127.03 13.51 108.34 13.51 108.34 13.51 108.34 15.09 108.34 15.09 124.63 15.09 108.13 36.28 108.13 37.52 127.4 37.52 127.4 37.52 127.4 35.93 127.4 35.93"/>
+                <path fill="#393939" d="m153.41,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.53-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.84,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.86-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.66-4.05,1.62-6.24.03-2.19-.53-4.35-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.03-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <path fill="#393939" d="m173.69,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.58v24h1.74v-7.85h6.83c.78,0,1.55-.06,2.32-.17l5.7,8.02h1.98s-5.98-8.4-5.98-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.22,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <polygon fill="#393939" points="202.97 13.51 193.29 35.25 183.63 13.51 181.72 13.51 192.38 37.52 194.12 37.52 204.78 13.51 202.97 13.51"/>
+                <rect fill="#393939" x="208.64" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m232.5,27.96c-.73-.83-1.65-1.47-2.68-1.87-1.37-.51-2.78-.93-4.2-1.27-1.26-.3-2.5-.66-3.72-1.1-.86-.31-1.65-.82-2.29-1.47-.32-.35-.56-.75-.72-1.19-.16-.44-.23-.91-.2-1.38-.01-.67.14-1.34.43-1.94.3-.6.73-1.12,1.28-1.52,1.48-.99,3.25-1.46,5.02-1.34,1.15,0,2.3.18,3.4.52,1.13.33,2.19.84,3.16,1.51l.65-1.41c-1.02-.7-2.13-1.23-3.32-1.58-1.26-.39-2.58-.58-3.89-.58-1.62-.05-3.23.24-4.73.86-1.15.47-2.13,1.28-2.82,2.31-.61.96-.93,2.07-.92,3.21-.07,1.25.33,2.47,1.1,3.45.73.85,1.66,1.5,2.7,1.9,1.38.51,2.79.93,4.22,1.27,1.25.28,2.48.63,3.69,1.06.86.31,1.65.82,2.29,1.48.32.35.56.75.72,1.19s.23.91.21,1.38c.01.67-.14,1.32-.45,1.92-.3.59-.75,1.1-1.3,1.48-1.54.97-3.34,1.43-5.16,1.3-1.54,0-3.06-.28-4.49-.84-1.28-.47-2.44-1.21-3.4-2.17l-.78,1.3c1.04,1.06,2.31,1.86,3.71,2.35,1.6.61,3.29.91,5,.9,1.64.05,3.26-.24,4.78-.86,1.17-.46,2.17-1.26,2.89-2.3.62-.95.95-2.06.94-3.19.07-1.23-.33-2.43-1.11-3.38Z"/>
+                <rect fill="#393939" x="239.52" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m270.56,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.54-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.83,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.85-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.65-4.05,1.62-6.24.03-2.19-.53-4.34-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.02-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <polygon fill="#393939" points="295.95 13.51 295.95 34.36 279.69 13.51 278.23 13.51 278.23 37.52 279.97 37.52 279.97 16.67 296.26 37.52 297.7 37.52 297.7 13.51 295.95 13.51"/>
+            </svg>
+        </div>
+        <div class="header-right">razorvision.net</div>
+    </header>
+
+    <h1>Code Quality Policy</h1>
+    <p class="subtitle">Standards for maintaining clean, maintainable codebases at scale</p>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#todo-policy">TODO/FIXME Policy</a></li>
+            <li><a href="#pr-size">Pull Request Size Guidelines</a></li>
+            <li><a href="#issue-linking">Issue Linking Standards</a></li>
+            <li><a href="#commits">Commit Message Standards</a></li>
+            <li><a href="#pre-commit">Pre-Commit Checklist</a></li>
+            <li><a href="#testing">Test Coverage Requirements</a></li>
+            <li><a href="#code-review">Code Review Standards</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="todo-policy">TODO/FIXME Policy</h2>
+
+    <p>TODO and FIXME comments are technical debt markers. Without tracking, they accumulate and are forgotten.</p>
+
+    <h3>TODO Comments</h3>
+    <p><strong>Must reference a GitHub issue:</strong></p>
+
+    <div class="comparison-grid">
+        <div class="good-example">
+            <h4><span class="check">✓</span> Correct</h4>
+            <pre><code>// TODO #123: Implement caching
+const data = await fetchData();
+
+// TODO #456: Add pagination
+const items = await db.items.findMany();</code></pre>
+        </div>
+        <div class="bad-example">
+            <h4><span class="cross">✗</span> Not Acceptable</h4>
+            <pre><code>// TODO: Fix this later
+// TODO: Add error handling
+// TODO: Refactor</code></pre>
+        </div>
+    </div>
+
+    <h3>FIXME Comments</h3>
+    <p><strong>Must be resolved before merging.</strong> FIXME indicates broken or problematic code that should never be committed to main.</p>
+
+    <div class="warning">
+        <strong>Rule:</strong> If you can't fix it immediately, convert to a TODO with an issue reference.
+    </div>
+
+    <h3>Skipped Tests</h3>
+    <p>Use <code>it.skip()</code> with an issue reference:</p>
+    <pre><code>// Skipping due to flaky behavior - see #789
+it.skip('handles concurrent updates', async () => {
+  // Test implementation
+});</code></pre>
+
+    <h2 id="pr-size">Pull Request Size Guidelines</h2>
+
+    <div class="info">
+        <strong>Target:</strong> Aim for PRs under 500 lines changed.
+    </div>
+
+    <p>Smaller PRs are easier to review, less likely to introduce bugs, faster to merge, and easier to revert.</p>
+
+    <h3>Splitting Large Changes</h3>
+
+    <h4>Strategy 1: Layer by Layer</h4>
+    <ol>
+        <li><strong>PR 1: Data Layer</strong> - Database schema, ORM models, migrations</li>
+        <li><strong>PR 2: API Layer</strong> - API routes, validation, business logic</li>
+        <li><strong>PR 3: UI Layer</strong> - Components, pages, styling</li>
+        <li><strong>PR 4: Tests</strong> - Unit, integration, E2E tests</li>
+    </ol>
+
+    <h4>Strategy 2: Feature Flags</h4>
+    <p>For features that must ship atomically, implement behind a feature flag and split into multiple PRs.</p>
+
+    <h4>Exceptions</h4>
+    <p>Larger PRs are acceptable for: generated files, dependency updates, large refactors that can't be split safely, initial project setup. <strong>Always document why</strong> in the PR description.</p>
+
+    <h2 id="issue-linking">Issue Linking Standards</h2>
+
+    <p>GitHub auto-closes issues when PRs merge, but only with correct formatting.</p>
+
+    <div class="comparison-grid">
+        <div class="good-example">
+            <h4><span class="check">✓</span> Correct (each on its own line)</h4>
+            <pre><code>Closes #101
+Closes #102
+Fixes #103</code></pre>
+        </div>
+        <div class="bad-example">
+            <h4><span class="cross">✗</span> Won't auto-close all</h4>
+            <pre><code>Closes #101, #102, #103
+Closes #101 and #102
+Related to #101, #102</code></pre>
+        </div>
+    </div>
+
+    <h3>Keywords That Close Issues</h3>
+    <p><code>close</code>, <code>closes</code>, <code>closed</code>, <code>fix</code>, <code>fixes</code>, <code>fixed</code>, <code>resolve</code>, <code>resolves</code>, <code>resolved</code></p>
+
+    <h2 id="commits">Commit Message Standards</h2>
+
+    <p>Follow <a href="https://www.conventionalcommits.org/">Conventional Commits</a>:</p>
+
+    <pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;
+
+[optional body]
+
+[optional footer]</code></pre>
+
+    <h3>Types</h3>
+    <table>
+        <thead>
+            <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>feat</code></td><td>New feature</td><td>feat: add dark mode toggle</td></tr>
+            <tr><td><code>fix</code></td><td>Bug fix</td><td>fix: resolve auth timeout</td></tr>
+            <tr><td><code>docs</code></td><td>Documentation</td><td>docs: update API reference</td></tr>
+            <tr><td><code>style</code></td><td>Formatting (no code change)</td><td>style: fix indentation</td></tr>
+            <tr><td><code>refactor</code></td><td>Code change (no new feature/fix)</td><td>refactor: extract validation</td></tr>
+            <tr><td><code>test</code></td><td>Add/update tests</td><td>test: add auth tests</td></tr>
+            <tr><td><code>chore</code></td><td>Maintenance</td><td>chore: update dependencies</td></tr>
+            <tr><td><code>perf</code></td><td>Performance improvement</td><td>perf: optimize queries</td></tr>
+            <tr><td><code>ci</code></td><td>CI/CD changes</td><td>ci: add e2e workflow</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Description Guidelines</h3>
+    <ul>
+        <li>Use imperative mood: "add" not "added" or "adds"</li>
+        <li>Don't capitalize first letter</li>
+        <li>No period at the end</li>
+        <li>Keep under 72 characters</li>
+    </ul>
+
+    <h2 id="pre-commit">Pre-Commit Checklist</h2>
+
+    <h3>Automated Checks</h3>
+    <pre><code># 1. Run tests
+npm test
+
+# 2. Run linter
+npm run lint
+
+# 3. Run type checker
+npm run typecheck
+
+# 4. Run formatter
+npm run format</code></pre>
+
+    <h3>Manual Checks</h3>
+    <ul class="checklist">
+        <li><strong>No untracked TODOs</strong> - All TODOs reference issues</li>
+        <li><strong>No FIXMEs</strong> - All FIXMEs resolved or converted</li>
+        <li><strong>Tests pass</strong> - Full test suite green</li>
+        <li><strong>Lint passes</strong> - No warnings or errors</li>
+        <li><strong>Types pass</strong> - No TypeScript errors</li>
+        <li><strong>PR size</strong> - Under 500 lines (or documented exception)</li>
+        <li><strong>Commit message</strong> - Follows conventional commits</li>
+        <li><strong>No secrets</strong> - No API keys, passwords, or tokens</li>
+        <li><strong>No debug code</strong> - No console.logs, debuggers, etc.</li>
+    </ul>
+
+    <h2 id="testing">Test Coverage Requirements</h2>
+
+    <h3>Minimum Coverage</h3>
+    <ul>
+        <li><strong>New features:</strong> Must include tests</li>
+        <li><strong>Bug fixes:</strong> Must include regression test</li>
+        <li><strong>Refactors:</strong> Existing tests must pass (add if missing)</li>
+    </ul>
+
+    <h3>What to Test</h3>
+    <table>
+        <thead>
+            <tr><th>Must Test</th><th>Should Test</th><th>Optional</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Business logic</td>
+                <td>Complex UI interactions</td>
+                <td>Simple UI rendering</td>
+            </tr>
+            <tr>
+                <td>Data transformations</td>
+                <td>Component integration</td>
+                <td>Third-party wrappers</td>
+            </tr>
+            <tr>
+                <td>API endpoints</td>
+                <td>Edge cases</td>
+                <td>Generated code</td>
+            </tr>
+            <tr>
+                <td>Auth/authorization</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Error handling</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="code-review">Code Review Standards</h2>
+
+    <h3>Reviewer Checklist</h3>
+
+    <h4>Functionality</h4>
+    <ul class="checklist">
+        <li>Code does what the PR description says</li>
+        <li>Edge cases handled</li>
+        <li>Error handling appropriate</li>
+        <li>No obvious bugs</li>
+    </ul>
+
+    <h4>Code Quality</h4>
+    <ul class="checklist">
+        <li>Follows project conventions</li>
+        <li>DRY - no unnecessary duplication</li>
+        <li>Clear naming</li>
+        <li>Appropriate abstraction level</li>
+    </ul>
+
+    <h4>Security</h4>
+    <ul class="checklist">
+        <li>No secrets in code</li>
+        <li>Input validation present</li>
+        <li>No SQL injection risks</li>
+        <li>No XSS vulnerabilities</li>
+    </ul>
+
+    <h3>Giving Feedback</h3>
+
+    <div class="comparison-grid">
+        <div class="bad-example">
+            <h4><span class="cross">✗</span> Vague</h4>
+            <p>"This is confusing"</p>
+            <p>"Don't use any"</p>
+            <p>"This won't work"</p>
+        </div>
+        <div class="good-example">
+            <h4><span class="check">✓</span> Specific & Actionable</h4>
+            <p>"This function does three things. Consider splitting for clarity."</p>
+            <p>"Using 'any' bypasses type checking. Consider 'unknown' with type guards."</p>
+            <p>"This won't handle null values. Consider: <code>value ?? defaultValue</code>"</p>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; 2025 RazorVision</span>
+        <span>razorvision.net</span>
+    </footer>
+</body>
+</html>

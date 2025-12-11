@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Quick Start Guide | RazorVision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rv-blue: #43B6E7;
+            --rv-dark: #393939;
+            --rv-light: #F5F5F5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            color: var(--rv-dark);
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; margin: 1.5em 0 0.5em; }
+        h1 { font-size: 2.25rem; color: var(--rv-dark); margin-top: 0; }
+        h2 { font-size: 1.5rem; color: var(--rv-blue); border-bottom: 2px solid var(--rv-blue); padding-bottom: 0.25em; margin-top: 2em; }
+        h3 { font-size: 1.15rem; color: var(--rv-dark); margin-top: 1.5em; }
+
+        p { margin: 0.75em 0; }
+        a { color: var(--rv-blue); }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--rv-light);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre {
+            background: var(--rv-dark);
+            color: #f8f8f8;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1em 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        pre code { background: none; padding: 0; color: inherit; }
+
+        .tip, .warning, .info {
+            padding: 1em 1em 1em 1.25em;
+            border-radius: 8px;
+            margin: 1.25em 0;
+        }
+
+        .tip { background: #E8F8EE; border-left: 4px solid #28A745; }
+        .warning { background: #FFF8E6; border-left: 4px solid #FFC107; }
+        .info { background: #E7F4FB; border-left: 4px solid var(--rv-blue); }
+        .tip strong, .warning strong, .info strong { display: block; margin-bottom: 0.25em; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.95em; }
+        th, td { padding: 0.6em 0.75em; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: var(--rv-light); font-weight: 700; }
+        tr:hover { background: rgba(67, 182, 231, 0.05); }
+
+        ul, ol { margin: 0.75em 0 0.75em 1.5em; }
+        li { margin: 0.35em 0; }
+
+        .toc {
+            background: var(--rv-light);
+            padding: 1.25em 1.5em;
+            border-radius: 8px;
+            margin: 1.5em 0 2em;
+        }
+        .toc h3 { margin-top: 0; color: var(--rv-dark); }
+        .toc ul { list-style: none; margin: 0.5em 0 0 0; }
+        .toc li { margin: 0.4em 0; }
+        .toc a { text-decoration: none; }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .header-left { display: flex; align-items: center; gap: 0.75rem; }
+        .header-right { color: var(--rv-blue); font-size: 0.85rem; }
+
+        .subtitle { color: #666; font-size: 1rem; margin-top: 0.5em; font-weight: 400; }
+
+        .badge {
+            display: inline-block;
+            background: var(--rv-blue);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+        }
+        .badge.green { background: #28A745; }
+        .badge.yellow { background: #FFC107; color: var(--rv-dark); }
+
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            margin-left: 0;
+        }
+        .steps > li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 3em;
+            margin: 1.5em 0;
+        }
+        .steps > li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2em;
+            height: 2em;
+            background: var(--rv-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .tier-card {
+            background: var(--rv-light);
+            border-radius: 8px;
+            padding: 1.25em;
+            margin: 1em 0;
+        }
+        .tier-card h4 { margin-top: 0; color: var(--rv-blue); }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 20px; }
+            .header { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <svg height="36" viewBox="0 0 297.7 51.02" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#43b6e7" d="m47.34,0h-13.12L15.4,51.02h13.12L47.34,0Z"/>
+                <path fill="#393939" d="m10.16.34H.07v10.9h6.52c.63,0,1.26.11,1.85.34.59.24,1.12.59,1.57,1.04.45.45.81.98,1.05,1.56.24.59.37,1.22.37,1.85s-.13,1.27-.37,1.85c-.24.59-.6,1.12-1.05,1.56-.45.45-.99.8-1.57,1.04-.59.24-1.22.35-1.85.34H.07v2.03h-.02l-.05,11.68,13.01,15.78,4.4-12.22-5.76-7.32c3.38-.37,6.51-1.98,8.79-4.52,2.27-2.54,3.53-5.84,3.53-9.25v-2.8c0-1.82-.36-3.62-1.05-5.3-.69-1.68-1.71-3.21-2.99-4.5-1.28-1.29-2.81-2.31-4.48-3-1.68-.7-3.47-1.06-5.29-1.06Z"/>
+                <path fill="#393939" d="m74.61,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.57v24h1.74v-7.86h6.83c.78,0,1.55-.06,2.32-.17l5.71,8.03h1.99l-5.99-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.21,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <path fill="#393939" d="m100.86,25.52l-5.5-12h-1.74l-11,24h1.88l3.04-6.76h13.87l3.07,6.76h1.88l-5.5-12Zm-12.64,3.77l3.13-6.93,3.13-6.93,6.29,13.86h-6.27s-6.27,0-6.27,0Z"/>
+                <polygon fill="#393939" points="127.4 35.93 110.56 35.93 127.03 14.75 127.03 13.51 108.34 13.51 108.34 13.51 108.34 15.09 108.34 15.09 124.63 15.09 108.13 36.28 108.13 37.52 127.4 37.52 127.4 37.52 127.4 35.93 127.4 35.93"/>
+                <path fill="#393939" d="m153.41,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.53-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.84,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.86-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.66-4.05,1.62-6.24.03-2.19-.53-4.35-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.03-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <path fill="#393939" d="m173.69,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.58v24h1.74v-7.85h6.83c.78,0,1.55-.06,2.32-.17l5.7,8.02h1.98s-5.98-8.4-5.98-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.22,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <polygon fill="#393939" points="202.97 13.51 193.29 35.25 183.63 13.51 181.72 13.51 192.38 37.52 194.12 37.52 204.78 13.51 202.97 13.51"/>
+                <rect fill="#393939" x="208.64" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m232.5,27.96c-.73-.83-1.65-1.47-2.68-1.87-1.37-.51-2.78-.93-4.2-1.27-1.26-.3-2.5-.66-3.72-1.1-.86-.31-1.65-.82-2.29-1.47-.32-.35-.56-.75-.72-1.19-.16-.44-.23-.91-.2-1.38-.01-.67.14-1.34.43-1.94.3-.6.73-1.12,1.28-1.52,1.48-.99,3.25-1.46,5.02-1.34,1.15,0,2.3.18,3.4.52,1.13.33,2.19.84,3.16,1.51l.65-1.41c-1.02-.7-2.13-1.23-3.32-1.58-1.26-.39-2.58-.58-3.89-.58-1.62-.05-3.23.24-4.73.86-1.15.47-2.13,1.28-2.82,2.31-.61.96-.93,2.07-.92,3.21-.07,1.25.33,2.47,1.1,3.45.73.85,1.66,1.5,2.7,1.9,1.38.51,2.79.93,4.22,1.27,1.25.28,2.48.63,3.69,1.06.86.31,1.65.82,2.29,1.48.32.35.56.75.72,1.19s.23.91.21,1.38c.01.67-.14,1.32-.45,1.92-.3.59-.75,1.1-1.3,1.48-1.54.97-3.34,1.43-5.16,1.3-1.54,0-3.06-.28-4.49-.84-1.28-.47-2.44-1.21-3.4-2.17l-.78,1.3c1.04,1.06,2.31,1.86,3.71,2.35,1.6.61,3.29.91,5,.9,1.64.05,3.26-.24,4.78-.86,1.17-.46,2.17-1.26,2.89-2.3.62-.95.95-2.06.94-3.19.07-1.23-.33-2.43-1.11-3.38Z"/>
+                <rect fill="#393939" x="239.52" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m270.56,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.54-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.83,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.85-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.65-4.05,1.62-6.24.03-2.19-.53-4.34-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.02-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <polygon fill="#393939" points="295.95 13.51 295.95 34.36 279.69 13.51 278.23 13.51 278.23 37.52 279.97 37.52 279.97 16.67 296.26 37.52 297.7 37.52 297.7 13.51 295.95 13.51"/>
+            </svg>
+        </div>
+        <div class="header-right">razorvision.net</div>
+    </header>
+
+    <h1>MCP Quick Start Guide</h1>
+    <p class="subtitle">Get Claude Code's MCP servers running in 5 minutes</p>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#what-is-mcp">What Are MCP Servers?</a></li>
+            <li><a href="#quick-setup">Quick Setup (3 Steps)</a></li>
+            <li><a href="#server-tiers">Server Tiers</a></li>
+            <li><a href="#env-vars">Environment Variables</a></li>
+            <li><a href="#most-useful">Most Useful Servers</a></li>
+            <li><a href="#common-commands">Common Commands</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="what-is-mcp">What Are MCP Servers?</h2>
+
+    <p>MCP (Model Context Protocol) servers give Claude Code additional capabilities like browser automation, database access, and GitHub integration. Most work out-of-the-box with zero configuration.</p>
+
+    <h2 id="quick-setup">Quick Setup</h2>
+
+    <ol class="steps">
+        <li>
+            <strong>Start Claude Code</strong>
+            <pre><code>cd your-project
+claude</code></pre>
+        </li>
+        <li>
+            <strong>Approve Servers</strong>
+            <p>When prompted, type <code>yes</code> to approve MCP servers. That's it for most servers!</p>
+        </li>
+        <li>
+            <strong>Verify</strong>
+            <pre><code># In Claude Code, run:
+/mcp</code></pre>
+            <p>You should see a list of available MCP servers.</p>
+        </li>
+    </ol>
+
+    <h2 id="server-tiers">Server Tiers</h2>
+
+    <div class="tier-card">
+        <h4>Tier 1: Zero Setup <span class="badge green">Just Approve</span></h4>
+        <p>These servers work immediately after approval:</p>
+        <table>
+            <thead>
+                <tr><th>Server</th><th>What It Does</th><th>Example Use</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Filesystem</strong></td><td>Read/write project files</td><td>"Read src/index.ts"</td></tr>
+                <tr><td><strong>Git</strong></td><td>Git operations</td><td>"Show recent commits"</td></tr>
+                <tr><td><strong>Memory</strong></td><td>Persistent context</td><td>"Remember this API pattern"</td></tr>
+                <tr><td><strong>Sequential Thinking</strong></td><td>Complex reasoning</td><td>"Plan this feature"</td></tr>
+                <tr><td><strong>Playwright</strong></td><td>Browser automation</td><td>"Test the login flow"</td></tr>
+                <tr><td><strong>Context7</strong></td><td>Documentation search</td><td>"Find React hooks docs"</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tier-card">
+        <h4>Tier 2: Minimal Setup <span class="badge yellow">Quick Config</span></h4>
+        <table>
+            <thead>
+                <tr><th>Server</th><th>Setup Required</th><th>One-Time Command</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Puppeteer</strong></td><td>Chrome installed</td><td>Usually pre-installed</td></tr>
+                <tr><td><strong>SQLite</strong></td><td>None</td><td>Creates DB automatically</td></tr>
+                <tr><td><strong>Everything</strong></td><td>Windows only</td><td>Install from voidtools.com</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tier-card">
+        <h4>Tier 3: API Key Required <span class="badge">Setup Needed</span></h4>
+        <table>
+            <thead>
+                <tr><th>Server</th><th>Required Variables</th><th>Get Credentials</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>GitHub</strong></td><td><code>GITHUB_PERSONAL_ACCESS_TOKEN</code></td><td>GitHub Settings > Tokens</td></tr>
+                <tr><td><strong>Slack</strong></td><td><code>SLACK_BOT_TOKEN</code>, <code>SLACK_TEAM_ID</code></td><td>Slack Apps</td></tr>
+                <tr><td><strong>Brave Search</strong></td><td><code>BRAVE_API_KEY</code></td><td>Brave API (2K free/month)</td></tr>
+                <tr><td><strong>PostgreSQL</strong></td><td><code>POSTGRES_CONNECTION_STRING</code></td><td>Your database URL</td></tr>
+                <tr><td><strong>Sentry</strong></td><td>Sentry account</td><td>Sentry.io</td></tr>
+                <tr><td><strong>Docker</strong></td><td>Docker Desktop running</td><td>docker.com</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2 id="env-vars">Environment Variables</h2>
+
+    <p>Add these to your shell profile (<code>~/.bashrc</code>, <code>~/.zshrc</code>, or PowerShell profile):</p>
+
+    <pre><code># === MCP Server Environment Variables ===
+
+# GitHub (recommended - enables GitHub MCP features)
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_xxxxxxxxxxxxxxxxxxxx"
+
+# Slack (optional - for Slack integration)
+export SLACK_BOT_TOKEN="xoxb-xxxxxxxxxxxx"
+export SLACK_TEAM_ID="T12345678"
+
+# Brave Search (optional - 2,000 free queries/month)
+export BRAVE_API_KEY="BSAxxxxxxxxxxxxxxxxxxxx"
+
+# PostgreSQL (optional - if different from project DATABASE_URL)
+export POSTGRES_CONNECTION_STRING="postgresql://user:pass@host:5432/db"</code></pre>
+
+    <div class="info">
+        <strong>Reload your shell after adding:</strong>
+        <pre><code>source ~/.bashrc  # or ~/.zshrc</code></pre>
+    </div>
+
+    <h2 id="most-useful">Most Useful Servers</h2>
+
+    <h3>For Daily Development</h3>
+    <ol>
+        <li><strong>Filesystem</strong> - File operations (always enabled)</li>
+        <li><strong>Git</strong> - Commits, branches, history</li>
+        <li><strong>Playwright</strong> - Test UIs, take screenshots</li>
+        <li><strong>Memory</strong> - Remember context across sessions</li>
+    </ol>
+
+    <h3>For Code Quality</h3>
+    <ol>
+        <li><strong>GitHub</strong> - PRs, issues, code search</li>
+        <li><strong>Sentry</strong> - Error tracking integration</li>
+    </ol>
+
+    <h3>For Research</h3>
+    <ol>
+        <li><strong>Brave Search</strong> - Web search</li>
+        <li><strong>Context7</strong> - Documentation lookup</li>
+    </ol>
+
+    <h2 id="common-commands">Common Commands</h2>
+
+    <p>Once MCP servers are configured:</p>
+
+    <pre><code># Browser automation
+"Open localhost:3000 and take a screenshot"
+"Test the signup flow"
+
+# Git operations
+"Show me the last 5 commits"
+"Create a branch called feature/new-thing"
+
+# Database
+"Show me the users table schema"
+"Run a query to find active users"
+
+# GitHub
+"Create an issue for this bug"
+"Show open PRs"</code></pre>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+
+    <h3>"Server not available"</h3>
+    <ol>
+        <li>Run <code>/mcp</code> to check server status</li>
+        <li>Restart Claude Code: <code>Ctrl+C</code> then <code>claude</code></li>
+        <li>Check environment variables are set</li>
+    </ol>
+
+    <h3>"GitHub server failing"</h3>
+    <pre><code># Verify token is set
+echo $GITHUB_PERSONAL_ACCESS_TOKEN
+
+# Test token works
+curl -H "Authorization: token $GITHUB_PERSONAL_ACCESS_TOKEN" https://api.github.com/user</code></pre>
+
+    <h3>"Playwright can't connect"</h3>
+    <pre><code># Install browsers
+npx playwright install
+
+# If still failing, install with dependencies
+npx playwright install --with-deps</code></pre>
+
+    <h3>"Docker server not working"</h3>
+    <ol>
+        <li>Ensure Docker Desktop is running</li>
+        <li>Check Docker is accessible: <code>docker ps</code></li>
+        <li>Restart Docker Desktop if needed</li>
+    </ol>
+
+    <div class="tip">
+        <strong>Need more help?</strong>
+        <p>See the full MCP documentation for detailed setup and troubleshooting guides.</p>
+    </div>
+
+    <footer>
+        <span>&copy; 2025 RazorVision</span>
+        <span>razorvision.net</span>
+    </footer>
+</body>
+</html>

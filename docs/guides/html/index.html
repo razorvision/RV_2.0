@@ -46,14 +46,14 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2em 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5em 0;
         }
 
         .card {
             background: var(--rv-light);
-            padding: 1.5em;
+            padding: 1.25em;
             border-radius: 8px;
             border-left: 4px solid var(--rv-blue);
             text-decoration: none;
@@ -66,29 +66,24 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .card h3 { margin-top: 0; color: var(--rv-blue); }
-        .card p { color: #666; font-size: 0.95em; margin-bottom: 0; }
+        .card h3 { margin-top: 0; color: var(--rv-blue); font-size: 1.1rem; }
+        .card p { color: #666; font-size: 0.9em; margin-bottom: 0; }
 
         .badge {
             display: inline-block;
             background: #28A745;
             color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.65rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-left: 0.5rem;
+            vertical-align: middle;
         }
 
-        .info {
-            background: #E7F4FB;
-            border-left: 4px solid var(--rv-blue);
-            padding: 1em 1.25em;
-            border-radius: 8px;
-            margin: 1.5em 0;
-        }
-        .info strong { display: block; margin-bottom: 0.25em; }
+        ul { margin: 0.75em 0 0.75em 1.5em; }
+        li { margin: 0.35em 0; }
 
         footer {
             margin-top: 3rem;
@@ -137,23 +132,37 @@
     <div class="card-grid">
         <a href="claude-rules-guide.html" class="card">
             <h3>Claude Rules Guide <span class="badge">NEW</span></h3>
-            <p>Understanding CLAUDE.md vs .claude/rules/ - the new modular rules system with path-specific configurations.</p>
+            <p>CLAUDE.md vs .claude/rules/ - the new modular rules system with path-specific configurations.</p>
         </a>
 
         <a href="token-optimization-guide.html" class="card">
             <h3>Token Optimization Guide</h3>
-            <p>Best practices for reducing token usage and costs. Settings, session management, and monitoring tools.</p>
+            <p>Best practices for reducing token usage and costs. Settings, session management, and monitoring.</p>
+        </a>
+
+        <a href="mcp-quickstart.html" class="card">
+            <h3>MCP Quick Start</h3>
+            <p>Get Claude Code's MCP servers running in 5 minutes. Server tiers, environment variables, troubleshooting.</p>
         </a>
     </div>
 
-    <div class="info">
-        <strong>More guides coming soon</strong>
-        <p>We're converting our most valuable markdown documentation to polished HTML format. Check back for MCP setup guides, onboarding checklists, and more.</p>
+    <h2>Team & Process Guides</h2>
+
+    <div class="card-grid">
+        <a href="onboarding-checklist.html" class="card">
+            <h3>Onboarding Checklist</h3>
+            <p>Structured guide for new team members. Day 1 through first month milestones and checkpoints.</p>
+        </a>
+
+        <a href="code-quality-policy.html" class="card">
+            <h3>Code Quality Policy</h3>
+            <p>TODO/FIXME policy, PR size guidelines, commit standards, and code review checklist.</p>
+        </a>
     </div>
 
     <h2>Other Documentation</h2>
 
-    <p>For additional guides and documentation in markdown format, see:</p>
+    <p>For additional guides and documentation in markdown format:</p>
     <ul>
         <li><a href="../README.md">Guides Index</a> - All development guides</li>
         <li><a href="../../README.md">Documentation Home</a> - Full documentation index</li>
