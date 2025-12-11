@@ -1,23 +1,111 @@
 # Documentation Index
 
-Comprehensive documentation for the RV 2.0 project.
+Comprehensive documentation for the RV 2.0 project, organized to teach best practices and efficient tool usage.
 
 > **Looking for quick answers?** See [Common Tasks](COMMON_TASKS.md) for day-to-day development reference.
+
+## 🎯 Quick Navigation
+
+| I want to... | Go here |
+|-------------|---------|
+| **Get started with Claude Code** | [Claude Code Getting Started](tools/claude-code/GETTING_STARTED.md) |
+| **Fix a bug or debug an issue** | [Troubleshooting Guide](troubleshooting/README.md) |
+| **Look up a command** | [Common Tasks](COMMON_TASKS.md) or [Cheat Sheets](tools/cheat-sheets/) |
+| **Learn best practices** | [Best Practices](best-practices/) |
+| **See code examples** | [Examples](examples/) |
+| **Understand the tools** | [Tools Guide](tools/README.md) |
+
+---
 
 ## 📚 Documentation Structure
 
 ### 🚀 Getting Started
-New to this template? Start here:
+New to this project? Start here:
 - **[Setup Checklist](../SETUP_CHECKLIST.md)** - Single source of truth for dev environment setup
 - **[Common Tasks](COMMON_TASKS.md)** - Quick reference for everyday development (start here after setup!)
+- [Getting Started with Claude Code](tools/claude-code/GETTING_STARTED.md) - 30-minute guide to AI-assisted development
 - [TEMPLATE_USAGE.md](getting-started/TEMPLATE_USAGE.md) - How to use this template
 - [POST_TEMPLATE_CHECKLIST.md](getting-started/POST_TEMPLATE_CHECKLIST.md) - Complete setup checklist
-- [PROJECT_INTAKE_CHECKLIST.md](guides/PROJECT_INTAKE_CHECKLIST.md) - Full project setup checklist
-- [DEV_ENVIRONMENT_SETUP.md](guides/DEV_ENVIRONMENT_SETUP.md) - IDE, Claude Code, and tooling setup
+
+### 🔧 Tools Guide **[NEW]**
+
+Learn to use development tools effectively:
+
+- **[Tools Overview](tools/README.md)** - Complete guide to the development tool ecosystem
+- **Claude Code:**
+  - [Getting Started](tools/claude-code/GETTING_STARTED.md) - Start here!
+  - [Workflows](tools/claude-code/WORKFLOWS.md) - Advanced patterns
+  - [Tips & Tricks](tools/claude-code/TIPS_AND_TRICKS.md)
+- **MCP (Model Context Protocol):**
+  - [MCP Overview](tools/mcp/OVERVIEW.md) - Understand the ecosystem
+  - [5-Minute Quick Start](tools/mcp/QUICKSTART.md)
+  - [When to Use What](tools/mcp/WHEN_TO_USE_WHAT.md) - Decision guide
+  - [Complete Setup](tools/mcp/SETUP.md)
+- **Cheat Sheets:**
+  - [Git Commands](tools/cheat-sheets/GIT_COMMANDS.md)
+  - [NPM Scripts](tools/cheat-sheets/NPM_SCRIPTS.md)
+  - [Prisma CLI](tools/cheat-sheets/PRISMA_CLI.md)
+
+### 🚨 Troubleshooting **[NEW]**
+
+When things go wrong:
+
+- **[Troubleshooting Index](troubleshooting/README.md)** - Start here when stuck
+- [Authentication Debugging](troubleshooting/AUTH_DEBUGGING.md)
+- [Database Issues](troubleshooting/DATABASE_ISSUES.md)
+- [Build Errors](troubleshooting/BUILD_ERRORS.md)
+- [Deployment Failures](troubleshooting/DEPLOYMENT_FAILURES.md)
+- **[FAQ](troubleshooting/FAQ.md)** - Frequently asked questions
+
+### 📚 Learning Paths **[NEW]**
+
+Progressive learning modules for skill building:
+
+- **[Learning Paths Overview](learning-paths/README.md)** - Choose your path
+- [New to Claude Code](learning-paths/new-to-claude-code/) - 2-hour guided introduction
+- [Testing Fundamentals](learning-paths/testing-fundamentals/) - Master testing
+- [Authentication Deep Dive](learning-paths/authentication-deep-dive/) - Auth patterns
+- [API Design](learning-paths/api-design/) - Build better APIs
+- [Scaling to Production](learning-paths/scaling-to-production/) - Production readiness
+
+### 🎯 Best Practices **[NEW]**
+
+Consolidated patterns and anti-patterns:
+
+- **[Best Practices Overview](best-practices/README.md)** - Start here
+- [Code Organization](best-practices/CODE_ORGANIZATION.md) - Structure and modularity
+- [Database Design](best-practices/DATABASE_DESIGN.md) - Schema patterns
+- [Performance](best-practices/PERFORMANCE.md) - Optimization strategies
+- [Security Hardening](best-practices/SECURITY_HARDENING.md) - Secure by default
+- **[Decision Trees](best-practices/DECISION_TREES.md)** - Visual decision guides
+- [Error Handling](best-practices/ERROR_HANDLING.md) - Graceful failures
+- [State Management](best-practices/STATE_MANAGEMENT.md) - React state patterns
+- [API Design Patterns](best-practices/API_DESIGN_PATTERNS.md) - REST best practices
+
+### 💡 Code Examples **[NEW]**
+
+Copy-paste-ready code snippets:
+
+- **[Examples Overview](examples/README.md)** - Browse all examples
+- **Code Patterns:**
+  - [Auth Implementation](examples/code-patterns/auth-implementation/)
+  - [Database Operations](examples/code-patterns/database-operations/)
+  - [API Endpoints](examples/code-patterns/api-endpoints/)
+  - [Testing Examples](examples/code-patterns/testing-examples/)
+- **Before/After:**
+  - [Error Handling](examples/before-after/error-handling.md)
+  - [Database Queries](examples/before-after/database-queries.md)
+  - [Component Structure](examples/before-after/component-structure.md)
+- **Templates:**
+  - [API Route](examples/templates/api-route.md)
+  - [React Component](examples/templates/react-component.md)
+  - [Test Suite](examples/templates/test-suite.md)
 
 ### 📋 Reference
+
 Quick-access reference documentation:
-- **[Environment Variables](reference/ENV_VARIABLES.md)** - All env vars with descriptions and where to get them
+
+- **[Environment Variables](reference/ENV_VARIABLES.md)** - All env vars with descriptions
 
 ### 📖 Development Guides
 Organized by category in [guides/](guides/):
