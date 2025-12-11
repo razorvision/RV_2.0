@@ -21,8 +21,8 @@ aux_links_new_tab: true
 # Footer content
 footer_content: "&copy; 2025 <a href='https://razorvision.net'>RazorVision</a> | RV 2.0 Team Project Template"
 
-# Color scheme (use custom RazorVision scheme)
-color_scheme: razorvision
+# Color scheme (use custom RazorVision dark scheme)
+color_scheme: razorvision_dark
 
 # Search
 search_enabled: true

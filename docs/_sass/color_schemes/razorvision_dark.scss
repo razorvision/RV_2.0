@@ -1,0 +1,37 @@
+// RazorVision Dark Color Scheme for Just the Docs
+
+// Brand colors
+$razorvision-blue: #43B6E7;
+$razorvision-dark: #1a1a1a;
+$razorvision-darker: #0d0d0d;
+$razorvision-light: #e0e0e0;
+
+// Dark theme colors
+$body-background-color: $razorvision-dark;
+$sidebar-color: $razorvision-darker;
+$body-heading-color: $razorvision-light;
+$body-text-color: #b0b0b0;
+$link-color: $razorvision-blue;
+
+// Navigation colors
+$nav-child-link-color: #b0b0b0;
+$search-background-color: #2a2a2a;
+$search-result-preview-color: #888;
+
+// Border colors
+$border-color: #333;
+
+// Code colors
+$code-background-color: #2a2a2a;
+$code-linenumber-color: #666;
+
+// Button colors
+$btn-primary-color: $razorvision-blue;
+$base-button-color: #2a2a2a;
+
+// Table colors
+$table-background-color: $razorvision-darker;
+$feedback-color: darken($razorvision-blue, 3%);
+
+// Focus colors
+$focus-color: rgba($razorvision-blue, 0.4);
