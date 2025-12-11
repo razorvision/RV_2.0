@@ -1,3 +1,7 @@
+---
+title: Visual Development Workflow
+parent: Workflows
+---
 # Visual Development Workflow
 
 This guide establishes a quality control workflow for UI changes. It ensures visual changes meet quality standards before being presented to stakeholders.

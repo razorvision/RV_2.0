@@ -1,3 +1,7 @@
+---
+title: Change Request Workflow
+parent: Workflows
+---
 # Change Request Workflow
 
 This document describes the structured workflow for handling non-trivial code changes. Following this process ensures alignment between developers and stakeholders before investing time in implementation.

@@ -1,3 +1,7 @@
+---
+title: Stripe Integration Guide
+parent: Integrations
+---
 # Stripe Integration Guide
 
 Complete guide for integrating Stripe payments in your Next.js application.

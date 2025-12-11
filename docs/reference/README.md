@@ -1,3 +1,7 @@
+---
+title: Reference Documentation
+parent: Reference
+---
 # Reference Documentation
 
 Quick-access reference materials for common lookups. Unlike guides (which teach concepts), reference docs are designed for fast lookups when you know what you're looking for.

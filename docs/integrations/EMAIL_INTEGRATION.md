@@ -1,3 +1,7 @@
+---
+title: Email Integration Guide
+parent: Integrations
+---
 # Email Integration Guide
 
 Guide for integrating email services (Resend, SendGrid, Postmark) in your Next.js application.

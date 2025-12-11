@@ -1,3 +1,8 @@
+---
+title: Environment Management Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Environment Management Guide
 
 Managing environment variables, secrets, and configuration across development, staging, and production environments.

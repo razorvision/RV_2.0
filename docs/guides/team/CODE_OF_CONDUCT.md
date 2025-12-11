@@ -1,3 +1,8 @@
+---
+title: Contributor Covenant Code of Conduct
+parent: Team
+grand_parent: Guides
+---
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge

@@ -1,3 +1,7 @@
+---
+title: MCP Security Guide
+parent: Security
+---
 # MCP Security Guide
 
 Comprehensive security guidelines for using Model Context Protocol (MCP) servers safely in your development workflow.

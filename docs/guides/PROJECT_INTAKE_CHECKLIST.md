@@ -1,3 +1,7 @@
+---
+title: Project Intake Checklist
+parent: Guides
+---
 # Project Intake Checklist
 
 A comprehensive checklist for setting up new projects from scratch. Use this as a guide when onboarding to a new codebase or initializing a fresh project.

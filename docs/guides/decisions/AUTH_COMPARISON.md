@@ -1,3 +1,8 @@
+---
+title: Authentication Comparison Guide
+parent: Decisions
+grand_parent: Guides
+---
 # Authentication Comparison Guide
 
 Choose the right authentication solution for your application.

@@ -1,3 +1,8 @@
+---
+title: Error Handling Guide
+parent: Development
+grand_parent: Guides
+---
 # Error Handling Guide
 
 Comprehensive strategies for handling errors gracefully in React and Next.js applications.

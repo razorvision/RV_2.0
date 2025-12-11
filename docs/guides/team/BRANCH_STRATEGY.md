@@ -1,3 +1,8 @@
+---
+title: Branch Strategy & Git Workflow
+parent: Team
+grand_parent: Guides
+---
 # Branch Strategy & Git Workflow
 
 This document outlines the git workflow, branch naming conventions, and commit message standards for this project.

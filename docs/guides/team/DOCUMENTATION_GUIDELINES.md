@@ -1,3 +1,8 @@
+---
+title: Documentation Guidelines
+parent: Team
+grand_parent: Guides
+---
 # Documentation Guidelines
 
 This document outlines best practices for creating and maintaining project documentation. Good documentation is essential for onboarding new team members, maintaining code quality, and ensuring project longevity.

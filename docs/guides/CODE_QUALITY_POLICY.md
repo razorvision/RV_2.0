@@ -1,3 +1,7 @@
+---
+title: Code Quality Policy
+parent: Guides
+---
 # Code Quality Policy
 
 This document establishes code quality standards that help teams maintain clean, maintainable codebases at scale. These policies apply to all code contributions.

@@ -1,3 +1,8 @@
+---
+title: Database Setup Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Database Setup Guide
 
 Guide for setting up databases with various providers and ORMs. This template primarily uses Prisma with PostgreSQL, but this guide covers alternatives.

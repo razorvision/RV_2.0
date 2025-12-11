@@ -1,3 +1,8 @@
+---
+title: Developer Onboarding Checklist
+parent: Team
+grand_parent: Guides
+---
 # Developer Onboarding Checklist
 
 A structured checklist for onboarding new team members, ensuring they have everything needed to be productive.
