@@ -1,0 +1,67 @@
+// RazorVision Brand Colors
+$razorvision-blue: #43B6E7;
+$razorvision-dark: #393939;
+$razorvision-light: #f5f5f5;
+
+// Override Just the Docs theme colors
+$link-color: $razorvision-blue;
+$btn-primary-color: $razorvision-blue;
+$base-button-color: $razorvision-blue;
+
+// Navigation
+.site-title {
+  color: $razorvision-dark !important;
+  font-weight: 600;
+}
+
+// Links
+a {
+  color: $razorvision-blue;
+
+  &:hover {
+    color: darken($razorvision-blue, 10%);
+  }
+}
+
+// Buttons
+.btn-primary {
+  background-color: $razorvision-blue;
+
+  &:hover {
+    background-color: darken($razorvision-blue, 10%);
+  }
+}
+
+// Navigation active state
+.nav-list-link.active {
+  font-weight: 600;
+  color: $razorvision-blue;
+}
+
+// Search input focus
+.search-input:focus {
+  border-color: $razorvision-blue;
+}
+
+// Header
+.site-header {
+  background-color: $razorvision-light;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+// Footer customization
+.site-footer {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+// Callout styling
+.note {
+  border-left-color: $razorvision-blue;
+}
+
+// Code blocks
+code {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}

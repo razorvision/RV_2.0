@@ -2,19 +2,24 @@ title: RV 2.0 Documentation
 description: Comprehensive team template for project setup, Claude Code workflows, and development best practices
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
-# Site URL (update after enabling GitHub Pages)
+# Site URL
 url: "https://razorvision.github.io"
 baseurl: "/RV_2.0"
 
+# Logo (add your logo file to docs/assets/images/)
+# logo: "/assets/images/razorvision-logo.png"
+
 # Aux links (top right)
 aux_links:
+  "RazorVision.net":
+    - "https://razorvision.net"
   "GitHub Repository":
     - "https://github.com/razorvision/RV_2.0"
 
 aux_links_new_tab: true
 
 # Footer content
-footer_content: "RV 2.0 - Team Project Template"
+footer_content: "&copy; 2025 <a href='https://razorvision.net'>RazorVision</a> | RV 2.0 Team Project Template"
 
 # Color scheme (light/dark)
 color_scheme: light
