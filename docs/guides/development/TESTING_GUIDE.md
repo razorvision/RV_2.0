@@ -1,3 +1,8 @@
+---
+title: Testing Guide
+parent: Development
+grand_parent: Guides
+---
 # Testing Guide
 
 Comprehensive testing strategies for maintaining code quality and preventing regressions.

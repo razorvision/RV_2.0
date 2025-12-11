@@ -1,3 +1,8 @@
+---
+title: Docker Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Docker Guide
 
 A practical guide to containerizing your application for development and production.

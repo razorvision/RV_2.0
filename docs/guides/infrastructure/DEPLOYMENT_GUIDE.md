@@ -1,3 +1,8 @@
+---
+title: Deployment Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Deployment Guide
 
 Complete guide for deploying applications to production, including CI/CD setup, hosting configuration, and environment management.

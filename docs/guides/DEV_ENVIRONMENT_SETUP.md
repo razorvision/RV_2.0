@@ -1,3 +1,7 @@
+---
+title: Development Environment Setup
+parent: Guides
+---
 # Development Environment Setup
 
 Guide for setting up your local development environment with all the tools needed for effective development.

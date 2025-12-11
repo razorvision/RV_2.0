@@ -1,3 +1,7 @@
+---
+title: Repository & GitHub Project Setup Guide
+parent: Guides
+---
 # Repository & GitHub Project Setup Guide
 
 Comprehensive guide for configuring GitHub repositories and project boards for effective team collaboration.

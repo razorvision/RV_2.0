@@ -1,3 +1,8 @@
+---
+title: Technical Debt Guide
+parent: Development
+grand_parent: Guides
+---
 # Technical Debt Guide
 
 How to identify, document, prioritize, and address technical debt systematically.

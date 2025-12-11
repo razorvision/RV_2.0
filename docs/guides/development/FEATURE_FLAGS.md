@@ -1,3 +1,8 @@
+---
+title: Feature Flags Guide
+parent: Development
+grand_parent: Guides
+---
 # Feature Flags Guide
 
 Implementing and managing feature flags for safe deployments, A/B testing, and gradual rollouts.

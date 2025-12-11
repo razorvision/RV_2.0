@@ -1,3 +1,7 @@
+---
+title: Analytics Integration Guide
+parent: Integrations
+---
 # Analytics Integration Guide
 
 Guide for integrating analytics and tracking in your Next.js application.

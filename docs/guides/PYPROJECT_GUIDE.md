@@ -1,3 +1,7 @@
+---
+title: Python Project Configuration Guide
+parent: Guides
+---
 # Python Project Configuration Guide
 
 This guide explains how to use the [pyproject.toml.template](pyproject.toml.template) for your Python projects.

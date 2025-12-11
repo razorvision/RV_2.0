@@ -1,3 +1,7 @@
+---
+title: Pre-commit Hooks Guide
+parent: Workflows
+---
 # Pre-commit Hooks Guide
 
 This project uses [pre-commit](https://pre-commit.com/) to automatically run code quality checks before each commit.

@@ -1,3 +1,8 @@
+---
+title: Database Comparison Guide
+parent: Decisions
+grand_parent: Guides
+---
 # Database Comparison Guide
 
 Choose the right database solution for your application.

@@ -1,3 +1,8 @@
+---
+title: Incident Response Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Incident Response Guide
 
 Procedures for handling production incidents, from initial detection through resolution and post-mortem.

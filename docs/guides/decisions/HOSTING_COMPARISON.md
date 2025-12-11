@@ -1,3 +1,8 @@
+---
+title: Hosting Platform Comparison
+parent: Decisions
+grand_parent: Guides
+---
 # Hosting Platform Comparison
 
 Choose the right hosting platform for your application.

@@ -1,3 +1,7 @@
+---
+title: Environment Variables Reference
+parent: Reference
+---
 # Environment Variables Reference
 
 Complete reference for all environment variables used in this template.

@@ -1,3 +1,8 @@
+---
+title: State Management Guide
+parent: Development
+grand_parent: Guides
+---
 # State Management Guide
 
 Strategies for managing state in React applications, from local component state to global application state.

@@ -1,3 +1,8 @@
+---
+title: Decision Guides
+parent: Decisions
+grand_parent: Guides
+---
 # Decision Guides
 
 Comparison guides to help you choose the right tools and services for your project.

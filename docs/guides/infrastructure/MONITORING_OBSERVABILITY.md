@@ -1,3 +1,8 @@
+---
+title: Monitoring & Observability Guide
+parent: Infrastructure
+grand_parent: Guides
+---
 # Monitoring & Observability Guide
 
 Comprehensive guide for setting up error tracking, logging, and application monitoring using Sentry and related tools.

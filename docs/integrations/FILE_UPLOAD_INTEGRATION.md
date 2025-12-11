@@ -1,3 +1,7 @@
+---
+title: File Upload Integration Guide
+parent: Integrations
+---
 # File Upload Integration Guide
 
 Guide for integrating file uploads with UploadThing, Cloudinary, or S3.

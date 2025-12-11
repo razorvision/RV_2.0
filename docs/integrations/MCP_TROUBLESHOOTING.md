@@ -1,3 +1,7 @@
+---
+title: MCP Troubleshooting Guide
+parent: Integrations
+---
 # MCP Troubleshooting Guide
 
 This guide helps you prevent and recover from common issues with Model Context Protocol (MCP) servers, with a focus on browser automation tools.

@@ -1,3 +1,8 @@
+---
+title: Code Review Guidelines
+parent: Team
+grand_parent: Guides
+---
 # Code Review Guidelines
 
 Standards and best practices for conducting effective code reviews that improve code quality and foster team collaboration.

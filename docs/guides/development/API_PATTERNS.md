@@ -1,3 +1,8 @@
+---
+title: API Design Patterns
+parent: Development
+grand_parent: Guides
+---
 # API Design Patterns
 
 Standards and patterns for building consistent, maintainable REST APIs.

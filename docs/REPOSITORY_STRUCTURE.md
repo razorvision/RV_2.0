@@ -1,3 +1,6 @@
+---
+title: Repository Structure
+---
 # Repository Structure
 
 Complete directory structure of the RV 2.0 repository.

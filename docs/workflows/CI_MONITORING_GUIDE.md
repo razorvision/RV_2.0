@@ -1,3 +1,7 @@
+---
+title: CI Monitoring Guide
+parent: Workflows
+---
 # CI Monitoring Guide
 
 This guide covers how to monitor CI/CD pipeline status for pull requests, interpret results, and handle failures.
