@@ -1,3 +1,7 @@
+---
+nav_exclude: true
+---
+
 # Documentation Reorganization - Summary Report
 
 **Date:** 2024-12-11
