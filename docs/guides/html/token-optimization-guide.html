@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Token Optimization Guide | RazorVision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rv-blue: #43B6E7;
+            --rv-dark: #393939;
+            --rv-light: #F5F5F5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            color: var(--rv-dark);
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin: 1.5em 0 0.5em;
+        }
+
+        h1 { font-size: 2.25rem; color: var(--rv-dark); margin-top: 0; }
+        h2 { font-size: 1.5rem; color: var(--rv-blue); border-bottom: 2px solid var(--rv-blue); padding-bottom: 0.25em; margin-top: 2em; }
+        h3 { font-size: 1.15rem; color: var(--rv-dark); margin-top: 1.5em; }
+
+        p { margin: 0.75em 0; }
+
+        a { color: var(--rv-blue); }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--rv-light);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        pre {
+            background: var(--rv-dark);
+            color: #f8f8f8;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1em 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .tip, .warning, .info {
+            padding: 1em 1em 1em 1.25em;
+            border-radius: 8px;
+            margin: 1.25em 0;
+        }
+
+        .tip { background: #E8F8EE; border-left: 4px solid #28A745; }
+        .warning { background: #FFF8E6; border-left: 4px solid #FFC107; }
+        .info { background: #E7F4FB; border-left: 4px solid var(--rv-blue); }
+
+        .tip strong, .warning strong, .info strong { display: block; margin-bottom: 0.25em; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            padding: 0.6em 0.75em;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th { background: var(--rv-light); font-weight: 700; }
+
+        ul, ol { margin: 0.75em 0 0.75em 1.5em; }
+        li { margin: 0.35em 0; }
+
+        .toc {
+            background: var(--rv-light);
+            padding: 1.25em 1.5em;
+            border-radius: 8px;
+            margin: 1.5em 0 2em;
+        }
+
+        .toc h3 { margin-top: 0; color: var(--rv-dark); }
+        .toc ul { list-style: none; margin: 0.5em 0 0 0; }
+        .toc li { margin: 0.4em 0; }
+        .toc a { text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-left { display: flex; align-items: center; gap: 0.75rem; }
+        .header-right { color: var(--rv-blue); font-size: 0.85rem; }
+
+        .subtitle { color: #666; font-size: 1rem; margin-top: 0.5em; font-weight: 400; }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body { padding: 20px; font-size: 11pt; }
+            pre { white-space: pre-wrap; font-size: 9pt; }
+            a { text-decoration: none; color: var(--rv-dark); }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: auto; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <svg height="36" viewBox="0 0 297.7 51.02" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#43b6e7" d="m47.34,0h-13.12L15.4,51.02h13.12L47.34,0Z"/>
+                <path fill="#393939" d="m10.16.34H.07v10.9h6.52c.63,0,1.26.11,1.85.34.59.24,1.12.59,1.57,1.04.45.45.81.98,1.05,1.56.24.59.37,1.22.37,1.85s-.13,1.27-.37,1.85c-.24.59-.6,1.12-1.05,1.56-.45.45-.99.8-1.57,1.04-.59.24-1.22.35-1.85.34H.07v2.03h-.02l-.05,11.68,13.01,15.78,4.4-12.22-5.76-7.32c3.38-.37,6.51-1.98,8.79-4.52,2.27-2.54,3.53-5.84,3.53-9.25v-2.8c0-1.82-.36-3.62-1.05-5.3-.69-1.68-1.71-3.21-2.99-4.5-1.28-1.29-2.81-2.31-4.48-3-1.68-.7-3.47-1.06-5.29-1.06Z"/>
+                <path fill="#393939" d="m74.61,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.57v24h1.74v-7.86h6.83c.78,0,1.55-.06,2.32-.17l5.71,8.03h1.99l-5.99-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.21,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <path fill="#393939" d="m100.86,25.52l-5.5-12h-1.74l-11,24h1.88l3.04-6.76h13.87l3.07,6.76h1.88l-5.5-12Zm-12.64,3.77l3.13-6.93,3.13-6.93,6.29,13.86h-6.27s-6.27,0-6.27,0Z"/>
+                <polygon fill="#393939" points="127.4 35.93 110.56 35.93 127.03 14.75 127.03 13.51 108.34 13.51 108.34 13.51 108.34 15.09 108.34 15.09 124.63 15.09 108.13 36.28 108.13 37.52 127.4 37.52 127.4 37.52 127.4 35.93 127.4 35.93"/>
+                <path fill="#393939" d="m153.41,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.53-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.84,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.86-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.66-4.05,1.62-6.24.03-2.19-.53-4.35-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.03-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <path fill="#393939" d="m173.69,29.11c1.65-.42,3.11-1.38,4.15-2.72,1-1.39,1.51-3.07,1.45-4.78.06-1.12-.14-2.24-.59-3.28-.44-1.03-1.12-1.95-1.97-2.67-2.03-1.53-4.54-2.29-7.07-2.14h-8.58v24h1.74v-7.85h6.83c.78,0,1.55-.06,2.32-.17l5.7,8.02h1.98s-5.98-8.4-5.98-8.4Zm-4.03-.99h-6.83v-13.03h6.83c2.09-.14,4.15.46,5.84,1.7.68.6,1.22,1.34,1.56,2.17.35.83.5,1.74.45,2.64.05.9-.1,1.81-.45,2.64-.35.83-.88,1.58-1.56,2.17-1.69,1.24-3.76,1.84-5.84,1.7Z"/>
+                <polygon fill="#393939" points="202.97 13.51 193.29 35.25 183.63 13.51 181.72 13.51 192.38 37.52 194.12 37.52 204.78 13.51 202.97 13.51"/>
+                <rect fill="#393939" x="208.64" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m232.5,27.96c-.73-.83-1.65-1.47-2.68-1.87-1.37-.51-2.78-.93-4.2-1.27-1.26-.3-2.5-.66-3.72-1.1-.86-.31-1.65-.82-2.29-1.47-.32-.35-.56-.75-.72-1.19-.16-.44-.23-.91-.2-1.38-.01-.67.14-1.34.43-1.94.3-.6.73-1.12,1.28-1.52,1.48-.99,3.25-1.46,5.02-1.34,1.15,0,2.3.18,3.4.52,1.13.33,2.19.84,3.16,1.51l.65-1.41c-1.02-.7-2.13-1.23-3.32-1.58-1.26-.39-2.58-.58-3.89-.58-1.62-.05-3.23.24-4.73.86-1.15.47-2.13,1.28-2.82,2.31-.61.96-.93,2.07-.92,3.21-.07,1.25.33,2.47,1.1,3.45.73.85,1.66,1.5,2.7,1.9,1.38.51,2.79.93,4.22,1.27,1.25.28,2.48.63,3.69,1.06.86.31,1.65.82,2.29,1.48.32.35.56.75.72,1.19s.23.91.21,1.38c.01.67-.14,1.32-.45,1.92-.3.59-.75,1.1-1.3,1.48-1.54.97-3.34,1.43-5.16,1.3-1.54,0-3.06-.28-4.49-.84-1.28-.47-2.44-1.21-3.4-2.17l-.78,1.3c1.04,1.06,2.31,1.86,3.71,2.35,1.6.61,3.29.91,5,.9,1.64.05,3.26-.24,4.78-.86,1.17-.46,2.17-1.26,2.89-2.3.62-.95.95-2.06.94-3.19.07-1.23-.33-2.43-1.11-3.38Z"/>
+                <rect fill="#393939" x="239.52" y="13.51" width="1.74" height="24"/>
+                <path fill="#393939" d="m270.56,19.27c-1.06-1.83-2.6-3.34-4.46-4.35-1.96-1.04-4.14-1.58-6.36-1.58-2.22,0-4.4.55-6.35,1.59-1.85,1.02-3.39,2.54-4.46,4.37-1.09,1.88-1.65,4.03-1.62,6.21-.03,2.18.53,4.32,1.62,6.21,1.06,1.83,2.61,3.35,4.46,4.37,1.96,1.04,4.14,1.59,6.35,1.59,2.22,0,4.4-.54,6.36-1.58,1.85-1.02,3.4-2.52,4.46-4.35,1.09-1.89,1.65-4.05,1.62-6.24.03-2.19-.53-4.34-1.62-6.24Zm-1.55,11.64c-.91,1.59-2.23,2.9-3.83,3.79h0c-1.67.9-3.54,1.37-5.44,1.37s-3.77-.47-5.44-1.37c-1.6-.89-2.93-2.2-3.84-3.79-.94-1.64-1.43-3.51-1.4-5.4-.02-1.89.46-3.76,1.4-5.4.91-1.59,2.24-2.9,3.84-3.79,1.67-.9,3.54-1.37,5.44-1.37s3.77.47,5.44,1.37c1.59.89,2.92,2.2,3.83,3.79.94,1.64,1.43,3.51,1.4,5.4.02,1.89-.46,3.76-1.4,5.4Z"/>
+                <polygon fill="#393939" points="295.95 13.51 295.95 34.36 279.69 13.51 278.23 13.51 278.23 37.52 279.97 37.52 279.97 16.67 296.26 37.52 297.7 37.52 297.7 13.51 295.95 13.51"/>
+            </svg>
+        </div>
+        <div class="header-right">razorvision.net</div>
+    </header>
+
+    <h1>Claude Code Token Optimization Guide</h1>
+    <p class="subtitle">Best practices for reducing token usage and costs</p>
+
+    <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#quick-wins">1. Quick Wins: Global Settings</a></li>
+            <li><a href="#claude-md">2. CLAUDE.md Optimization</a></li>
+            <li><a href="#session-habits">3. Session Management Habits</a></li>
+            <li><a href="#model-selection">4. Model Selection Strategy</a></li>
+            <li><a href="#hooks">5. Advanced: Session Hooks</a></li>
+            <li><a href="#monitoring">6. Monitoring &amp; Tracking</a></li>
+        </ul>
+    </nav>
+
+    <h2 id="quick-wins">1. Quick Wins: Global Settings</h2>
+
+    <p>Apply these settings to <code>~/.claude/settings.json</code> for immediate token savings across all projects.</p>
+
+    <h3>Recommended Configuration</h3>
+
+    <pre><code>{
+  "model": "sonnet",
+  "cleanupPeriodDays": 10,
+  "env": {
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-3-5-haiku-20241022"
+  },
+  "smallModelOverride": "haiku",
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./node_modules/**)",
+      "Read(./build/**)",
+      "Read(./dist/**)",
+      "Read(./.next/**)",
+      "Read(./coverage/**)",
+      "Read(./.git/**)"
+    ]
+  }
+}</code></pre>
+
+    <h3>What Each Setting Does</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Setting</th>
+                <th>Purpose</th>
+                <th>Impact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>model: "sonnet"</code></td>
+                <td>Default to Sonnet instead of Opus</td>
+                <td>~5x cost reduction per token</td>
+            </tr>
+            <tr>
+                <td><code>cleanupPeriodDays: 10</code></td>
+                <td>Auto-delete old sessions (default: 30)</td>
+                <td>Reduces disk usage, faster startup</td>
+            </tr>
+            <tr>
+                <td><code>DISABLE_NON_ESSENTIAL_MODEL_CALLS</code></td>
+                <td>Skips cosmetic/flavor text generation</td>
+                <td>Fewer unnecessary API calls</td>
+            </tr>
+            <tr>
+                <td><code>smallModelOverride: "haiku"</code></td>
+                <td>Use Haiku for background tasks</td>
+                <td>Cheaper sub-agent operations</td>
+            </tr>
+            <tr>
+                <td><code>permissions.deny</code></td>
+                <td>Block reading large directories</td>
+                <td>Prevents accidental context bloat</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Environment Variable Override (Optional)</h3>
+
+    <p>Add to your shell profile to redirect any Opus requests to Sonnet:</p>
+
+    <pre><code># PowerShell profile (~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1)
+$env:ANTHROPIC_DEFAULT_OPUS_MODEL = "claude-sonnet-4-5-20250929"
+
+# Bash/Zsh (~/.bashrc or ~/.zshrc)
+export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-sonnet-4-5-20250929"</code></pre>
+
+    <h2 id="claude-md">2. CLAUDE.md Optimization</h2>
+
+    <p>Your project's <code>CLAUDE.md</code> file is loaded into context at session start. Every token counts.</p>
+
+    <h3>Tiered Documentation Architecture</h3>
+
+    <p>Structure your documentation to minimize what gets loaded into context:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tier</th>
+                <th>Location</th>
+                <th>Content</th>
+                <th>Loaded</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tier 1: Critical</strong></td>
+                <td><code>CLAUDE.md</code></td>
+                <td>Commands, conventions, patterns</td>
+                <td>Always</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 2: Contextual</strong></td>
+                <td><code>/docs/*.md</code></td>
+                <td>Architecture, API specs</td>
+                <td>On demand</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 3: Reference</strong></td>
+                <td>External links</td>
+                <td>Full documentation</td>
+                <td>Never auto-loaded</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>CLAUDE.md Best Practices</h3>
+
+    <div class="tip">
+        <strong>Do:</strong>
+        <ul>
+            <li>Keep it under 500 lines</li>
+            <li>Use bullet points over prose</li>
+            <li>Include essential commands: build, test, lint</li>
+            <li>Document project-specific conventions</li>
+            <li>List critical file paths</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        <strong>Don't:</strong>
+        <ul>
+            <li>Duplicate README content</li>
+            <li>Include verbose explanations</li>
+            <li>Embed full API documentation</li>
+            <li>List every file in the project</li>
+            <li>Include historical context unless critical</li>
+        </ul>
+    </div>
+
+    <h3>Example Optimized CLAUDE.md Structure</h3>
+
+    <pre><code># Project Name
+
+## Commands
+- `npm run dev` - Start dev server (port 3000)
+- `npm test` - Run tests
+- `npm run lint` - ESLint + Prettier
+
+## Stack
+- Next.js 14 + TypeScript
+- Prisma + PostgreSQL
+- Tailwind CSS
+
+## Conventions
+- Components in `src/components/`
+- API routes in `src/app/api/`
+- Use `cn()` for className merging
+
+## Critical Patterns
+- Auth: NextAuth with JWT
+- State: React Query for server state
+- Forms: React Hook Form + Zod</code></pre>
+
+    <p><strong>Result:</strong> ~150 tokens vs. 800+ for a verbose version (63% reduction).</p>
+
+    <h2 id="session-habits">3. Session Management Habits</h2>
+
+    <h3>Essential Commands</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>When to Use</th>
+                <th>Effect</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>/clear</code></td>
+                <td>Switching to unrelated task</td>
+                <td>Clears conversation history</td>
+            </tr>
+            <tr>
+                <td><code>/compact</code></td>
+                <td>Conversation getting long</td>
+                <td>Summarizes and compresses context</td>
+            </tr>
+            <tr>
+                <td><code>/cost</code></td>
+                <td>Check current session usage</td>
+                <td>Shows token count and cost</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>When to Use /clear</h3>
+
+    <ul>
+        <li>After completing a distinct task</li>
+        <li>When switching between unrelated features</li>
+        <li>Before starting debugging (fresh context helps)</li>
+        <li>When context becomes polluted with failed approaches</li>
+    </ul>
+
+    <h3>When to Use /compact</h3>
+
+    <ul>
+        <li>After 15-20 back-and-forth exchanges</li>
+        <li>When you notice Claude repeating context</li>
+        <li>Before asking for a summary or plan</li>
+        <li>When responses start getting slower</li>
+    </ul>
+
+    <div class="info">
+        <strong>Pro Tip:</strong> Run <code>/cost</code> periodically during long sessions. If you see unexpected spikes, it may be time to <code>/clear</code> or <code>/compact</code>.
+    </div>
+
+    <h2 id="model-selection">4. Model Selection Strategy</h2>
+
+    <h3>Model Comparison</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Best For</th>
+                <th>Cost (relative)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Haiku</strong></td>
+                <td>Simple tasks, quick lookups, formatting</td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td><strong>Sonnet</strong></td>
+                <td>Most coding tasks, debugging, refactoring</td>
+                <td>$$</td>
+            </tr>
+            <tr>
+                <td><strong>Opus</strong></td>
+                <td>Complex architecture, nuanced decisions</td>
+                <td>$$$$$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Recommended Default: Sonnet</h3>
+
+    <p>Sonnet provides the best cost-to-quality ratio for typical development work. Haiku mistakes can cost more tokens to fix than just using Sonnet upfront.</p>
+
+    <h3>When to Use Haiku</h3>
+
+    <ul>
+        <li>Simple file searches</li>
+        <li>Code formatting tasks</li>
+        <li>Generating boilerplate</li>
+        <li>Quick syntax questions</li>
+    </ul>
+
+    <h3>When to Escalate to Opus</h3>
+
+    <ul>
+        <li>System architecture decisions</li>
+        <li>Complex multi-file refactors</li>
+        <li>Subtle bug diagnosis</li>
+        <li>Performance optimization analysis</li>
+    </ul>
+
+    <div class="warning">
+        <strong>Avoid Opus for:</strong> Routine coding tasks. A $0.50 Sonnet session that takes two attempts is still cheaper than a single $2.50 Opus session.
+    </div>
+
+    <h2 id="hooks">5. Advanced: Session Hooks</h2>
+
+    <p>Session hooks allow automatic context management based on project detection.</p>
+
+    <h3>Session-Start Hook Example</h3>
+
+    <p>Create <code>.claude/hooks/session-start.sh</code>:</p>
+
+    <pre><code>#!/bin/bash
+# Detect project type and load appropriate context
+
+if [ -f "package.json" ]; then
+    if grep -q "next" package.json; then
+        echo "Next.js project detected"
+        echo "Key files: next.config.js, app/, components/"
+    elif grep -q "react" package.json; then
+        echo "React project detected"
+        echo "Key files: src/, public/"
+    fi
+fi
+
+if [ -f "requirements.txt" ] || [ -f "pyproject.toml" ]; then
+    echo "Python project detected"
+fi</code></pre>
+
+    <h3>Benefits of Hooks</h3>
+
+    <ul>
+        <li>Automatic project-type detection</li>
+        <li>Load only relevant documentation</li>
+        <li>Set project-specific environment variables</li>
+        <li>Pre-warm common file paths</li>
+    </ul>
+
+    <div class="info">
+        <strong>Token Savings:</strong> Well-configured hooks can reduce initial context by 40-60% by loading only what's relevant.
+    </div>
+
+    <h2 id="monitoring">6. Monitoring &amp; Tracking</h2>
+
+    <h3>Built-in: /cost Command</h3>
+
+    <p>Quick check of current session usage:</p>
+
+    <pre><code>/cost</code></pre>
+
+    <p>Shows: Total tokens, input/output breakdown, estimated cost.</p>
+
+    <h3>ccusage: Detailed Analytics</h3>
+
+    <p><a href="https://github.com/ryoppippi/ccusage">ccusage</a> is a community tool for detailed usage analysis:</p>
+
+    <pre><code># Install and run
+npx ccusage@latest
+
+# View daily breakdown
+npx ccusage daily
+
+# View by billing window (5-hour blocks)
+npx ccusage blocks
+
+# Live monitoring dashboard
+npx ccusage blocks --live
+
+# Filter by date range
+npx ccusage daily --since 20250101 --until 20250131
+
+# Export as JSON
+npx ccusage daily --json</code></pre>
+
+    <h3>ccusage Report Types</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Report</th>
+                <th>Command</th>
+                <th>Use Case</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Daily</td>
+                <td><code>ccusage daily</code></td>
+                <td>Day-by-day usage overview</td>
+            </tr>
+            <tr>
+                <td>Monthly</td>
+                <td><code>ccusage monthly</code></td>
+                <td>Budget tracking</td>
+            </tr>
+            <tr>
+                <td>Session</td>
+                <td><code>ccusage session</code></td>
+                <td>Per-conversation breakdown</td>
+            </tr>
+            <tr>
+                <td>Blocks</td>
+                <td><code>ccusage blocks</code></td>
+                <td>Claude's 5-hour billing windows</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Pro Tips for Cost Control</h3>
+
+    <ol>
+        <li><strong>Weekly reviews:</strong> Run <code>ccusage monthly</code> to spot trends</li>
+        <li><strong>Project attribution:</strong> Use <code>--instances</code> to see per-project costs</li>
+        <li><strong>Model breakdown:</strong> Use <code>--breakdown</code> to see cost by model</li>
+        <li><strong>Set alerts:</strong> Check daily usage before starting intensive work</li>
+    </ol>
+
+    <div class="tip">
+        <strong>Expected Savings:</strong> Following all practices in this guide typically yields a <strong>40-60% reduction</strong> in token usage compared to default settings.
+    </div>
+
+    <footer>
+        <span>&copy; 2025 RazorVision</span>
+        <span>razorvision.net</span>
+    </footer>
+</body>
+</html>
