@@ -27,12 +27,13 @@ body {
   transition: all 0.2s ease;
 
   &:hover {
-    background: rgba(67, 182, 231, 0.1);
+    background: rgba(67, 182, 231, 0.25);
     transform: translateX(2px);
+    color: #ffffff;
   }
 
   &.active {
-    background: rgba(67, 182, 231, 0.15);
+    background: rgba(67, 182, 231, 0.3);
     border-left: 3px solid #43B6E7;
   }
 }
