@@ -16,29 +16,37 @@ Comprehensive documentation organized to teach best practices and efficient tool
 
 ### Which Path Are You?
 
-```text
-┌─────────────────────────────────────────────────────────────────┐
-│                        START HERE                               │
-│                                                                 │
-│  What are you trying to do?                                     │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-       ┌──────────────────────┼──────────────────────┐
-       │                      │                      │
-       ▼                      ▼                      ▼
- ┌───────────┐         ┌───────────┐         ┌───────────┐
- │    NEW    │         │   USING   │         │  SPECIFIC │
- │   TO AI   │         │   TOOLS   │         │   ISSUE   │
- │   CODING  │         │           │         │           │
- └───────────┘         └───────────┘         └───────────┘
-       │                      │                      │
-       ▼                      ▼                      ▼
-  Learning Paths        Common Tasks          Troubleshooting
-  (Start here!)        (Quick reference)        (Debug it!)
-       │                      │                      │
-       ▼                      ▼                      ▼
-  /learning-paths/      COMMON_TASKS.md       /troubleshooting/
-```
+<div style="background: linear-gradient(135deg, rgba(67, 182, 231, 0.1) 0%, rgba(67, 182, 231, 0.05) 100%); border: 2px solid rgba(67, 182, 231, 0.3); border-radius: 12px; padding: 2rem; margin: 2rem 0;">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <div style="background: rgba(67, 182, 231, 0.2); border-radius: 8px; padding: 1.5rem; display: inline-block;">
+      <strong style="font-size: 1.2rem; color: #5ac8fa;">🎯 START HERE</strong><br/>
+      <span style="margin-top: 0.5rem; display: block;">What are you trying to do?</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+    <div style="background: rgba(0, 0, 0, 0.3); border: 2px solid rgba(67, 182, 231, 0.4); border-radius: 8px; padding: 1.5rem; text-align: center;">
+      <div style="font-size: 1.1rem; font-weight: 600; color: #5ac8fa; margin-bottom: 0.5rem;">🎓 NEW TO AI CODING</div>
+      <div style="margin: 1rem 0; color: #ccc;">Start here!</div>
+      <div style="font-weight: 600; margin-bottom: 0.5rem;">→ Learning Paths</div>
+      <a href="learning-paths/" style="color: #43B6E7; text-decoration: none; font-size: 0.9rem;">/learning-paths/</a>
+    </div>
+
+    <div style="background: rgba(0, 0, 0, 0.3); border: 2px solid rgba(67, 182, 231, 0.4); border-radius: 8px; padding: 1.5rem; text-align: center;">
+      <div style="font-size: 1.1rem; font-weight: 600; color: #5ac8fa; margin-bottom: 0.5rem;">🔧 USING TOOLS</div>
+      <div style="margin: 1rem 0; color: #ccc;">Quick reference</div>
+      <div style="font-weight: 600; margin-bottom: 0.5rem;">→ Common Tasks</div>
+      <a href="COMMON_TASKS.html" style="color: #43B6E7; text-decoration: none; font-size: 0.9rem;">COMMON_TASKS.md</a>
+    </div>
+
+    <div style="background: rgba(0, 0, 0, 0.3); border: 2px solid rgba(67, 182, 231, 0.4); border-radius: 8px; padding: 1.5rem; text-align: center;">
+      <div style="font-size: 1.1rem; font-weight: 600; color: #5ac8fa; margin-bottom: 0.5rem;">🐛 SPECIFIC ISSUE</div>
+      <div style="margin: 1rem 0; color: #ccc;">Debug it!</div>
+      <div style="font-weight: 600; margin-bottom: 0.5rem;">→ Troubleshooting</div>
+      <a href="troubleshooting/" style="color: #43B6E7; text-decoration: none; font-size: 0.9rem;">/troubleshooting/</a>
+    </div>
+  </div>
+</div>
 
 ### Quick Decision Guide
 
