@@ -6,10 +6,51 @@ nav_order: 1
 
 # RV 2.0 Documentation
 
-Comprehensive team template for project setup, Claude Code workflows, and development best practices.
+Comprehensive documentation organized to teach best practices and efficient tool usage.
 
-{: .note }
-**New here?** Start with the [Quick Start Guide](getting-started/TEMPLATE_USAGE.md) or jump to [Common Tasks](COMMON_TASKS.md) for day-to-day reference.
+---
+
+## 👋 New Here? Start Here
+
+**This documentation gives you everything you need to build high-quality software with best practices and powerful AI tools.**
+
+### Which Path Are You?
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                        START HERE                               │
+│                                                                 │
+│  What are you trying to do?                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+       ┌──────────────────────┼──────────────────────┐
+       │                      │                      │
+       ▼                      ▼                      ▼
+ ┌───────────┐         ┌───────────┐         ┌───────────┐
+ │    NEW    │         │   USING   │         │  SPECIFIC │
+ │   TO AI   │         │   TOOLS   │         │   ISSUE   │
+ │   CODING  │         │           │         │           │
+ └───────────┘         └───────────┘         └───────────┘
+       │                      │                      │
+       ▼                      ▼                      ▼
+  Learning Paths        Common Tasks          Troubleshooting
+  (Start here!)        (Quick reference)        (Debug it!)
+       │                      │                      │
+       ▼                      ▼                      ▼
+  /learning-paths/      COMMON_TASKS.md       /troubleshooting/
+```
+
+### Quick Decision Guide
+
+| I want to... | Go here | Time |
+|-------------|---------|------|
+| **Learn Claude Code from scratch** | [New to Claude Code Path](learning-paths/new-to-claude-code/) | 2 hours |
+| **Look up a command quickly** | [Common Tasks](COMMON_TASKS.md) | 2 min |
+| **Fix a bug or error** | [Troubleshooting Guide](troubleshooting/README.md) | 5-30 min |
+| **Understand a tool (Git, MCP, etc.)** | [Tools Guide](tools/README.md) | 10-30 min |
+| **Make a technical decision** | [Decision Trees](best-practices/DECISION_TREES.md) | 5 min |
+| **See example code** | [Examples](examples/) | 5 min |
+| **Learn testing/auth/APIs** | [Learning Paths](learning-paths/) | 2-4 hours |
 
 ---
 
