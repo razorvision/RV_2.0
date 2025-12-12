@@ -1,19 +1,50 @@
-# Documentation Index
+# RV 2.0 Documentation
 
-Comprehensive documentation for the RV 2.0 project, organized to teach best practices and efficient tool usage.
+Comprehensive documentation organized to teach best practices and efficient tool usage.
 
-> **Looking for quick answers?** See [Common Tasks](COMMON_TASKS.md) for day-to-day development reference.
+---
 
-## 🎯 Quick Navigation
+## 👋 New Here? Start Here
 
-| I want to... | Go here |
-|-------------|---------|
-| **Get started with Claude Code** | [Claude Code Getting Started](tools/claude-code/GETTING_STARTED.md) |
-| **Fix a bug or debug an issue** | [Troubleshooting Guide](troubleshooting/README.md) |
-| **Look up a command** | [Common Tasks](COMMON_TASKS.md) or [Cheat Sheets](tools/cheat-sheets/) |
-| **Learn best practices** | [Best Practices](best-practices/) |
-| **See code examples** | [Examples](examples/) |
-| **Understand the tools** | [Tools Guide](tools/README.md) |
+**This documentation gives you everything you need to build high-quality software with best practices and powerful AI tools.**
+
+### Which Path Are You?
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                        START HERE                               │
+│                                                                 │
+│  What are you trying to do?                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+       ┌──────────────────────┼──────────────────────┐
+       │                      │                      │
+       ▼                      ▼                      ▼
+ ┌───────────┐         ┌───────────┐         ┌───────────┐
+ │    NEW    │         │   USING   │         │  SPECIFIC │
+ │   TO AI   │         │   TOOLS   │         │   ISSUE   │
+ │   CODING  │         │           │         │           │
+ └───────────┘         └───────────┘         └───────────┘
+       │                      │                      │
+       ▼                      ▼                      ▼
+  Learning Paths        Common Tasks          Troubleshooting
+  (Start here!)        (Quick reference)        (Debug it!)
+       │                      │                      │
+       ▼                      ▼                      ▼
+  /learning-paths/      COMMON_TASKS.md       /troubleshooting/
+```
+
+### Quick Decision Guide
+
+| I want to... | Go here | Time |
+|-------------|---------|------|
+| **Learn Claude Code from scratch** | [New to Claude Code Path](learning-paths/new-to-claude-code/) | 2 hours |
+| **Look up a command quickly** | [Common Tasks](COMMON_TASKS.md) | 2 min |
+| **Fix a bug or error** | [Troubleshooting Guide](troubleshooting/README.md) | 5-30 min |
+| **Understand a tool (Git, MCP, etc.)** | [Tools Guide](tools/README.md) | 10-30 min |
+| **Make a technical decision** | [Decision Trees](best-practices/DECISION_TREES.md) | 5 min |
+| **See example code** | [Examples](examples/) | 5 min |
+| **Learn testing/auth/APIs** | [Learning Paths](learning-paths/) | 2-4 hours |
 
 ---
 
