@@ -11,6 +11,12 @@
  * - GMAIL_APP_PASSWORD: 16-character app password from Google Account
  * - EMAIL_RECIPIENTS: Comma-separated email addresses
  *
+ * Optional (for approval button in test emails):
+ * - APPROVAL_TOKEN_SECRET: Secret for signing approval links
+ * - VERCEL_DEPLOYMENT_URL: Vercel deployment URL (e.g., https://rv-2-0.vercel.app)
+ * - GITHUB_RUN_ID: GitHub Actions run ID (passed by workflow)
+ * - IS_TEST_EMAIL: Set to 'true' to include approval button
+ *
  * To generate an app password:
  * 1. Enable 2FA: https://myaccount.google.com/security
  * 2. Generate app password: https://myaccount.google.com/apppasswords
@@ -24,6 +30,7 @@ import nodemailer from 'nodemailer';
 import { config } from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import { generateApprovalToken, buildApprovalUrl } from './utils/approval-token.mjs';
 
 // Load environment variables
 config();
@@ -31,12 +38,23 @@ config();
 const GMAIL_FROM_EMAIL = process.env.GMAIL_FROM_EMAIL;
 const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD;
 const EMAIL_RECIPIENTS = process.env.EMAIL_RECIPIENTS;
+const IS_TEST_EMAIL = process.env.IS_TEST_EMAIL === 'true';
+const APPROVAL_TOKEN_SECRET = process.env.APPROVAL_TOKEN_SECRET;
+const VERCEL_DEPLOYMENT_URL = process.env.VERCEL_DEPLOYMENT_URL;
+const GITHUB_RUN_ID = process.env.GITHUB_RUN_ID;
 
 // Validate required environment variables
 const missingVars = [];
 if (!GMAIL_FROM_EMAIL) missingVars.push('GMAIL_FROM_EMAIL');
 if (!GMAIL_APP_PASSWORD) missingVars.push('GMAIL_APP_PASSWORD');
 if (!EMAIL_RECIPIENTS) missingVars.push('EMAIL_RECIPIENTS');
+
+// If sending test email with approval button, need additional variables
+if (IS_TEST_EMAIL) {
+  if (!APPROVAL_TOKEN_SECRET) missingVars.push('APPROVAL_TOKEN_SECRET (required for test email approval button)');
+  if (!VERCEL_DEPLOYMENT_URL) missingVars.push('VERCEL_DEPLOYMENT_URL (required for test email approval button)');
+  if (!GITHUB_RUN_ID) missingVars.push('GITHUB_RUN_ID (required for test email approval button)');
+}
 
 if (missingVars.length > 0) {
   console.error(`Error: Missing required environment variables: ${missingVars.join(', ')}`);
@@ -51,7 +69,12 @@ async function sendEmail() {
       throw new Error(`Report file not found: ${reportPath}`);
     }
 
-    const htmlContent = fs.readFileSync(reportPath, 'utf-8');
+    let htmlContent = fs.readFileSync(reportPath, 'utf-8');
+
+    // If this is a test email, inject approval button
+    if (IS_TEST_EMAIL) {
+      htmlContent = injectApprovalButton(htmlContent);
+    }
 
     // Parse recipients
     const recipients = EMAIL_RECIPIENTS
@@ -73,7 +96,9 @@ async function sendEmail() {
       day: 'numeric'
     });
 
-    const subject = `Product Status Update - ${dateStr}`;
+    const subject = IS_TEST_EMAIL
+      ? `[TEST] Product Status Update - ${dateStr}`
+      : `Product Status Update - ${dateStr}`;
 
     // Create Nodemailer transporter for Gmail
     const transporter = nodemailer.createTransport({
@@ -99,11 +124,39 @@ async function sendEmail() {
     console.log(`Response ID: ${result.response}`);
     console.log(`Subject: ${subject}`);
     console.log(`Recipients: ${recipients.join(', ')}`);
+    if (IS_TEST_EMAIL) {
+      console.log(`\n📧 Test email includes approval button. Click to trigger final send.`);
+    }
 
   } catch (error) {
     console.error('Error sending email:', error.message);
     process.exit(1);
   }
+}
+
+/**
+ * Inject an approval button into the HTML email
+ * The button appears at the top with a secure signed URL
+ */
+function injectApprovalButton(htmlContent) {
+  const token = generateApprovalToken(GITHUB_RUN_ID, APPROVAL_TOKEN_SECRET);
+  const approvalUrl = buildApprovalUrl(GITHUB_RUN_ID, token, VERCEL_DEPLOYMENT_URL);
+
+  const approvalButtonHtml = `
+<div style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 20px; margin-bottom: 20px; text-align: center;">
+  <p style="margin: 0 0 12px 0; color: #166534; font-weight: bold;">📧 Preview: Click below to approve and send to all recipients</p>
+  <a href="${approvalUrl}" style="display: inline-block; background: #22c55e; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; border: none; cursor: pointer;">✅ Approve & Send</a>
+  <p style="margin: 12px 0 0 0; color: #666; font-size: 12px;">This link expires in 24 hours.</p>
+</div>
+  `;
+
+  // Inject after the opening body tag or at the start of content
+  if (htmlContent.includes('<body')) {
+    return htmlContent.replace(/(<body[^>]*>)/i, '$1' + approvalButtonHtml);
+  }
+
+  // Fallback: prepend to the HTML
+  return approvalButtonHtml + htmlContent;
 }
 
 // Run the email sender

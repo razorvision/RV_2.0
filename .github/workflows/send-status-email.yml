@@ -50,6 +50,10 @@ jobs:
           GMAIL_FROM_EMAIL: ${{ secrets.GMAIL_FROM_EMAIL }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_RECIPIENTS: ${{ secrets.GMAIL_FROM_EMAIL }}
+          IS_TEST_EMAIL: 'true'
+          APPROVAL_TOKEN_SECRET: ${{ secrets.APPROVAL_TOKEN_SECRET }}
+          VERCEL_DEPLOYMENT_URL: ${{ secrets.VERCEL_DEPLOYMENT_URL }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
 
       - name: Send email to all recipients
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'send_to_all'
@@ -59,13 +63,12 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
 
-      - name: Post test email comment with approval button
+      - name: Post test email comment
         if: github.event_name == 'pull_request' && success()
         uses: actions/github-script@v7
         with:
           script: |
-            const workflowUrl = `${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
-            const body = `📧 **Test email sent to you!**\n\nReview the email preview, then approve to send to all recipients:\n\n**[✅ APPROVE & SEND TO ALL](${workflowUrl})**\n\nOnce you click that link:\n1. Click the "Send email to all recipients" button in the Actions UI\n2. Select "send_to_all" from the dropdown\n3. Click "Run workflow"\n\nWorkflow run: ${workflowUrl}`;
+            const body = `📧 **Test email sent!**\n\nCheck your inbox for the status report with an approval button at the top. Click the button to send to all recipients.\n\nIf you don't see the button, the approval flow may not be configured yet. Check the workflow logs for details.`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
