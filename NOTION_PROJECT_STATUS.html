@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Features & Development Status Report | RazorVision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rv-blue: #43B6E7;
+            --rv-dark: #393939;
+            --rv-light: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--rv-dark);
+            background-color: var(--rv-light);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+
+        header .logo {
+            height: 40px;
+            font-weight: 700;
+            color: var(--rv-blue);
+            font-size: 18px;
+        }
+
+        header .header-content {
+            flex: 1;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--rv-dark);
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 13px;
+            color: #999;
+            margin: 0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .summary {
+            background: #ecf0f1;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .summary p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--rv-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--rv-blue);
+        }
+
+        section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--rv-dark);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .issue {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #95a5a6;
+        }
+
+        .issue.urgent {
+            border-left-color: #e74c3c;
+            background: #fef5f5;
+        }
+
+        .issue.high {
+            border-left-color: #f39c12;
+            background: #fffaf0;
+        }
+
+        .issue.medium {
+            border-left-color: #3498db;
+            background: #f0f7ff;
+        }
+
+        .issue.low {
+            border-left-color: #27ae60;
+            background: #f0fdf4;
+        }
+
+        .issue-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .issue-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .status-badge.urgent {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .status-badge.high {
+            background: #f39c12;
+            color: white;
+        }
+
+        .status-badge.medium {
+            background: #3498db;
+            color: white;
+        }
+
+        .status-badge.low {
+            background: #27ae60;
+            color: white;
+        }
+
+        .issue-description {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .issue-details {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .issue-details li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .issue-details li:before {
+            content: "• ";
+            color: #3498db;
+            margin-right: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        table th {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        table tr:hover {
+            background: #f9f9f9;
+        }
+
+        .recommendations {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+
+        .recommendations ol {
+            margin-left: 20px;
+        }
+
+        .recommendations li {
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .recommendations strong {
+            color: #2c3e50;
+        }
+
+        footer {
+            background: #ecf0f1;
+            padding: 20px 30px;
+            text-align: right;
+            font-size: 12px;
+            color: #7f8c8d;
+            border-top: 1px solid #bdc3c7;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">RazorVision</div>
+            <div class="header-content">
+                <h1>Product Features & Development Status Report</h1>
+                <p>December 16, 2025</p>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="summary">
+                <p>The product roadmap contains <strong>15+ active items</strong> across three primary clients (CBB, DLC, Wise Loan). Several items are blocked waiting for client decisions or third-party vendor confirmation. Below is a breakdown of critical issues by priority and status.</p>
+            </div>
+
+            <!-- Critical Issues -->
+            <section>
+                <h2>🔴 Critical Issues (1 - URGENT Priority)</h2>
+
+                <h3>CBB (Client Updates)</h3>
+                <div class="issue urgent">
+                    <div class="issue-title">Make ID upload required</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>Ready For Dev</span>
+                        <span>2-High</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Current workaround exists but has security/compliance gaps</li>
+                        <li>Implementation needed for proper ID verification workflow</li>
+                        <li>Luciana has a good implementation suggestion ready to proceed this week</li>
+                    </ul>
+                </div>
+
+                <h3>DLC (Client Updates)</h3>
+                <div class="issue urgent">
+                    <div class="issue-title">Long Term Product - New $500 requirement</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>UAT</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Awaiting approval from Jesse before production release</li>
+                        <li>UAT guide sent for review</li>
+                    </ul>
+                </div>
+
+                <div class="issue urgent">
+                    <div class="issue-title">Long Term Product - New disclosure</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>UAT</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Same as above - awaiting Jesse's approval</li>
+                    </ul>
+                </div>
+
+                <div class="issue urgent">
+                    <div class="issue-title">New Store (514-Menasha)</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>Ready For Dev</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Just added to board</li>
+                        <li>Luciana should complete today</li>
+                    </ul>
+                </div>
+
+                <div class="issue urgent">
+                    <div class="issue-title">Kiosk Application Issues</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>Requirements Gathering</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Newly flagged, needs urgent review</li>
+                        <li>RV creating troubleshooting documentation</li>
+                    </ul>
+                </div>
+
+                <h3>Wise Loan (Client Updates)</h3>
+                <div class="issue urgent">
+                    <div class="issue-title">Agora Dropoff</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>Released in Production</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Now resolved with examples from Tekambi</li>
+                    </ul>
+                </div>
+
+                <div class="issue urgent">
+                    <div class="issue-title">Replace Olark chat with uContact</div>
+                    <div class="issue-meta">
+                        <span class="status-badge urgent">URGENT</span>
+                        <span>Released in Production</span>
+                        <span>1-URGENT</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Main work complete</li>
+                        <li>Follow-up: Footer link fix pending (Leslie coordinating with their team)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- High Priority -->
+            <section>
+                <h2>🟠 High-Priority Items (2 - HIGH)</h2>
+
+                <h3>CBB</h3>
+                <div class="issue high">
+                    <div class="issue-title">Instead of grabbing premium pull - Flexibility on amount</div>
+                    <div class="issue-meta">
+                        <span class="status-badge high">HIGH</span>
+                        <span>Solution Design/Estimate</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li><strong>Blocker:</strong> Roland to provide field spec Wednesday</li>
+                        <li><strong>Need:</strong> Clarification on exact flow for agents (new field vs. normal amount logic)</li>
+                    </ul>
+                </div>
+
+                <div class="issue high">
+                    <div class="issue-title">Auth.net transaction update - Zak</div>
+                    <div class="issue-meta">
+                        <span class="status-badge high">HIGH</span>
+                        <span>Solution Design/Estimate</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li><strong>Issue:</strong> Need to extract and display last 4 digits of transaction data</li>
+                        <li><strong>Action:</strong> Luciana reviewing options in depth this week</li>
+                    </ul>
+                </div>
+
+                <div class="issue high">
+                    <div class="issue-title">Payment auto-draft setup</div>
+                    <div class="issue-meta">
+                        <span class="status-badge high">HIGH</span>
+                        <span>Requirements Gathering</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Large project requiring architecture decisions</li>
+                        <li>When to capture payment info?</li>
+                        <li>What user capabilities needed? (changing auto-draft, deleting, editing)</li>
+                        <li>Do agents currently handle this in-store?</li>
+                        <li><strong>Requires:</strong> Discussion with Roland + vendor (JournalTech)</li>
+                    </ul>
+                </div>
+
+                <h3>DLC</h3>
+                <div class="issue high">
+                    <div class="issue-title">IDology (ID Verification)</div>
+                    <div class="issue-meta">
+                        <span class="status-badge high">HIGH</span>
+                        <span>Waiting on Client/Vendor</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Testing ongoing with vendor</li>
+                        <li>Jesse working with IDology; Robe testing at Infinity</li>
+                        <li>Next step: Awaiting feedback from Infinity testing</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Medium Priority -->
+            <section>
+                <h2>🟡 Medium-Priority Items (3 - MEDIUM)</h2>
+
+                <h3>CBB</h3>
+                <div class="issue medium">
+                    <div class="issue-title">Upcoming strategic discussions for video calls</div>
+                    <div class="issue-meta">
+                        <span class="status-badge medium">MEDIUM</span>
+                        <span>Requirements Gathering</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li><strong>Issue:</strong> Current Zoom solution needs improvement</li>
+                        <li><strong>Recommendation:</strong> Explore vendor solutions (too expensive to build)</li>
+                        <li><strong>Pending:</strong> Client clarification on call volume and growth projections</li>
+                    </ul>
+                </div>
+
+                <h3>DLC</h3>
+                <div class="issue medium">
+                    <div class="issue-title">Recurring Payments</div>
+                    <div class="issue-meta">
+                        <span class="status-badge medium">MEDIUM</span>
+                        <span>Waiting on Client/Vendor</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Repay & Infinity created plan, but doesn't work for Jesse</li>
+                        <li><strong>Blocker:</strong> Awaiting their response to email</li>
+                    </ul>
+                </div>
+
+                <div class="issue medium">
+                    <div class="issue-title">Save, Update, Delete, View Payment cards</div>
+                    <div class="issue-meta">
+                        <span class="status-badge medium">MEDIUM</span>
+                        <span>Waiting on Client/Vendor</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Same blocker as above - tied to Repay/Infinity coordination</li>
+                    </ul>
+                </div>
+
+                <div class="issue medium">
+                    <div class="issue-title">Monthly Error Report</div>
+                    <div class="issue-meta">
+                        <span class="status-badge medium">MEDIUM</span>
+                        <span>In Progress</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Status: Sent 12/15</li>
+                        <li>Assigned: Luciana & Andrew</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Low Priority -->
+            <section>
+                <h2>🟢 Low-Priority Items (4 - LOW)</h2>
+
+                <h3>CBB</h3>
+                <div class="issue low">
+                    <div class="issue-title">Instant ID verification</div>
+                    <div class="issue-meta">
+                        <span class="status-badge low">LOW</span>
+                        <span>Requirements Gathering</span>
+                    </div>
+                    <ul class="issue-details">
+                        <li>Questions: Replace existing ID collection? Vendor flows?</li>
+                        <li>Exploring IDology iframe integration (current partner)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Key Blockers -->
+            <section>
+                <h2>🚫 Key Blockers Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Blocker</th>
+                            <th>Items Affected</th>
+                            <th>Impact</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Client (Roland/Jesse) decisions</strong></td>
+                            <td>Payment auto-draft, Premium field flexibility, Recurring payments</td>
+                            <td>3+ items stuck</td>
+                            <td>Pending meetings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vendor (IDology/Infinity/Repay)</strong></td>
+                            <td>IDology testing, Recurring payments, Payment cards</td>
+                            <td>3+ items stuck</td>
+                            <td>Awaiting vendor responses</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vendor approval</strong></td>
+                            <td>Video calls solution</td>
+                            <td>Strategic decision needed</td>
+                            <td>Next week</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UAT approval (Jesse)</strong></td>
+                            <td>DLC new requirements, DLC disclosure</td>
+                            <td>2 urgent items can't release</td>
+                            <td>This week</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Recommendations -->
+            <section>
+                <h2>💡 Recommendations</h2>
+                <div class="recommendations">
+                    <ol>
+                        <li><strong>Prioritize Jesse's approvals</strong> - Two URGENT DLC items waiting on UAT sign-off for production release</li>
+                        <li><strong>Schedule Roland meeting</strong> - Payment auto-draft is a large project requiring architecture discussion + vendor coordination</li>
+                        <li><strong>Follow up with Infinity/Repay</strong> - Multiple payment-related items stuck on their responses</li>
+                        <li><strong>Notion cleanup</strong> - Consider archiving completed items (Agora Dropoff, Olark chat, etc.) for board clarity</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p style="margin-bottom: 5px;"><strong>Report Date:</strong> December 16, 2025 | <strong>Data Source:</strong> Notion Product Features Board</p>
+            <p>&copy; RazorVision | razorvision.net</p>
+        </footer>
+    </div>
+</body>
+</html>
