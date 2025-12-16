@@ -50,10 +50,12 @@ async function generateReport() {
 
     items.forEach(item => {
       const priority = item.priority || 'LOW';
-      // Handle priority like "1-URGENT", "2-HIGH", etc.
-      const priorityName = priority.split('-').pop().toUpperCase();
+      // Handle priority like "1 - URGENT", "2 - HIGH", etc.
+      const priorityName = priority.split('-').pop().trim().toUpperCase();
       if (byPriority[priorityName]) {
         byPriority[priorityName].push(item);
+      } else {
+        console.warn(`Unknown priority: "${priority}" -> "${priorityName}"`);
       }
     });
 
@@ -79,7 +81,11 @@ async function generateReport() {
       const color = PRIORITY_LEVELS[priority].color;
       const itemsByClient = groupedByPriorityAndClient[priority];
 
-      if (Object.keys(itemsByClient).length === 0) return;
+      if (Object.keys(itemsByClient).length === 0) {
+        console.log(`Skipping ${priority}: no items`);
+        return;
+      }
+      console.log(`Adding ${priority} section with ${Object.keys(itemsByClient).length} clients`);
 
       const priorityLabel = priority === 'URGENT' ? '1 - URGENT Priority' :
                           priority === 'HIGH' ? '2 - HIGH' :
