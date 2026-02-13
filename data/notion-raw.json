@@ -195,12 +195,12 @@
     },
     {
       "id": "23c0b674-3c96-8177-a961-fa8510ba5da4",
-      "name": "Monthly Error Report",
+      "name": "Weekly Error Report",
       "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Sent this out today (12/15).",
+      "priority": "4 - Low",
+      "updates": "Luciana set up automatic weekly reports. I’ll pass them along each Monday.",
       "client": "DLC",
-      "url": "https://www.notion.so/Monthly-Error-Report-23c0b6743c968177a961fa8510ba5da4"
+      "url": "https://www.notion.so/Weekly-Error-Report-23c0b6743c968177a961fa8510ba5da4"
     },
     {
       "id": "23c0b674-3c96-8178-ace2-d2a783e458fb",
@@ -324,7 +324,7 @@
       "name": "IDology",
       "status": "No status",
       "priority": "2 - High",
-      "updates": "Testing got sorted out and I see reports in Infinity. Jesse is working through testing with IDology. I provided additional testing for Robe at Infinity and am waiting to hear back from him.",
+      "updates": "We might add IDology to the apply flow too before launching. We’re currently scoping.",
       "client": "DLC",
       "url": "https://www.notion.so/IDology-23c0b6743c9681a09760e8a35ed7a579"
     },
@@ -719,8 +719,8 @@
       "id": "25c0b674-3c96-801a-a62f-f3041817a67f",
       "name": "Autofund = Yes for good customers",
       "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "This is the next item. I will create the ticket for it.",
+      "priority": "4 - Low",
+      "updates": "Outstanding questions to Infinity.",
       "client": "WL",
       "url": "https://www.notion.so/Autofund-Yes-for-good-customers-25c0b6743c96801aa62ff3041817a67f"
     },
@@ -747,7 +747,7 @@
       "name": "Business Rule Increase Loan Amount",
       "status": "No status",
       "priority": "2 - High",
-      "updates": "UAT failed. Diego finished updates to the code and it’s in QA now.",
+      "updates": "UAT in progress. Diego is OOO this week, I’ll work with him next week on it.",
       "client": "WL",
       "url": "https://www.notion.so/Business-Rule-Increase-Loan-Amount-2630b6743c96809c83bdc8af8efcb0d6"
     },
@@ -764,8 +764,8 @@
       "id": "26a0b674-3c96-80b1-b090-ec3cbf35cb9c",
       "name": "Pay Frequency and Pay Date Verification Page",
       "status": "No status",
-      "priority": "2 - High",
-      "updates": "Infinity approved my approach so we can move forward with this. We’ll prioritize it this week above the autofund ticket since it’s ready.",
+      "priority": "3 - Medium",
+      "updates": "We released this last week.",
       "client": "WL",
       "url": "https://www.notion.so/Pay-Frequency-and-Pay-Date-Verification-Page-26a0b6743c9680b1b090ec3cbf35cb9c"
     },
@@ -843,19 +843,19 @@
     },
     {
       "id": "2940b674-3c96-803b-818d-cc240a1fc211",
-      "name": "Recurring Payments",
+      "name": "Recurring Payments - Autodraft",
       "status": "No status",
       "priority": "3 - Medium",
-      "updates": "Repay and Infinity came up with a plan, but it sounds like it doesn’t work for Jesse. I’m waiting for them to reply to my email.",
+      "updates": "Repay and Infinity are discussing implementation options.",
       "client": "DLC",
-      "url": "https://www.notion.so/Recurring-Payments-2940b6743c96803b818dcc240a1fc211"
+      "url": "https://www.notion.so/Recurring-Payments-Autodraft-2940b6743c96803b818dcc240a1fc211"
     },
     {
       "id": "29a0b674-3c96-80c2-9363-ce4739f382c6",
       "name": "Save, Update, Delete, View Payment cards",
       "status": "No status",
       "priority": "3 - Medium",
-      "updates": "Repay and Infinity came up with a plan, but it sounds like it doesn’t work for Jesse. I’m waiting for them to reply to my  email.",
+      "updates": "Repay and Infinity are discussing implementation options.",
       "client": "DLC",
       "url": "https://www.notion.so/Save-Update-Delete-View-Payment-cards-29a0b6743c9680c29363ce4739f382c6"
     },
@@ -863,8 +863,8 @@
       "id": "2a20b674-3c96-8034-9a3b-d88e44e4b70f",
       "name": "GA4 Updates",
       "status": "No status",
-      "priority": "2 - High",
-      "updates": "Claire is picking up the rest of this work. Matt had a handful of questions for her. She requested additional budget to review further.",
+      "priority": "4 - Low",
+      "updates": "Claire requested additional budget to answer Matt’s questions.",
       "client": "WL",
       "url": "https://www.notion.so/GA4-Updates-2a20b6743c9680349a3bd88e44e4b70f"
     },
@@ -879,12 +879,12 @@
     },
     {
       "id": "2a90b674-3c96-8070-bc18-f24ee4df28df",
-      "name": "Promo code bug for Lorien",
+      "name": "Promo code bug - WLPM-747 (This will unblock the business rules ticket)",
       "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Need to review - deprioritized.",
+      "priority": "1 - URGENT",
+      "updates": "This is live now.",
       "client": "WL",
-      "url": "https://www.notion.so/Promo-code-bug-for-Lorien-2a90b6743c968070bc18f24ee4df28df"
+      "url": "https://www.notion.so/Promo-code-bug-WLPM-747-This-will-unblock-the-business-rules-ticket-2a90b6743c968070bc18f24ee4df28df"
     },
     {
       "id": "2ae0b674-3c96-80f2-ae6e-e795dc3c74ac",
@@ -896,15 +896,15 @@
       "url": "https://www.notion.so/Document-Submit-button-not-appearing-on-Members-Area-2ae0b6743c9680f2ae6ee795dc3c74ac"
     },
     {
-      "id": "2b00b674-3c96-8064-9947-d7c042589049",
-      "name": "Create new RV 2.0 board",
+      "id": "2b00b674-3c96-8077-bed1-db93f2915f67",
+      "name": "Autologout bug",
       "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "RV 2.0",
-      "url": "https://www.notion.so/Create-new-RV-2-0-board-2b00b6743c9680649947d7c042589049"
+      "priority": "1 - URGENT",
+      "updates": "Live in production.",
+      "client": "WL",
+      "url": "https://www.notion.so/Autologout-bug-2b00b6743c968077bed1db93f2915f67"
     }
   ],
-  "fetchedAt": "2025-12-16T23:01:21.124Z",
+  "fetchedAt": "2026-02-13T14:20:48.343Z",
   "itemCount": 100
 }
