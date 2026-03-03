@@ -331,12 +331,17 @@ for (const entry of entries) {
   const notes = (entry.notes || '').trim();
   const project = projectMap[entry.project.id] || {};
   const projConfig = projectConfigMap[String(entry.project.id)] || {};
+  const projectCode = project.code || '';
+  const projectDisplay = projectCode
+    ? projectCode + ' ' + entry.project.name
+    : entry.project.name;
   const entryBase = {
     entryId: entry.id,
     date: entry.spent_date,
     user: entry.user.name,
     userId: entry.user.id,
     project: entry.project.name,
+    projectDisplay: projectDisplay,
     projectId: entry.project.id,
     task: entry.task.name,
     hours: entry.hours,
@@ -560,229 +565,224 @@ messages.push({
   }
 });
 
-// ── Per-flag messages ──
+// ── Group flags by project, one message per project ──
+const flagsByProject = {};
 for (const flag of flags) {
-  const purposeNote = flag.projectPurpose
-    ? 'This is a _' + flag.projectPurpose.split(' - ')[0] + '_ project'
-      + (flag.projectPurpose.includes(' - ') ? ' (' + flag.projectPurpose.split(' - ').slice(1).join(' - ') + ')' : '')
-      + '.'
-    : '';
+  const key = flag.projectDisplay || flag.project;
+  if (!flagsByProject[key]) flagsByProject[key] = [];
+  flagsByProject[key].push(flag);
+}
 
-  const entryInfo = '*' + flag.user + '* | ' + flag.date + ' | ' + flag.hours + 'h'
-    + '\\n*' + flag.project + '* > ' + flag.task
-    + (flag.notes ? '\\n> ' + flag.notes.replace(/\\n/g, ' ').slice(0, 200) : '\\n> _(no description)_');
+const pad = (label, width) => label + ' '.repeat(Math.max(0, width - label.length));
+const W = 10;
+const severityEmoji = { high: ':red_circle:', medium: ':large_orange_circle:', low: ':white_circle:' };
+const tick = String.fromCharCode(96);
+const fence = tick + tick + tick;
 
-  let blocks = [];
-  let text = '';
+for (const [projectName, projectFlags] of Object.entries(flagsByProject)) {
+  // Start with project header
+  const allBlocks = [
+    {
+      type: 'section',
+      text: { type: 'mrkdwn', text: '*' + projectName + '*  (' + projectFlags.length + ' flag' + (projectFlags.length > 1 ? 's' : '') + ')' }
+    }
+  ];
 
-  if (flag.flagType === 'missing_tag') {
-    text = 'Missing Tag: ' + flag.suggestedTag + ' - ' + flag.user + ' - ' + flag.date;
-    const question = purposeNote
-      ? purposeNote + ' Should this entry be tagged?'
-      : 'Should this entry be tagged?';
+  for (const flag of projectFlags) {
+    const purposeNote = flag.projectPurpose
+      ? 'This is a _' + flag.projectPurpose.split(' - ')[0] + '_ project'
+        + (flag.projectPurpose.includes(' - ') ? ' (' + flag.projectPurpose.split(' - ').slice(1).join(' - ') + ')' : '')
+        + '.'
+      : '';
 
-    blocks = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Missing Tag: ' + flag.suggestedTag + '*\\n\\n' + entryInfo
-            + '\\n\\nMatched keyword: *' + flag.matchedKeyword + '*\\n' + question
-        }
-      },
-      {
-        type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_missing_tag',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Tag as ' + flag.suggestedTag },
-            style: 'primary',
-            action_id: 'harvest_add_tag',
-            value: JSON.stringify({ entryId: flag.entryId, tag: flag.suggestedTag, currentNotes: flag.notes })
-          },
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Correct as-is' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'missing_tag' })
-          },
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: "Ignore '" + flag.matchedKeyword + "'" },
-            style: 'danger',
-            action_id: 'harvest_ignore_keyword',
-            value: JSON.stringify({ keyword: flag.matchedKeyword, client: clientName, clientId })
-          }
-        ]
-      }
+    const baseRows = [
+      pad('Person', W) + (flag.user || ''),
+      pad('Date', W) + flag.date,
+      pad('Hours', W) + flag.hours + 'h',
+      pad('Task', W) + flag.task,
     ];
 
-    // Add tag dropdown if multiple tags available
-    if (flag.availableTags && flag.availableTags.length > 1) {
-      blocks[1].elements.splice(1, 0, {
-        type: 'static_select',
-        placeholder: { type: 'plain_text', text: 'Different tag...' },
-        action_id: 'harvest_different_tag',
-        options: flag.availableTags.map(t => ({
-          text: { type: 'plain_text', text: t },
-          value: JSON.stringify({ entryId: flag.entryId, tag: t })
-        }))
-      });
+    const notesDisplay = flag.notes
+      ? flag.notes.replace(/\\n/g, ' ').slice(0, 200)
+      : '_(no description)_';
+
+    let headerEmoji = severityEmoji[flag.severity] || ':warning:';
+    let headerText = '';
+    let extraRows = [];
+    let contextText = '';
+    let actionElements = [];
+
+    if (flag.flagType === 'missing_tag') {
+      headerText = 'Missing Tag: ' + flag.suggestedTag;
+      extraRows = [pad('Keyword', W) + flag.matchedKeyword];
+      contextText = purposeNote
+        ? purposeNote + ' Should this entry be tagged?'
+        : 'Should this entry be tagged?';
+
+      actionElements = [
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Tag as ' + flag.suggestedTag },
+          style: 'primary',
+          action_id: 'harvest_add_tag',
+          value: JSON.stringify({ entryId: flag.entryId, tag: flag.suggestedTag, currentNotes: flag.notes })
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Correct as-is' },
+          action_id: 'harvest_dismiss',
+          value: JSON.stringify({ entryId: flag.entryId, flagType: 'missing_tag' })
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: "Ignore '" + flag.matchedKeyword + "'" },
+          style: 'danger',
+          action_id: 'harvest_ignore_keyword',
+          value: JSON.stringify({ keyword: flag.matchedKeyword, client: clientName, clientId })
+        }
+      ];
+
+      if (flag.availableTags && flag.availableTags.length > 1) {
+        actionElements.splice(1, 0, {
+          type: 'static_select',
+          placeholder: { type: 'plain_text', text: 'Different tag...' },
+          action_id: 'harvest_different_tag',
+          options: flag.availableTags.map(t => ({
+            text: { type: 'plain_text', text: t },
+            value: JSON.stringify({ entryId: flag.entryId, tag: t })
+          }))
+        });
+      }
+
+    } else if (flag.flagType === 'billable_mismatch') {
+      headerText = 'Billable Mismatch';
+      contextText = purposeNote
+        ? purposeNote + ' Is the non-billable marking intentional?'
+        : 'This entry is marked non-billable but the project is billable. Is this intentional?';
+
+      const dateParts = flag.date.split('-');
+      const harvestEntryUrl = 'https://razorvision.harvestapp.com/time/day/' + dateParts[0] + '/' + parseInt(dateParts[1]) + '/' + parseInt(dateParts[2]) + '/' + flag.userId;
+      actionElements = [
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Fix in Harvest' },
+          style: 'primary',
+          url: harvestEntryUrl,
+          action_id: 'harvest_open_harvest',
+          value: JSON.stringify({ entryId: flag.entryId, flagType: 'billable_mismatch' })
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Non-billable is correct' },
+          action_id: 'harvest_dismiss',
+          value: JSON.stringify({ entryId: flag.entryId, flagType: 'billable_mismatch' })
+        }
+      ];
+
+    } else if (flag.flagType === 'empty_notes') {
+      headerText = 'Empty Notes';
+      contextText = 'This entry has no description. ' + (purposeNote || '');
+      actionElements = [{
+        type: 'button',
+        text: { type: 'plain_text', text: 'Acknowledged' },
+        action_id: 'harvest_dismiss',
+        value: JSON.stringify({ entryId: flag.entryId, flagType: 'empty_notes' })
+      }];
+
+    } else if (flag.flagType === 'vague_description') {
+      headerText = 'Vague Description';
+      contextText = 'This description is too generic to be useful. ' + (purposeNote || '');
+      actionElements = [{
+        type: 'button',
+        text: { type: 'plain_text', text: 'Acknowledged' },
+        action_id: 'harvest_dismiss',
+        value: JSON.stringify({ entryId: flag.entryId, flagType: 'vague_description' })
+      }];
+
+    } else if (flag.flagType === 'short_description') {
+      headerText = 'Short Description';
+      contextText = 'Only ' + flag.notes.length + ' characters. ' + (purposeNote || '');
+      actionElements = [{
+        type: 'button',
+        text: { type: 'plain_text', text: 'Acknowledged' },
+        action_id: 'harvest_dismiss',
+        value: JSON.stringify({ entryId: flag.entryId, flagType: 'short_description' })
+      }];
+
+    } else if (flag.flagType === 'role_mismatch') {
+      headerText = 'Role Mismatch';
+      extraRows = [pad('Expected', W) + flag.expectedTasks.join(', ')];
+      contextText = flag.user + ' logged "' + flag.task + '" but their expected tasks are: '
+        + flag.expectedTasks.join(', ') + '. ' + (purposeNote || 'Is this correct?');
+
+      const dateParts = flag.date.split('-');
+      const harvestUrl = 'https://razorvision.harvestapp.com/time/day/' + dateParts[0] + '/' + parseInt(dateParts[1]) + '/' + parseInt(dateParts[2]) + '/' + flag.userId;
+      actionElements = [
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Fix in Harvest' },
+          style: 'primary',
+          url: harvestUrl,
+          action_id: 'harvest_open_harvest',
+          value: JSON.stringify({ entryId: flag.entryId, flagType: 'role_mismatch' })
+        },
+        {
+          type: 'button',
+          text: { type: 'plain_text', text: 'Task is correct' },
+          action_id: 'harvest_dismiss',
+          value: JSON.stringify({ entryId: flag.entryId, flagType: 'role_mismatch' })
+        }
+      ];
     }
 
-  } else if (flag.flagType === 'billable_mismatch') {
-    text = 'Billable Mismatch - ' + flag.user + ' - ' + flag.date;
-    const question = purposeNote
-      ? purposeNote + ' Is the non-billable marking intentional?'
-      : 'This entry is marked *non-billable* but the project is billable. Is this intentional?';
+    if (actionElements.length > 0) {
+      const tableRows = [...baseRows, ...extraRows];
+      const codeBlock = fence + '\\n' + tableRows.join('\\n') + '\\n' + fence;
 
-    const dateParts = flag.date.split('-');
-    const harvestEntryUrl = 'https://razorvision.harvestapp.com/time/day/' + dateParts[0] + '/' + parseInt(dateParts[1]) + '/' + parseInt(dateParts[2]) + '/' + flag.userId;
-    blocks = [
-      {
+      allBlocks.push({ type: 'divider' });
+      allBlocks.push({
         type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Billable Mismatch*\\n\\n' + entryInfo + '\\n\\n' + question
-        }
-      },
-      {
-        type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_billable_mismatch',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Fix in Harvest' },
-            style: 'primary',
-            url: harvestEntryUrl,
-            action_id: 'harvest_open_harvest',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'billable_mismatch' })
-          },
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Non-billable is correct' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'billable_mismatch' })
-          }
-        ]
-      }
-    ];
-
-  } else if (flag.flagType === 'empty_notes') {
-    text = 'Empty Notes - ' + flag.user + ' - ' + flag.date;
-    blocks = [
-      {
+        text: { type: 'mrkdwn', text: headerEmoji + ' *' + headerText + '*' }
+      });
+      allBlocks.push({
         type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Empty Notes*\\n\\n' + entryInfo
-            + '\\n\\nThis entry has no description. ' + (purposeNote || '')
-        }
-      },
-      {
-        type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_empty_notes',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Acknowledged' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'empty_notes' })
-          }
-        ]
-      }
-    ];
+        text: { type: 'mrkdwn', text: codeBlock }
+      });
 
-  } else if (flag.flagType === 'vague_description') {
-    text = 'Vague Description - ' + flag.user + ' - ' + flag.date;
-    blocks = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Vague Description*\\n\\n' + entryInfo
-            + '\\n\\nThis description is too generic to be useful. ' + (purposeNote || '')
-        }
-      },
-      {
-        type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_vague_description',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Acknowledged' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'vague_description' })
-          }
-        ]
+      if (flag.flagType !== 'empty_notes') {
+        allBlocks.push({
+          type: 'section',
+          text: { type: 'mrkdwn', text: '*Entry:*  ' + notesDisplay }
+        });
       }
-    ];
 
-  } else if (flag.flagType === 'short_description') {
-    text = 'Short Description - ' + flag.user + ' - ' + flag.date;
-    blocks = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Short Description*\\n\\n' + entryInfo
-            + '\\n\\nOnly ' + flag.notes.length + ' characters. ' + (purposeNote || '')
-        }
-      },
-      {
-        type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_short_description',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Acknowledged' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'short_description' })
-          }
-        ]
+      if (contextText) {
+        allBlocks.push({
+          type: 'context',
+          elements: [{ type: 'mrkdwn', text: contextText }]
+        });
       }
-    ];
 
-  } else if (flag.flagType === 'role_mismatch') {
-    text = 'Role Mismatch - ' + flag.user + ' - ' + flag.date;
-    blocks = [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: '*Role Mismatch*\\n\\n' + entryInfo
-            + '\\n\\n' + flag.user + ' logged *' + flag.task + '* but their expected tasks are: '
-            + flag.expectedTasks.join(', ') + '. ' + (purposeNote || 'Is this correct?')
-        }
-      },
-      {
+      allBlocks.push({
         type: 'actions',
-        block_id: 'flag_' + flag.entryId + '_role_mismatch',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: 'Task is correct' },
-            action_id: 'harvest_dismiss',
-            value: JSON.stringify({ entryId: flag.entryId, flagType: 'role_mismatch' })
-          }
-        ]
-      }
-    ];
-  }
+        block_id: 'flag_' + flag.entryId + '_' + flag.flagType,
+        elements: actionElements,
+      });
+    }
+  } // end projectFlags loop
 
-  if (blocks.length > 0) {
+  if (allBlocks.length > 1) {
     messages.push({
       json: {
         slackPayload: JSON.stringify({
           channel: slackChannel.replace(/^#/, ''),
-          text,
-          blocks,
+          text: projectName + ' - ' + projectFlags.length + ' flags',
+          blocks: allBlocks,
         }),
       }
     });
   }
-}
+} // end flagsByProject loop
 
 // If no flags, add an "all clear" message
 if (flags.length === 0) {

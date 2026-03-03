@@ -311,13 +311,24 @@ if (parsed.category === 'tag') {
   resultText = ':heavy_minus_sign: Dismissed by @' + parsed.user;
 }
 
-// Build updated Slack blocks: keep everything except actions, add result
-const updatedBlocks = (parsed.originalBlocks || [])
-  .filter(b => b.type !== 'actions')
-  .concat([{
-    type: 'context',
-    elements: [{ type: 'mrkdwn', text: resultText }]
-  }]);
+// Build updated Slack blocks: replace only the clicked flag's actions block
+// with a result context block, keep all other blocks intact
+const clickedBlockId = parsed.value?.entryId
+  ? 'flag_' + parsed.value.entryId + '_' + parsed.flagType
+  : '';
+
+const updatedBlocks = [];
+for (const b of (parsed.originalBlocks || [])) {
+  if (b.type === 'actions' && b.block_id === clickedBlockId) {
+    // Replace this flag's actions with result
+    updatedBlocks.push({
+      type: 'context',
+      elements: [{ type: 'mrkdwn', text: resultText }]
+    });
+  } else {
+    updatedBlocks.push(b);
+  }
+}
 
 // Build review log entry
 const today = new Date().toISOString().slice(0, 10);
