@@ -1,910 +1,910 @@
 {
   "database": {
-    "title": "Product Features",
+    "title": "FROZEN 2026-09-03: Product Features",
     "id": "23c0b6743c9680cbbe3cc83f47774509"
   },
   "items": [
     {
-      "id": "23c0b674-3c96-805d-89b7-c21c8ff3a284",
-      "name": "Monthly Report Enhancements",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Low priority for now.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Monthly-Report-Enhancements-23c0b6743c96805d89b7c21c8ff3a284"
-    },
-    {
-      "id": "23c0b674-3c96-807a-9dcb-d3bf58ddd96c",
-      "name": "Application Updates (Pages 1-4)",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "We released this last week.",
-      "client": "CBB",
-      "url": "https://www.notion.so/Application-Updates-Pages-1-4-23c0b6743c96807a9dcbd3bf58ddd96c"
-    },
-    {
-      "id": "23c0b674-3c96-8100-b6e2-fe43ff22c10c",
-      "name": "Investigate/Fix UTM Tracking",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Investigate-Fix-UTM-Tracking-23c0b6743c968100b6e2fe43ff22c10c"
-    },
-    {
-      "id": "23c0b674-3c96-810b-83a8-cd9d4a39f407",
-      "name": "Time out Needed for Customer Portal WLPM-509",
+      "id": "3cf0b674-3c96-81ae-85d7-de041ead9247",
+      "name": "Pending-Loan Portal Behavior Confirmation (WL-111)",
       "status": "No status",
       "priority": "3 - Medium",
-      "updates": "",
+      "updates": "9/2: Findings writeup published and approved in Clara, sent to Dan. Ledger set to 2 credits, completed Aug 19. Clara #111 closed. Optional follow-on hardening available as a separate quote.",
       "client": "WL",
-      "url": "https://www.notion.so/Time-out-Needed-for-Customer-Portal-WLPM-509-23c0b6743c96810b83a8cd9d4a39f407"
+      "url": "https://app.notion.com/p/Pending-Loan-Portal-Behavior-Confirmation-WL-111-3cf0b6743c9681ae85d7de041ead9247"
     },
     {
-      "id": "23c0b674-3c96-810d-88a1-e37f54cf5a90",
-      "name": "Webhook Updates",
+      "id": "3cf0b674-3c96-8185-b2af-f28cded2b534",
+      "name": "Sendy TAS AWS Account: Unmonitored Surface Research and Remediation (WL-110)",
       "status": "No status",
       "priority": "2 - High",
-      "updates": "",
+      "updates": "9/2: Ledger cleaned up in Clara (2-credit research marked delivered Aug 19; retire 3 / keep 5 added as either/or lines). Scope doc still draft, not yet sent to client. Client decision needed: keep or retire mailing.wiseloan.com.",
       "client": "WL",
-      "url": "https://www.notion.so/Webhook-Updates-23c0b6743c96810d88a1e37f54cf5a90"
+      "url": "https://app.notion.com/p/Sendy-TAS-AWS-Account-Unmonitored-Surface-Research-and-Remediation-WL-110-3cf0b6743c968185b2aff28cded2b534"
     },
     {
-      "id": "23c0b674-3c96-810e-838f-da13fc0f01ac",
-      "name": "Doc Center",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Low priority for now.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Doc-Center-23c0b6743c96810e838fda13fc0f01ac"
-    },
-    {
-      "id": "23c0b674-3c96-810e-93bc-dd3b90bfabf5",
-      "name": "Capped Loan Amount",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Capped-Loan-Amount-23c0b6743c96810e93bcdd3b90bfabf5"
-    },
-    {
-      "id": "23c0b674-3c96-8116-acde-cfecce5d2568",
-      "name": "Password errors with Tekambi",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Password-errors-with-Tekambi-23c0b6743c968116acdecfecce5d2568"
-    },
-    {
-      "id": "23c0b674-3c96-811d-b0ea-ce0fbb8d7e99",
-      "name": "Log UTM data from first visit",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Log-UTM-data-from-first-visit-23c0b6743c96811db0eace0fbb8d7e99"
-    },
-    {
-      "id": "23c0b674-3c96-811f-baa1-d3a9faca4aa2",
-      "name": "\"Sign Contract\" is empty if there's no PDF",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Sign-Contract-is-empty-if-there-s-no-PDF-23c0b6743c96811fbaa1d3a9faca4aa2"
-    },
-    {
-      "id": "23c0b674-3c96-8129-8411-c6805b3d3796",
-      "name": "Tekambi",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Tekambi-23c0b6743c9681298411c6805b3d3796"
-    },
-    {
-      "id": "23c0b674-3c96-8133-a334-dd39cc0512cc",
-      "name": "Tekambi for Kiosks",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Tekambi-for-Kiosks-23c0b6743c968133a334dd39cc0512cc"
-    },
-    {
-      "id": "23c0b674-3c96-813d-8d09-f9fcf6f44191",
-      "name": "Kubernetes",
+      "id": "3ce0b674-3c96-8178-a488-db5ee79f4b66",
+      "name": "Loan-Error Alert Logging Fix (Declines vs. Failures)",
       "status": "No status",
       "priority": "3 - Medium",
-      "updates": "",
+      "updates": "9/2: Estimate set to 4 credits (ledger line added in Clara, scope doc updated from the 3-5 ballpark). Scope doc still draft, to be approved and sent to client.\n8/31: Scope doc drafted in Clara (own [WIS-045] project), awaiting client approval. Ballpark 3-5 credits. Related lead split into its own Clara issue #139 (customers possibly blocked by a pending loan from a failed attempt that committed on the platform side); investigation-only, backlog.",
       "client": "WL",
-      "url": "https://www.notion.so/Kubernetes-23c0b6743c96813d8d09f9fcf6f44191"
+      "url": "https://app.notion.com/p/Loan-Error-Alert-Logging-Fix-Declines-vs-Failures-3ce0b6743c968178a488db5ee79f4b66"
     },
     {
-      "id": "23c0b674-3c96-813e-8002-c3e4cf433a9c",
-      "name": "Remove marketing text opt in",
+      "id": "3ce0b674-3c96-81a9-8d73-cb1b9abde4b6",
+      "name": "AWS IAM Hardening: Password Policy, MFA and Key Lifecycle",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "8/31: Scope, solution design and estimate drafted in Clara (21 credits, 3 phases). Sent to client.\n9/1: Dan questioned the 3-credit Phase 1; clarified it buys password RULES on the account (none exist today), not the labor of changing passwords, and recommended an expiry rule plus an optional one-time forced reset since many passwords are several hundred days old. Awaiting Dan's decision on the forced reset and the other Phase-1/Phase-2 answers. Not started; nothing actionable without client approval.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/AWS-IAM-Hardening-Password-Policy-MFA-and-Key-Lifecycle-3ce0b6743c9681a98d73cb1b9abde4b6"
+    },
+    {
+      "id": "3ce0b674-3c96-81c4-a52c-c450b9650138",
+      "name": "Self-Employed Applicants Auto-Declined (Income Source \"Other\")",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "9/2: Dan reviewed the findings and open questions and said not to move forward for now. Project closed in Clara. Intake research and report charged at 2 credits (Aug). No fix quoted; reopen as a new project if WL picks it back up.\n9/1: BRD + Solution Design done. Luciana reviewed and chose Option B (wire Self-Employed -> employment in Django) over asking LeadEnvy to accept \"Other,\" to keep the \"other\" catch-all clean and cover all channels in one change. Project Scope drafted with NO estimate until questions answered. 2 questions sent to Dan: (1) does WL treat self-employment same as employment for approval? (2) confirm the \"unemployed\" example was employer text, not no-income. Awaiting his answers to finalize the estimate. Agora checked, not exposed (accepts \"other\" at 86.8%). Clara project [WIS-045] Income Source \"Other\" Underwriting Fix.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Self-Employed-Applicants-Auto-Declined-Income-Source-Other-3ce0b6743c9681c4a52cc450b9650138"
+    },
+    {
+      "id": "3c10b674-3c96-80c1-aa76-fdf04bd7341d",
+      "name": "Quick Loan - Returning Customers",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "9/2: Duplicate [Project Scope] Clara project deleted; everything now lives on the [Solution Design] project. The 3-credit solution design line is marked delivered Aug 24 and approved by Dan. Per the 9/1 sales strategy meeting, WL rejected the ~26-credit build quote and will have Dependabot build the backend; RVC to re-quote frontend-only (roughly 4 to 5 credits) once Dan's follow-up request arrives.\n8/24: Solution design done. New flow routes Quick Loan through Origin8 underwriting instead of straight to PLM. Luciana is reviewing and will size the estimate. 4 open questions out to the client.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Quick-Loan-Returning-Customers-3c10b6743c9680c1aa76fdf04bd7341d"
+    },
+    {
+      "id": "3ba0b674-3c96-80f2-ab1d-c7db472f377a",
+      "name": "Report on full tech stack, who has access - Tommy’s request",
       "status": "No status",
       "priority": "3 - Medium",
-      "updates": "",
+      "updates": "8/24: Working with Dan Brandon. Format approved: per tool, just (1) what it's for at a high level and (2) how Wise Loan uses it. Followed up with Tommy 8/24.",
       "client": "WL",
-      "url": "https://www.notion.so/Remove-marketing-text-opt-in-23c0b6743c96813e8002c3e4cf433a9c"
+      "url": "https://app.notion.com/p/Report-on-full-tech-stack-who-has-access-Tommy-s-request-3ba0b6743c9680f2ab1dc7db472f377a"
     },
     {
-      "id": "23c0b674-3c96-813f-8c28-e05e189e66df",
-      "name": "Google Vitals + SEO",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Google-Vitals-SEO-23c0b6743c96813f8c28e05e189e66df"
-    },
-    {
-      "id": "23c0b674-3c96-8145-a4fb-cd9340772835",
-      "name": "NOAA Letter",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/NOAA-Letter-23c0b6743c968145a4fbcd9340772835"
-    },
-    {
-      "id": "23c0b674-3c96-8149-b1ca-fc5f26fb5e2c",
-      "name": "DLC Account Creation App Updates (password)",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/DLC-Account-Creation-App-Updates-password-23c0b6743c968149b1cafc5f26fb5e2c"
-    },
-    {
-      "id": "23c0b674-3c96-8150-b1d1-e048db71313f",
-      "name": "Remove Reference sheet",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Remove-Reference-sheet-23c0b6743c968150b1d1e048db71313f"
-    },
-    {
-      "id": "23c0b674-3c96-815d-a0ea-e62352f0917b",
-      "name": "Hyperlinks should open a tab instead of redirect the page",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Hyperlinks-should-open-a-tab-instead-of-redirect-the-page-23c0b6743c96815da0eae62352f0917b"
-    },
-    {
-      "id": "23c0b674-3c96-8173-a27d-dc6b7c031a4c",
-      "name": "Redirect customer to apply page if email address isn't found on login",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Redirect-customer-to-apply-page-if-email-address-isn-t-found-on-login-23c0b6743c968173a27ddc6b7c031a4c"
-    },
-    {
-      "id": "23c0b674-3c96-8173-ae2e-cda4824e90b6",
-      "name": "Enhance UX of \"Sign Contract\"",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Enhance-UX-of-Sign-Contract-23c0b6743c968173ae2ecda4824e90b6"
-    },
-    {
-      "id": "23c0b674-3c96-8177-a961-fa8510ba5da4",
-      "name": "Monthly Error Report",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Sent this out today (12/15).",
-      "client": "DLC",
-      "url": "https://www.notion.so/Monthly-Error-Report-23c0b6743c968177a961fa8510ba5da4"
-    },
-    {
-      "id": "23c0b674-3c96-8178-ace2-d2a783e458fb",
-      "name": "Tekambi for returning customers",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "This was released on 10/21. Both Tekambi and RV are monitoring.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Tekambi-for-returning-customers-23c0b6743c968178ace2d2a783e458fb"
-    },
-    {
-      "id": "23c0b674-3c96-8188-8360-f5a16007287b",
-      "name": "reCAPTCHA ",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/reCAPTCHA-23c0b6743c9681888360f5a16007287b"
-    },
-    {
-      "id": "23c0b674-3c96-8189-824e-e6c8adf2a71c",
-      "name": "Ninja Edge",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Ninja-Edge-23c0b6743c968189824ee6c8adf2a71c"
-    },
-    {
-      "id": "23c0b674-3c96-8189-b947-f8fcdede9f3b",
-      "name": "Zip code - 5 digits",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Zip-code-5-digits-23c0b6743c968189b947f8fcdede9f3b"
-    },
-    {
-      "id": "23c0b674-3c96-8189-bd10-e5cbdff50ba1",
-      "name": "Chat bot",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Chat-bot-23c0b6743c968189bd10e5cbdff50ba1"
-    },
-    {
-      "id": "23c0b674-3c96-8193-989d-d6ed4b7053df",
-      "name": "Update Status changes",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Update-Status-changes-23c0b6743c968193989dd6ed4b7053df"
-    },
-    {
-      "id": "23c0b674-3c96-8195-94d9-cd7e2597f402",
-      "name": "New Kiosk testing approach",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Waiting on Dan to review",
-      "client": "DLC",
-      "url": "https://www.notion.so/New-Kiosk-testing-approach-23c0b6743c96819594d9cd7e2597f402"
-    },
-    {
-      "id": "23c0b674-3c96-8195-ae69-e577950b129f",
-      "name": "Implement frontend session close feature for Apply flow",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Dan B. wants to wait on this.",
-      "client": "WL",
-      "url": "https://www.notion.so/Implement-frontend-session-close-feature-for-Apply-flow-23c0b6743c968195ae69e577950b129f"
-    },
-    {
-      "id": "23c0b674-3c96-8196-bbb4-e1ff56f648e0",
-      "name": "IBV On Demand",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/IBV-On-Demand-23c0b6743c968196bbb4e1ff56f648e0"
-    },
-    {
-      "id": "23c0b674-3c96-8197-8d59-f109dabd5f98",
-      "name": "Delaware",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Delaware-23c0b6743c9681978d59f109dabd5f98"
-    },
-    {
-      "id": "23c0b674-3c96-819a-8a7c-c94a97ec103a",
-      "name": "AWS Cost Analysis - Advisory",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/AWS-Cost-Analysis-Advisory-23c0b6743c96819a8a7cc94a97ec103a"
-    },
-    {
-      "id": "23c0b674-3c96-819a-a735-dfc30135bc83",
-      "name": "Monitor Login issues - timeout (error reporting)",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Monitor-Login-issues-timeout-error-reporting-23c0b6743c96819aa735dfc30135bc83"
-    },
-    {
-      "id": "23c0b674-3c96-819c-8e27-cf24c67b9e2d",
-      "name": "Marketing Automation Campaign Launch",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Marketing-Automation-Campaign-Launch-23c0b6743c96819c8e27cf24c67b9e2d"
-    },
-    {
-      "id": "23c0b674-3c96-81a0-9760-e8a35ed7a579",
-      "name": "IDology",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Testing got sorted out and I see reports in Infinity. Jesse is working through testing with IDology. I provided additional testing for Robe at Infinity and am waiting to hear back from him.",
-      "client": "DLC",
-      "url": "https://www.notion.so/IDology-23c0b6743c9681a09760e8a35ed7a579"
-    },
-    {
-      "id": "23c0b674-3c96-81a4-bb9b-d63dd0dc1f17",
-      "name": "Missouri fraud applications - research\n",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Missouri-fraud-applications-research-23c0b6743c9681a4bb9bd63dd0dc1f17"
-    },
-    {
-      "id": "23c0b674-3c96-81ac-a075-ea716a7e1506",
-      "name": "WordPress Migration",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/WordPress-Migration-23c0b6743c9681aca075ea716a7e1506"
-    },
-    {
-      "id": "23c0b674-3c96-81ae-b564-f1dc03886c01",
-      "name": "DE MID routing (MO example pending)",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/DE-MID-routing-MO-example-pending-23c0b6743c9681aeb564f1dc03886c01"
-    },
-    {
-      "id": "23c0b674-3c96-81b0-9eea-c578666884eb",
-      "name": "Password restrictions",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Ticket is ready. ",
-      "client": "DLC",
-      "url": "https://www.notion.so/Password-restrictions-23c0b6743c9681b09eeac578666884eb"
-    },
-    {
-      "id": "23c0b674-3c96-81b1-9085-cb908be34809",
-      "name": "Timer on Apply Waiting Page",
-      "status": "No status",
-      "priority": "No priority",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Timer-on-Apply-Waiting-Page-23c0b6743c9681b19085cb908be34809"
-    },
-    {
-      "id": "23c0b674-3c96-81c0-8499-f2afd6ff7fb9",
-      "name": "Tekambi Dupes",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Tekambi-Dupes-23c0b6743c9681c08499f2afd6ff7fb9"
-    },
-    {
-      "id": "23c0b674-3c96-81c6-9b0c-d396a237829b",
-      "name": "Pinwheel - Payroll deposit / demand deposit payments",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "I reviewed Dan’s document that he sent. He said that they are still working through the scope.",
-      "client": "WL",
-      "url": "https://www.notion.so/Pinwheel-Payroll-deposit-demand-deposit-payments-23c0b6743c9681c69b0cd396a237829b"
-    },
-    {
-      "id": "23c0b674-3c96-81c8-8196-d1d9d5b39728",
-      "name": "Update EL DNS",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Update-EL-DNS-23c0b6743c9681c88196d1d9d5b39728"
-    },
-    {
-      "id": "23c0b674-3c96-81c9-9afc-e8cb0a6514c1",
-      "name": "Kiosk issues",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "RV needs to create a troubleshooting document to share with the stores.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Kiosk-issues-23c0b6743c9681c99afce8cb0a6514c1"
-    },
-    {
-      "id": "23c0b674-3c96-81ca-b954-e75667c1db1a",
-      "name": "Block <18 yrs",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "",
-      "client": "DLC",
-      "url": "https://www.notion.so/Block-18-yrs-23c0b6743c9681cab954e75667c1db1a"
-    },
-    {
-      "id": "23c0b674-3c96-81d0-bb7e-de44427aaf24",
-      "name": "NV/UT Routing",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Closing this ticket. We’re getting rid of the Tekambi feature flag so this is obsolete.",
-      "client": "DLC",
-      "url": "https://www.notion.so/NV-UT-Routing-23c0b6743c9681d0bb7ede44427aaf24"
-    },
-    {
-      "id": "23c0b674-3c96-81d5-a523-d99645c73f00",
-      "name": "Google Ad Tracking",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Jesse reported that they don’t want to pursue this anymore. I’ll drop this off the list for next week.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Google-Ad-Tracking-23c0b6743c9681d5a523d99645c73f00"
-    },
-    {
-      "id": "23c0b674-3c96-81e8-8329-fb5eab8d86ba",
-      "name": "Vonage",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Vonage-23c0b6743c9681e88329fb5eab8d86ba"
-    },
-    {
-      "id": "23c0b674-3c96-81e9-aef5-e1d9bb1a2884",
-      "name": "Additional Cosigner",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "CBB",
-      "url": "https://www.notion.so/Additional-Cosigner-23c0b6743c9681e9aef5e1d9bb1a2884"
-    },
-    {
-      "id": "23c0b674-3c96-81ec-b0ed-c7c507a96012",
-      "name": "Payment issues - $0 payment shown",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Repay investigated their side an are now blocking $0 payments. Jesse will pass along any examples from his agents on new issues. There haven’t been any new errors on this for a while, so I’m closing the ticket. We can reopen it if needed.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Payment-issues-0-payment-shown-23c0b6743c9681ecb0edc7c507a96012"
-    },
-    {
-      "id": "23c0b674-3c96-81f1-a032-d60336bee1d7",
-      "name": "WordPress Migration - Phase 2",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/WordPress-Migration-Phase-2-23c0b6743c9681f1a032d60336bee1d7"
-    },
-    {
-      "id": "23c0b674-3c96-81f1-ab06-dfb93ea2e4f1",
-      "name": "Long Term Product",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "We released this code last week and there haven’t been any production issues.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Long-Term-Product-23c0b6743c9681f1ab06dfb93ea2e4f1"
-    },
-    {
-      "id": "23e0b674-3c96-801f-83ac-c89516846cc2",
-      "name": "DLC Monday Update",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Andrew will send out a project report every Monday to ensure visibility to the project.",
-      "client": "DLC",
-      "url": "https://www.notion.so/DLC-Monday-Update-23e0b6743c96801f83acc89516846cc2"
-    },
-    {
-      "id": "23e0b674-3c96-8069-8670-d49f6246e05f",
-      "name": "Redirect to /apply if you don’t have an email address/loan in Infinity",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "",
-      "client": "WL",
-      "url": "https://www.notion.so/Redirect-to-apply-if-you-don-t-have-an-email-address-loan-in-Infinity-23e0b6743c9680698670d49f6246e05f"
-    },
-    {
-      "id": "23e0b674-3c96-80db-93bb-d1ea59daa175",
-      "name": "WL Monday Update",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Andrew will send out a project report every Monday to ensure visibility to the project.",
-      "client": "WL",
-      "url": "https://www.notion.so/WL-Monday-Update-23e0b6743c9680db93bbd1ea59daa175"
-    },
-    {
-      "id": "2410b674-3c96-8052-b7f3-dae2bdfd543a",
-      "name": "Bug - ",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "This appears to be working now, but Jeethu is going to run a last production test in the morning.",
-      "client": "WL",
-      "url": "https://www.notion.so/Bug-Application-flow-issue-for-Wise-Loan-loan-type-changed-to-R10-2410b6743c968052b7f3dae2bdfd543a"
-    },
-    {
-      "id": "2410b674-3c96-8059-a4ae-dfdcabaa9073",
-      "name": "Tekambi feature flag off",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "This was turned off.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Tekambi-feature-flag-off-2410b6743c968059a4aedfdcabaa9073"
-    },
-    {
-      "id": "2450b674-3c96-8065-b649-c5fdb068ca49",
-      "name": "Enhance duplicate SSN applications",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Client doesn’t want this anymore. ",
-      "client": "WL",
-      "url": "https://www.notion.so/Enhance-duplicate-SSN-applications-2450b6743c968065b649c5fdb068ca49"
-    },
-    {
-      "id": "2450b674-3c96-808b-bb75-ee5c5995fcd5",
-      "name": "Fix TEST LEAD promo code routing",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "This appears to be fixed with the Django Admin updates, but we’re going to run one more production test in the morning.",
-      "client": "WL",
-      "url": "https://www.notion.so/Fix-TEST-LEAD-promo-code-routing-2450b6743c96808bbb75ee5c5995fcd5"
-    },
-    {
-      "id": "2450b674-3c96-80e8-9fc3-e947e93d6f43",
-      "name": "Investigate and mitigate WP Sentry Issues",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Luciana is currently working on this.",
-      "client": "WL",
-      "url": "https://www.notion.so/Investigate-and-mitigate-WP-Sentry-Issues-2450b6743c9680e89fc3e947e93d6f43"
-    },
-    {
-      "id": "2460b674-3c96-8048-a57a-e85ae9d7057c",
-      "name": "Investigate bug: Loan agreement screen shows “already signed” for new customer test case.",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "This is live now. I’ll test it with Lorien as our UAT.",
-      "client": "WL",
-      "url": "https://www.notion.so/Investigate-bug-Loan-agreement-screen-shows-already-signed-for-new-customer-test-case-2460b6743c968048a57ae85ae9d7057c"
-    },
-    {
-      "id": "2460b674-3c96-80d8-8330-d826ee7cf661",
-      "name": "Implement Dynamic \"Please Wait\" Page with Cycling Status Messages",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Dan B. wants to wait on this.",
-      "client": "WL",
-      "url": "https://www.notion.so/Implement-Dynamic-Please-Wait-Page-with-Cycling-Status-Messages-2460b6743c9680d88330d826ee7cf661"
-    },
-    {
-      "id": "2460b674-3c96-80dd-a4c1-f16273ec823a",
-      "name": "Retargeting via landing page",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/Retargeting-via-landing-page-2460b6743c9680dda4c1f16273ec823a"
-    },
-    {
-      "id": "2460b674-3c96-80f3-aa02-c4f06331f01d",
-      "name": "Make ",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Diego finished the documentation.",
-      "client": "WL",
-      "url": "https://www.notion.so/Make-readme-md-reflect-reality-Django-documentation-2460b6743c9680f3aa02c4f06331f01d"
-    },
-    {
-      "id": "2480b674-3c96-80c4-af76-df0fe6d225e3",
-      "name": "Duplicate customer fix - Email address",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "We can pick this up soon.",
-      "client": "WL",
-      "url": "https://www.notion.so/Duplicate-customer-fix-Email-address-2480b6743c9680c4af76df0fe6d225e3"
-    },
-    {
-      "id": "24d0b674-3c96-8014-ae69-f0d46d8adbd7",
-      "name": "IBV initial page redesign",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/IBV-initial-page-redesign-24d0b6743c968014ae69f0d46d8adbd7"
-    },
-    {
-      "id": "24d0b674-3c96-8066-b0aa-c5e65dd0d4ba",
-      "name": "Payment page enhancements (amount, time, loan id)",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live. Repay can use this information now. Customers who have $0 shown on the Repay iframe should take a screenshot of their page so we can see the discrepancy.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Payment-page-enhancements-amount-time-loan-id-24d0b6743c968066b0aac5e65dd0d4ba"
-    },
-    {
-      "id": "24e0b674-3c96-8060-b937-c72c72c4e3c9",
-      "name": "SMS Consent custom field update - Pre Processing with Tekambi",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "I responded to Tekambi’s email and will work with them on this issue.",
-      "client": "WL",
-      "url": "https://www.notion.so/SMS-Consent-custom-field-update-Pre-Processing-with-Tekambi-24e0b6743c968060b937c72c72c4e3c9"
-    },
-    {
-      "id": "2530b674-3c96-801b-86b7-d8443d805d22",
-      "name": "Word Press content management guide",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/Word-Press-content-management-guide-2530b6743c96801b86b7d8443d805d22"
-    },
-    {
-      "id": "2530b674-3c96-803f-b677-d565252f98cc",
-      "name": "Autofund = manual fix",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/Autofund-manual-fix-2530b6743c96803fb677d565252f98cc"
-    },
-    {
-      "id": "2530b674-3c96-806a-bf83-e89ac39571c2",
-      "name": "Promo code TEST LEAD and TEST WISE fix",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/Promo-code-TEST-LEAD-and-TEST-WISE-fix-2530b6743c96806abf83e89ac39571c2"
-    },
-    {
-      "id": "2530b674-3c96-80bf-944c-d474d92e650d",
-      "name": "Sentry Cleanup",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/Sentry-Cleanup-2530b6743c9680bf944cd474d92e650d"
-    },
-    {
-      "id": "2530b674-3c96-80fa-a271-d9257baff006",
-      "name": "N7 → R10 loan type bug",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live",
-      "client": "WL",
-      "url": "https://www.notion.so/N7-R10-loan-type-bug-2530b6743c9680faa271d9257baff006"
-    },
-    {
-      "id": "2550b674-3c96-8021-8095-ca7afe79fd2b",
-      "name": "Remove SMS consent from the retargeting landing page",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live 8/22",
-      "client": "WL",
-      "url": "https://www.notion.so/Remove-SMS-consent-from-the-retargeting-landing-page-2550b6743c9680218095ca7afe79fd2b"
-    },
-    {
-      "id": "2550b674-3c96-80be-9f08-ed1e8ed3b496",
-      "name": "Filter DM Match Submission Log Details to Show Only Active Campaigns",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "This is lower in priority at the moment.",
-      "client": "WL",
-      "url": "https://www.notion.so/Filter-DM-Match-Submission-Log-Details-to-Show-Only-Active-Campaigns-2550b6743c9680be9f08ed1e8ed3b496"
-    },
-    {
-      "id": "2570b674-3c96-802a-af82-f742eec4bbd3",
-      "name": "Marketing: Add Text to Debit Card Page",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Live 8/22",
-      "client": "WL",
-      "url": "https://www.notion.so/Marketing-Add-Text-to-Debit-Card-Page-2570b6743c96802aaf82f742eec4bbd3"
-    },
-    {
-      "id": "25a0b674-3c96-80a0-979b-f4594b0504e1",
-      "name": "Application Updates (Page 5)",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Released 9/30.",
-      "client": "CBB",
-      "url": "https://www.notion.so/Application-Updates-Page-5-25a0b6743c9680a0979bf4594b0504e1"
-    },
-    {
-      "id": "25b0b674-3c96-80ac-adea-f80039b42f90",
-      "name": "Sentry Clean up",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "Diego will continue to work on this when he doesn’t have tickets.",
-      "client": "WL",
-      "url": "https://www.notion.so/Sentry-Clean-up-25b0b6743c9680acadeaf80039b42f90"
-    },
-    {
-      "id": "25c0b674-3c96-801a-a62f-f3041817a67f",
-      "name": "Autofund = Yes for good customers",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "This is the next item. I will create the ticket for it.",
-      "client": "WL",
-      "url": "https://www.notion.so/Autofund-Yes-for-good-customers-25c0b6743c96801aa62ff3041817a67f"
-    },
-    {
-      "id": "2630b674-3c96-8019-a55b-edce84bf5f41",
-      "name": "Business Rule APR Discount",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "UAT passed.",
-      "client": "WL",
-      "url": "https://www.notion.so/Business-Rule-APR-Discount-2630b6743c968019a55bedce84bf5f41"
-    },
-    {
-      "id": "2630b674-3c96-803b-9518-fd8575eff7d3",
-      "name": "Update API Flow to change credit limit before Loan Type",
+      "id": "3ba0b674-3c96-80d0-9fb3-ea53cb9202e2",
+      "name": "GA and Clarity - Meeting, provide notes, & next steps",
       "status": "No status",
       "priority": "1 - URGENT",
-      "updates": "This is live now. The WL team will need to configure the specifics.",
+      "updates": "8/24: Put together an initial report that Don is reviewing. We'll send it out at the beginning of this week.\n9/1: Phases redefined (Phase 1 audit only; Phase 2 implement GA/Clarity + backend instrumentation, bundled; Phase 3 evaluate & report; A/B testing deferred beyond Phase 3). Project Scope, BRD, Solution Design and Executive Summary drafted in Clara (own [WIS-045] project). Luciana reviewed and signed off (Clara #136), added an end-to-end application-timing requirement. Estimate now 40 credits total across the 3 phases (4/31/5), replacing the earlier 8-12 placeholder; client-facing scope doc breaks it out by phase with a single approval covering all three (client can approve one phase at a time instead if they'd rather). Awaiting Andrew's approval in Clara before sending to Tommy/Dan.",
       "client": "WL",
-      "url": "https://www.notion.so/Update-API-Flow-to-change-credit-limit-before-Loan-Type-2630b6743c96803b9518fd8575eff7d3"
+      "url": "https://app.notion.com/p/GA-and-Clarity-Meeting-provide-notes-next-steps-3ba0b6743c9680d09fb3ea53cb9202e2"
     },
     {
-      "id": "2630b674-3c96-809c-83bd-c8af8efcb0d6",
-      "name": "Business Rule Increase Loan Amount",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "UAT failed. Diego finished updates to the code and it’s in QA now.",
-      "client": "WL",
-      "url": "https://www.notion.so/Business-Rule-Increase-Loan-Amount-2630b6743c96809c83bdc8af8efcb0d6"
-    },
-    {
-      "id": "26a0b674-3c96-80b0-b97f-e62346973540",
-      "name": "Marketing: A/B Test IBV and Payroll [WS1-T177]",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": "WL is still meeting internally and testing this item with Tekambi. Question for WL: Is this a separate project from WS1-T178?",
-      "client": "WL",
-      "url": "https://www.notion.so/Marketing-A-B-Test-IBV-and-Payroll-WS1-T177-26a0b6743c9680b0b97fe62346973540"
-    },
-    {
-      "id": "26a0b674-3c96-80b1-b090-ec3cbf35cb9c",
-      "name": "Pay Frequency and Pay Date Verification Page",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Infinity approved my approach so we can move forward with this. We’ll prioritize it this week above the autofund ticket since it’s ready.",
-      "client": "WL",
-      "url": "https://www.notion.so/Pay-Frequency-and-Pay-Date-Verification-Page-26a0b6743c9680b1b090ec3cbf35cb9c"
-    },
-    {
-      "id": "26b0b674-3c96-80b5-ba3e-d8341e379be5",
-      "name": "New WI states",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Released 9/26.",
-      "client": "DLC",
-      "url": "https://www.notion.so/New-WI-states-26b0b6743c9680b5ba3ed8341e379be5"
-    },
-    {
-      "id": "2700b674-3c96-801b-a9d9-eecc3acc6162",
-      "name": "Marketing: A/B Payroll Page between debit card and loan agreement [WS1-T178]",
-      "status": "No status",
-      "priority": "4 - Low",
-      "updates": " RV is working on a new A/B testing approach. Liliana stated that she needed to discuss priority internally.",
-      "client": "WL",
-      "url": "https://www.notion.so/Marketing-A-B-Payroll-Page-between-debit-card-and-loan-agreement-WS1-T178-2700b6743c96801ba9d9eecc3acc6162"
-    },
-    {
-      "id": "2700b674-3c96-8023-b4fb-c16636bc87ce",
-      "name": "Split Nevada Application Traffic via Tekambi Submission",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Released.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Split-Nevada-Application-Traffic-via-Tekambi-Submission-2700b6743c968023b4fbc16636bc87ce"
-    },
-    {
-      "id": "2770b674-3c96-802a-bca8-e0d794184407",
-      "name": "ALL WORK IS PAUSED - BUDGET HAS BEEN REACHED",
+      "id": "3ba0b674-3c96-8086-b204-dbc1ede825f2",
+      "name": "MySQL 8.0 → 8.4 Upgrade",
       "status": "No status",
       "priority": "1 - URGENT",
-      "updates": "We reached out to DB at the end of last week in preparation for hitting our budget. We followed up this week letting him know that we have used all of the budget and cannot continue work without approval. All work is paused until we get approval for an extended budget this month.",
+      "updates": "8/26: Andrew needs to check when this goes into effect.\n8/24: Sent Dan the 17-credit bid with a breakdown of the phases (he'd questioned the total). Dan to review and approve.",
       "client": "WL",
-      "url": "https://www.notion.so/ALL-WORK-IS-PAUSED-BUDGET-HAS-BEEN-REACHED-2770b6743c96802abca8e0d794184407"
+      "url": "https://app.notion.com/p/MySQL-8-0-8-4-Upgrade-3ba0b6743c968086b204dbc1ede825f2"
     },
     {
-      "id": "2770b674-3c96-8091-9096-eae7c423ae2d",
-      "name": "Returning customer unable to log into dashboard - Bug",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Diego fixed the problem customer, but we’re not sure what caused the issue. We’ll need to monitor for similar problems, but for now this is as far as we should go.",
-      "client": "WL",
-      "url": "https://www.notion.so/Returning-customer-unable-to-log-into-dashboard-Bug-2770b6743c9680919096eae7c423ae2d"
-    },
-    {
-      "id": "27d0b674-3c96-8002-b89b-e6cc0bb7ecca",
-      "name": "New Project Selection",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "We’re meeting with Roland tomorrow to discuss next steps.",
-      "client": "CBB",
-      "url": "https://www.notion.so/New-Project-Selection-27d0b6743c968002b89be6cc0bb7ecca"
-    },
-    {
-      "id": "27f0b674-3c96-8004-acc9-cb3c5fae3dd3",
-      "name": "SMS Consent custom field update - Post Processing with RV",
+      "id": "3b30b674-3c96-8032-942e-fb1726a7f132",
+      "name": "Certificate auto-update & consolidation",
       "status": "No status",
       "priority": "4 - Low",
-      "updates": "I will build the ticket for this. We’re just waiting on the work to be prioritized.",
+      "updates": "8/10: Delivered the credentialing report to WL. No further action on our side; they're waiting until they have a larger credit bank before moving forward.\n9/2: Linked to Clara project [WIS-045] Certificate Management Consolidation; scope, research and outage RCA docs filed under their projects; per-phase ledger lines added from the approved 10-credit scope, restated in whole credits (3 / 3 / 2 / 2, total unchanged) and the scope and research docs revised to match.",
       "client": "WL",
-      "url": "https://www.notion.so/SMS-Consent-custom-field-update-Post-Processing-with-RV-27f0b6743c968004acc9cb3c5fae3dd3"
+      "url": "https://app.notion.com/p/Certificate-auto-update-consolidation-3b30b6743c968032942efb1726a7f132"
     },
     {
-      "id": "2850b674-3c96-809f-b490-f0cbd756dc0a",
-      "name": "Q4 Addendum Signature",
+      "id": "3a50b674-3c96-8029-ad72-d70aaec231de",
+      "name": "Testing flow updates - make it usable (promo code)",
+      "status": "No status",
+      "priority": "3 - Medium",
+      "updates": "8/24: Testing guide sent to the client. Complete and closed.\n8/24: ~98% done. Luciana produced a testing guide covering current state now that the fixes are in: which fields to use to get each testing outcome, plus the prod-only promo code approach. She's sending it to Andrew now; he'll forward it to the client, then this can be completely closed.\nSend testing guide. Code is complete and released.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Testing-flow-updates-make-it-usable-promo-code-3a50b6743c968029ad72d70aaec231de"
+    },
+    {
+      "id": "3a40b674-3c96-8069-a9e7-f2b8d60a09a3",
+      "name": "Nest Egg Research",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "I sent WL the report for this research.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Nest-Egg-Research-3a40b6743c968069a9e7f2b8d60a09a3"
+    },
+    {
+      "id": "39f0b674-3c96-80d8-b1f3-cf853cd00cab",
+      "name": "SubID18 Updates",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Done",
+      "client": "WL",
+      "url": "https://app.notion.com/p/SubID18-Updates-39f0b6743c9680d8b1f3cf853cd00cab"
+    },
+    {
+      "id": "39c0b674-3c96-800c-945c-f43e0e2573a2",
+      "name": "Remove \"Loan Decision In 32 Sec\" and \"Funds Available\" timer icons from application pages",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This will go with “Change from RTP to Card Deposit for default funding” on 7/16.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Remove-Loan-Decision-In-32-Sec-and-Funds-Available-timer-icons-from-application-pages-39c0b6743c96800c945cf43e0e2573a2"
+    },
+    {
+      "id": "3950b674-3c96-80db-a6d0-f639b888b02b",
+      "name": "XML Sitemap review (SEO)",
       "status": "No status",
       "priority": "4 - Low",
-      "updates": "Roland signed it last week.",
-      "client": "CBB",
-      "url": "https://www.notion.so/Q4-Addendum-Signature-2850b6743c96809fb490f0cbd756dc0a"
-    },
-    {
-      "id": "2940b674-3c96-803b-818d-cc240a1fc211",
-      "name": "Recurring Payments",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Repay and Infinity came up with a plan, but it sounds like it doesn’t work for Jesse. I’m waiting for them to reply to my email.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Recurring-Payments-2940b6743c96803b818dcc240a1fc211"
-    },
-    {
-      "id": "29a0b674-3c96-80c2-9363-ce4739f382c6",
-      "name": "Save, Update, Delete, View Payment cards",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Repay and Infinity came up with a plan, but it sounds like it doesn’t work for Jesse. I’m waiting for them to reply to my  email.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Save-Update-Delete-View-Payment-cards-29a0b6743c9680c29363ce4739f382c6"
-    },
-    {
-      "id": "2a20b674-3c96-8034-9a3b-d88e44e4b70f",
-      "name": "GA4 Updates",
-      "status": "No status",
-      "priority": "2 - High",
-      "updates": "Claire is picking up the rest of this work. Matt had a handful of questions for her. She requested additional budget to review further.",
+      "updates": "Need to set priority.",
       "client": "WL",
-      "url": "https://www.notion.so/GA4-Updates-2a20b6743c9680349a3bd88e44e4b70f"
+      "url": "https://app.notion.com/p/XML-Sitemap-review-SEO-3950b6743c9680dba6d0f639b888b02b"
     },
     {
-      "id": "2a30b674-3c96-806f-ba55-c876b3bcbacd",
-      "name": "Unemployment and Vehicle changes",
+      "id": "3900b674-3c96-80f3-8f60-ecf69657f2ff",
+      "name": "Remove Calendly option on IBV",
       "status": "No status",
       "priority": "2 - High",
-      "updates": "We released this work last week and haven’t seen any production errors.",
-      "client": "CBB",
-      "url": "https://www.notion.so/Unemployment-and-Vehicle-changes-2a30b6743c96806fba55c876b3bcbacd"
-    },
-    {
-      "id": "2a90b674-3c96-8070-bc18-f24ee4df28df",
-      "name": "Promo code bug for Lorien",
-      "status": "No status",
-      "priority": "3 - Medium",
-      "updates": "Need to review - deprioritized.",
+      "updates": "Completed 8/6.",
       "client": "WL",
-      "url": "https://www.notion.so/Promo-code-bug-for-Lorien-2a90b6743c968070bc18f24ee4df28df"
+      "url": "https://app.notion.com/p/Remove-Calendly-option-on-IBV-3900b6743c9680f38f60ecf69657f2ff"
     },
     {
-      "id": "2ae0b674-3c96-80f2-ae6e-e795dc3c74ac",
-      "name": "Document Submit button not appearing on Members Area",
+      "id": "3900b674-3c96-80c3-a793-e9a3753287c4",
+      "name": "Redirect rate issues",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "We sent a writeup and made a Please Wait page (decline) copy update, but we’re waiting on further direction. ",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Redirect-rate-issues-3900b6743c9680c3a793e9a3753287c4"
+    },
+    {
+      "id": "38b0b674-3c96-8003-a216-d756fc2c132c",
+      "name": "Lead Routing update - cancelled",
       "status": "No status",
       "priority": "2 - High",
-      "updates": "We added additional error tracking to the site and are monitoring each day to help us figure out what’s going on.",
-      "client": "DLC",
-      "url": "https://www.notion.so/Document-Submit-button-not-appearing-on-Members-Area-2ae0b6743c9680f2ae6ee795dc3c74ac"
+      "updates": "Scope approval requested.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Lead-Routing-update-cancelled-38b0b6743c968003a216d756fc2c132c"
     },
     {
-      "id": "2b00b674-3c96-8064-9947-d7c042589049",
-      "name": "Create new RV 2.0 board",
+      "id": "3890b674-3c96-80a6-a73e-e0500b875b9b",
+      "name": "Add CVV to Card Capture Page",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Released",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Add-CVV-to-Card-Capture-Page-3890b6743c9680a6a73ee0500b875b9b"
+    },
+    {
+      "id": "3890b674-3c96-8032-8781-d7399f6d6e06",
+      "name": "Update non licensed message - remove state line",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Update-non-licensed-message-remove-state-line-3890b6743c9680328781d7399f6d6e06"
+    },
+    {
+      "id": "3880b674-3c96-80bc-b2ea-e4699674a082",
+      "name": "Change from RTP to Card Deposit for default funding",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Release on 7/16.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Change-from-RTP-to-Card-Deposit-for-default-funding-3880b6743c9680bcb2eae4699674a082"
+    },
+    {
+      "id": "3870b674-3c96-80b0-990d-cc8e5d2bbd9e",
+      "name": "Untitled",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "#158 - Almost done - warranty work",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/3870b6743c9680b0990dcc8e5d2bbd9e"
+    },
+    {
+      "id": "3870b674-3c96-805d-9867-e0b1581813b9",
+      "name": "QBO P&L",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "#152 - Bug ",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/QBO-P-L-3870b6743c96805d9867e0b1581813b9"
+    },
+    {
+      "id": "3870b674-3c96-8014-ae63-f1fe3e6e93f8",
+      "name": "Self-Service GL Name/Code Update Workflow for Tableaue JE Uploads",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "#129 - Covered in QBO Self Service",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Self-Service-GL-Name-Code-Update-Workflow-for-Tableaue-JE-Uploads-3870b6743c968014ae63f1fe3e6e93f8"
+    },
+    {
+      "id": "3870b674-3c96-8006-bc9d-d096544e8f1f",
+      "name": "Investigate $43.66 Google Recon Variance",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Syd identified $43.66 variance Sep-Jun Google journal vs. payments; needs review.",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Investigate-43-66-Google-Recon-Variance-3870b6743c968006bc9dd096544e8f1f"
+    },
+    {
+      "id": "3840b674-3c96-8073-9fd3-fb5b6d538197",
+      "name": "Apple JE Imbalances — April & May 2026 WO.A Write-Off Journals",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "\n",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Apple-JE-Imbalances-April-May-2026-WO-A-Write-Off-Journals-3840b6743c9680739fd3fb5b6d538197"
+    },
+    {
+      "id": "3840b674-3c96-8098-8d2b-c7a024cdd7e2",
+      "name": "Google + Shopify Freeze",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Google-Shopify-Freeze-3840b6743c9680988d2bc7a024cdd7e2"
+    },
+    {
+      "id": "3840b674-3c96-80e7-8e2e-c07f6b931163",
+      "name": "investigate(gold): Google FX journals don't balance — +9.14 full-view JE variance localized to 3 FX.G journals",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "The $9.14 was fully fixed and verified live on June 18. \"All 9 Google FX journals balance to 0.00 (was: 2026.06.15 +7.14, 2025.11.15 +1.46, 2025.12.15 +0.54). Full-view SUM(debits) − SUM(credits) = 0.00 — the +9.14 is fully cleared.\"",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/investigate-gold-Google-FX-journals-don-t-balance-9-14-full-view-JE-variance-localized-to-3-FX--3840b6743c9680e78e2ec07f6b931163"
+    },
+    {
+      "id": "3840b674-3c96-8057-ac67-ec5536bad4c5",
+      "name": "Tableau Classification Update",
       "status": "No status",
       "priority": "No priority",
       "updates": "",
-      "client": "RV 2.0",
-      "url": "https://www.notion.so/Create-new-RV-2-0-board-2b00b6743c9680649947d7c042589049"
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Tableau-Classification-Update-3840b6743c968057ac67ec5536bad4c5"
+    },
+    {
+      "id": "3840b674-3c96-8039-b3f2-fb08f7b7e985",
+      "name": "Sales by State Report",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Sales-by-State-Report-3840b6743c968039b3f2fb08f7b7e985"
+    },
+    {
+      "id": "3840b674-3c96-800a-9caa-c9f3cb4a5315",
+      "name": "Churn Dashboard Weighted Churn Rate Updates",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "23 & 24 done. Can filter for monthly or annual data (screenshot)",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/Churn-Dashboard-Weighted-Churn-Rate-Updates-3840b6743c96800a9caac9f3cb4a5315"
+    },
+    {
+      "id": "3840b674-3c96-801c-984c-cc452bb9e6d2",
+      "name": "QuickBooks Online Transaction Type Integration Update",
+      "status": "No status",
+      "priority": "No priority",
+      "updates": "Comprehensive “self-service” fix ",
+      "client": "BBcom",
+      "url": "https://app.notion.com/p/QuickBooks-Online-Transaction-Type-Integration-Update-3840b6743c96801c984ccc452bb9e6d2"
+    },
+    {
+      "id": "3820b674-3c96-8059-b8e6-dca17652d9ce",
+      "name": "More Pinwheel support for Tekambi",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Done 6/16",
+      "client": "WL",
+      "url": "https://app.notion.com/p/More-Pinwheel-support-for-Tekambi-3820b6743c968059b8e6dca17652d9ce"
+    },
+    {
+      "id": "3800b674-3c96-8083-8fe8-ff6bcf3483cf",
+      "name": "IBV A/B Testing - Promotional IBV",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "I’LL NEED TO RESCOPE WITH CREDITS WHEN IT BECOMES A PRIORITY. Waiting on Scope approval. We need to update our scope doc once this is a priority. Combining testing and Promotional IBV.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/IBV-A-B-Testing-Promotional-IBV-3800b6743c9680838fe8ff6bcf3483cf"
+    },
+    {
+      "id": "37d0b674-3c96-8082-9e89-d8ee9de51bfc",
+      "name": "CNAME addition for Pinwheel",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Done 6/12",
+      "client": "WL",
+      "url": "https://app.notion.com/p/CNAME-addition-for-Pinwheel-37d0b6743c9680829e89d8ee9de51bfc"
+    },
+    {
+      "id": "37b0b674-3c96-8075-b93f-ead6c920ccd0",
+      "name": "Email Drip + Capture",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Completed 8/6.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Email-Drip-Capture-37b0b6743c968075b93fead6c920ccd0"
+    },
+    {
+      "id": "37b0b674-3c96-8055-bffb-ce0db633e63d",
+      "name": "Authentication Fix - from Michael",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Luciana will pick this up this week.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Authentication-Fix-from-Michael-37b0b6743c968055bffbce0db633e63d"
+    },
+    {
+      "id": "37b0b674-3c96-80b4-8e3a-e453871f2951",
+      "name": "1. Move IPQS Device to Submit Page\n2. Remove PC Fraud",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "9/2: Iovation is fully gone on the client side, so WIS-046 is unblocked. Decision: IPQS capture stays up front on page load (working well), the submit-page move is dropped. Code from July needs a release pass (re-merge and audit, QA re-run, Django-then-WordPress deploy). Release-pass ticket #145 created under Clara epic #70, assigned to Luciana.\n8/24: Dan confirmed PC Fraud is off all scorecards and reporting, so we're clear to proceed. Two items left before release: (1) decide whether the IPQS device step stays up front or moves back, with Luciana; (2) audit the older code before merging so it doesn't break anything.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/1-Move-IPQS-Device-to-Submit-Page-2-Remove-PC-Fraud-37b0b6743c9680b48e3ae453871f2951"
+    },
+    {
+      "id": "3720b674-3c96-809d-acdc-c719ebe301e4",
+      "name": "Agora Payload update",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Done 6/11",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Agora-Payload-update-3720b6743c96809dacdcc719ebe301e4"
+    },
+    {
+      "id": "35f0b674-3c96-8052-bed8-dc189cbf0ff4",
+      "name": "Question about store selection and routing + updates to subid41",
+      "status": "No status",
+      "priority": "3 - Medium",
+      "updates": "I sent the scope doc and estimate, but Jesse doesn’t want to work on this right now.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Question-about-store-selection-and-routing-updates-to-subid41-35f0b6743c968052bed8dc189cbf0ff4"
+    },
+    {
+      "id": "35f0b674-3c96-800f-aaff-d579157d694d",
+      "name": "Tekambi (Origin8) Application Submission Authentication",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "In process (#46)",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Tekambi-Origin8-Application-Submission-Authentication-35f0b6743c96800faaffd579157d694d"
+    },
+    {
+      "id": "35f0b674-3c96-80cc-9d3d-c4fe78682529",
+      "name": "Subid 18 and 19 update",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Diego will pick this up next.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Subid-18-and-19-update-35f0b6743c9680cc9d3dc4fe78682529"
+    },
+    {
+      "id": "35d0b674-3c96-802c-b933-fb41b7882e67",
+      "name": "Ninja Edge V2 Update",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Signed 5-26-26 - need assistance testing June 1. email to Donna at Edge (#61 & #62)",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Ninja-Edge-V2-Update-35d0b6743c96802cb933fb41b7882e67"
+    },
+    {
+      "id": "35d0b674-3c96-800f-ac03-ca9e539c44e9",
+      "name": "Give Liliana WP access so she can make changes to non-functional pages",
+      "status": "No status",
+      "priority": "3 - Medium",
+      "updates": "As of May 27th meeing Lilliana will update where she can for copy only at this time",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Give-Liliana-WP-access-so-she-can-make-changes-to-non-functional-pages-35d0b6743c96800fac03ca9e539c44e9"
+    },
+    {
+      "id": "3580b674-3c96-8078-9395-d34166152aba",
+      "name": "Kiosk CAPTCHA issues",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "We removed captchas from kiosks in March 2026. Matthew will need to get examples from since then to show if there’s a different issue.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Kiosk-CAPTCHA-issues-3580b6743c9680789395d34166152aba"
+    },
+    {
+      "id": "3580b674-3c96-806f-b739-f8618c5e78a8",
+      "name": "Update Please Wait Page",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Done 6/19.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Update-Please-Wait-Page-3580b6743c96806fb739f8618c5e78a8"
+    },
+    {
+      "id": "3580b674-3c96-8010-923f-f658cd639896",
+      "name": "Notification to non-licensed state customers before apply pages",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Done 6/18.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Notification-to-non-licensed-state-customers-before-apply-pages-3580b6743c968010923ff658cd639896"
+    },
+    {
+      "id": "3570b674-3c96-80e8-8e96-e04e9820ca8a",
+      "name": "Cloudflare Bot Verification - Matthew",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "We worked with WP Engine to fix a bug for older browsers. Matthew is going to test this on his end.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Cloudflare-Bot-Verification-Matthew-3570b6743c9680e88e96e04e9820ca8a"
+    },
+    {
+      "id": "3490b674-3c96-808b-829e-d45b23284b6f",
+      "name": "Install Cloudflare Turnstile - Review Cloudflare questions and present options",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "9/2: Project Scope v3 updated with the 8/3/3 phase table to match Luciana's approved Solution Design; Clara ledger already carries the three phases (8, 3, 3) plus the 6-credit advisory report completed Aug 24. Still awaiting client approval of the 14.\n8/24: Writeup done and validated. Recommendation: Turnstile plus rate limiting on the current Pro plan (the Enterprise pitch is an upsell we don't need). Note: the apply site isn't behind Cloudflare, so rate limiting runs through AWS instead. Handed to Luciana (Clara ticket #122) to build the solution design and estimate.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Install-Cloudflare-Turnstile-Review-Cloudflare-questions-and-present-options-3490b6743c96808b829ed45b23284b6f"
+    },
+    {
+      "id": "3440b674-3c96-805c-b2fd-e25b7a11d311",
+      "name": "Pinwheel support",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "All work complete, working to meet Tuesday with all parties for testing",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Pinwheel-support-3440b6743c96805cb2fde25b7a11d311"
+    },
+    {
+      "id": "3440b674-3c96-808e-b77f-fc67f51ad91f",
+      "name": "Production issues",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Zac sent some production issues that need to be explored further.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Production-issues-3440b6743c96808eb77ffc67f51ad91f"
+    },
+    {
+      "id": "3440b674-3c96-80b5-a462-d2af4e06fcac",
+      "name": "WI convenience fee update",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released last week.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/WI-convenience-fee-update-3440b6743c9680b5a462d2af4e06fcac"
+    },
+    {
+      "id": "3430b674-3c96-8058-9d83-f197643623b4",
+      "name": "Uplift support for Tekambi",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Michael reached out for help, we’re waiting until next week while they run some tests.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Uplift-support-for-Tekambi-3430b6743c9680589d83f197643623b4"
+    },
+    {
+      "id": "33d0b674-3c96-80ee-ba1f-c0064d2c2adc",
+      "name": "Hide Make A Payment (Current Payment) on the homepage",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Released 4/9.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Hide-Make-A-Payment-Current-Payment-on-the-homepage-33d0b6743c9680eeba1fc0064d2c2adc"
+    },
+    {
+      "id": "33a0b674-3c96-801a-9098-c5c15bdc3767",
+      "name": "Change convenience fee from 2.70 to 2.75.",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Released on 4/6.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Change-convenience-fee-from-2-70-to-2-75-33a0b6743c96801a9098c5c15bdc3767"
+    },
+    {
+      "id": "3350b674-3c96-8015-8ebc-d065ab0c38ae",
+      "name": "Campaign change",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "DB confirmed this is working now",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Campaign-change-3350b6743c9680158ebcd065ab0c38ae"
+    },
+    {
+      "id": "3350b674-3c96-80b7-ab44-e6c3f5bc6c52",
+      "name": "Duplicate Debit Cards",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Deployed 5/15.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Duplicate-Debit-Cards-3350b6743c9680b7ab44e6c3f5bc6c52"
+    },
+    {
+      "id": "3350b674-3c96-80c7-b639-c04221e20d27",
+      "name": "Disable Make a Payment for Active customers",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released 4/6.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Disable-Make-a-Payment-for-Active-customers-3350b6743c9680c7b639c04221e20d27"
+    },
+    {
+      "id": "3340b674-3c96-80dd-b1fc-e710e5af1413",
+      "name": "DLC RV transition - Jesse",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Luciana is working with DLC’s tech team.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/DLC-RV-transition-Jesse-3340b6743c9680ddb1fce710e5af1413"
+    },
+    {
+      "id": "3290b674-3c96-805b-a4fe-d811ec6f9636",
+      "name": "Send contract and receipt in emails",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "I sent the scope doc to Zac for approval.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Send-contract-and-receipt-in-emails-3290b6743c96805ba4fed811ec6f9636"
+    },
+    {
+      "id": "3290b674-3c96-8049-8e4f-faebec3102e4",
+      "name": "Video calls",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "David sent our recommendation to Zac.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Video-calls-3290b6743c9680498e4ffaebec3102e4"
+    },
+    {
+      "id": "3290b674-3c96-806a-b958-e17e6e172f46",
+      "name": "Alec support for QA findings",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "We’ll wait for Alec to reach out.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Alec-support-for-QA-findings-3290b6743c96806ab958e17e6e172f46"
+    },
+    {
+      "id": "3290b674-3c96-80fe-88f8-fb6da660bc05",
+      "name": "Docusign integration",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "I sent the BRD to Roland, he’s reviewing it with his team.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Docusign-integration-3290b6743c9680fe88f8fb6da660bc05"
+    },
+    {
+      "id": "3290b674-3c96-8002-8ce2-c79f7586938e",
+      "name": "Move away from WP/GF backend to fit Skyline’s move",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "I need to sync with Andres.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Move-away-from-WP-GF-backend-to-fit-Skyline-s-move-3290b6743c9680028ce2c79f7586938e"
+    },
+    {
+      "id": "3290b674-3c96-8035-88d1-f8b12aac10aa",
+      "name": "SMS link preview shows link expired - check-ins",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Alec will provide examples.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/SMS-link-preview-shows-link-expired-check-ins-3290b6743c96803588d1f8b12aac10aa"
+    },
+    {
+      "id": "3290b674-3c96-80da-846f-ca1ccf835f03",
+      "name": "Photo ID usability issues",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Alec will provide examples.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Photo-ID-usability-issues-3290b6743c9680da846fca1ccf835f03"
+    },
+    {
+      "id": "3270b674-3c96-80ec-96f3-f6ad49315794",
+      "name": "Check pay frequency calendar to make sure it makes the new one.",
+      "status": "No status",
+      "priority": "3 - Medium",
+      "updates": "I need to make a ticket for this.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Check-pay-frequency-calendar-to-make-sure-it-makes-the-new-one-3270b6743c9680ec96f3f6ad49315794"
+    },
+    {
+      "id": "3270b674-3c96-8009-94d3-f325618124b3",
+      "name": "Update Calendar format on the whole site",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "I’LL NEED TO RESCOPE WITH CREDITS WHEN IT BECOMES A PRIORITY\nBRD sent 4/7. Waiting for approval.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Update-Calendar-format-on-the-whole-site-3270b6743c96800994d3f325618124b3"
+    },
+    {
+      "id": "3200b674-3c96-80b9-86d0-efed8ac026df",
+      "name": "Send subid18 and 19 to Agora sales since Uplift will be the first purchaser.",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released 3/31.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Send-subid18-and-19-to-Agora-sales-since-Uplift-will-be-the-first-purchaser-3200b6743c9680b986d0efed8ac026df"
+    },
+    {
+      "id": "3200b674-3c96-806a-958c-faf564cd5310",
+      "name": "Connect Notion to Jira - automatically update ticket statuses",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Lorien updated requirements and I need to review. Probably a small or medium effort.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Connect-Notion-to-Jira-automatically-update-ticket-statuses-3200b6743c96806a958cfaf564cd5310"
+    },
+    {
+      "id": "3140b674-3c96-80d5-bac4-db86e1e6e4c2",
+      "name": "DLC may need to change its convenience fee from 2.40 to 2.70.",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released on 4/1.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/DLC-may-need-to-change-its-convenience-fee-from-2-40-to-2-70-3140b6743c9680d5bac4db86e1e6e4c2"
+    },
+    {
+      "id": "3120b674-3c96-809f-966c-cdbaafa83124",
+      "name": "NeuroID - ",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released 3/31.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/NeuroID-Add-data-nid-target-HTML-attributes-to-application-form-fields-3120b6743c96809f966ccdbaafa83124"
+    },
+    {
+      "id": "3100b674-3c96-80b1-ab23-dec097b57164",
+      "name": "Co-signer docs - instead of task completion, trigger it off a status change to ",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "We released our middleware and WP updates. Roland made the Epros update. 3/2.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/Co-signer-docs-instead-of-task-completion-trigger-it-off-a-status-change-to-OL1CD-3100b6743c9680b1ab23dec097b57164"
+    },
+    {
+      "id": "3100b674-3c96-809f-85a5-d7ae0e94eeb5",
+      "name": "Pay frequency updates - Withdraw and reloan",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "8/24: Solution design, estimate, and executive summary underway (started Friday). Finalizing the full SOW package this week.\n\n9/1: Estimate confirmed (AI-assisted WBS, ~71-84). Client questions packet sent for the 3 load-bearing open items (denial handling on the new loan, blacklist/banish protection, relo eligibility) plus 4 assumptions to confirm. Awaiting client answers before finalizing scope for approval.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Pay-frequency-updates-Withdraw-and-reloan-3100b6743c96809f85a5d7ae0e94eeb5"
+    },
+    {
+      "id": "30c0b674-3c96-80cc-b9c0-f7b49dfe5405",
+      "name": "Reverse the pay frequency page while we add to the update loan API",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "Reversal is done.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Reverse-the-pay-frequency-page-while-we-add-to-the-update-loan-API-30c0b6743c9680ccb9c0f7b49dfe5405"
+    },
+    {
+      "id": "3090b674-3c96-80e3-83af-e56aca82fb80",
+      "name": "Real applications routing through Test SEO campaign 175 and bypassing underwriting",
+      "status": "No status",
+      "priority": "3 - Medium",
+      "updates": "We found the link that caused this problem. It’s been fixed in production and the dev site has a password as a backup for the future.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Real-applications-routing-through-Test-SEO-campaign-175-and-bypassing-underwriting-3090b6743c9680e383afe56aca82fb80"
+    },
+    {
+      "id": "3090b674-3c96-8008-8b6a-c55103f283e9",
+      "name": "Wisconsin spouse information",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Taking this off the list since we won’t get to it before the transition. Tekambi is handling this right now.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Wisconsin-spouse-information-3090b6743c9680088b6ac55103f283e9"
+    },
+    {
+      "id": "3090b674-3c96-8065-832b-c3da9bb0b62f",
+      "name": "Contract Signing bug",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "I need to investigate.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Contract-Signing-bug-3090b6743c968065832bc3da9bb0b62f"
+    },
+    {
+      "id": "3090b674-3c96-8088-9c53-d383adb150ff",
+      "name": "Kiosk Captcha/Cloudflare issues",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "The fix has been deployed to production.\nreCAPTCHA disabled on kiosk route (/locations/{address}/apply/):\nhttps://jam.dev/c/8e646181-637c-40d0-99cd-304bea6d23e7\nreCAPTCHA still enabled on main apply route (/apply/):\nhttps://jam.dev/c/ed1f99c0-f7e8-4b55-81b3-4fd6fe4897b6",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Kiosk-Captcha-Cloudflare-issues-3090b6743c9680889c53d383adb150ff"
+    },
+    {
+      "id": "3040b674-3c96-80ee-a981-d56e72b9723e",
+      "name": "Microsoft Clarity",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Released 4/2.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Microsoft-Clarity-3040b6743c9680eea981d56e72b9723e"
+    },
+    {
+      "id": "3040b674-3c96-804c-8026-cbc621208985",
+      "name": "Update debit card feature to be optional - HOLD",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "WAIT FOR WL TO REVIEW IF THIS IS STILL NEEDED. Luciana reviewed my BRD and approved it. I’ll pass along an updated version to WL for acceptance later today.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Update-debit-card-feature-to-be-optional-HOLD-3040b6743c96804c8026cbc621208985"
+    },
+    {
+      "id": "3040b674-3c96-80ec-a3d2-c5d8ce2c8fdd",
+      "name": "Harden WordPress admin login against bot/brute-force attacks",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Close",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Harden-WordPress-admin-login-against-bot-brute-force-attacks-3040b6743c9680eca3d2c5d8ce2c8fdd"
+    },
+    {
+      "id": "3040b674-3c96-804f-89f4-eeb4d3b5b035",
+      "name": "Blacklisted ABA",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Nothing for RV to do. Dropping off the list after this update.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Blacklisted-ABA-3040b6743c96804f89f4eeb4d3b5b035"
+    },
+    {
+      "id": "3040b674-3c96-8078-b77a-d87b924fd003",
+      "name": "New sale in progress screen during waiting period",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Tekambi responded to the email, but didn’t actually answer my question, so I’m following up with them today.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/New-sale-in-progress-screen-during-waiting-period-3040b6743c968078b77ad87b924fd003"
+    },
+    {
+      "id": "3040b674-3c96-80ba-b732-eeef9c4e0f6c",
+      "name": "Fix technical difficulties with wait/denied pages testing",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Low priority for now",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Fix-technical-difficulties-with-wait-denied-pages-testing-3040b6743c9680bab732eeef9c4e0f6c"
+    },
+    {
+      "id": "2fd0b674-3c96-8090-bc4d-edd066313b4f",
+      "name": "Chat bot update on Sign On page",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This has been completed. ",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Chat-bot-update-on-Sign-On-page-2fd0b6743c968090bc4dedd066313b4f"
+    },
+    {
+      "id": "2fc0b674-3c96-8063-8f68-dfb143373892",
+      "name": "Upgrade EKS cluster to Kubernetes 1.33.8",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "We completed this upgrade and have scheduled the next two as well.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Upgrade-EKS-cluster-to-Kubernetes-1-33-8-2fc0b6743c9680638f68dfb143373892"
+    },
+    {
+      "id": "2fc0b674-3c96-8038-8dd1-c6d3c55f60d6",
+      "name": "AI Automation",
+      "status": "No status",
+      "priority": "4 - Low",
+      "updates": "Nothing needed on this for now.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/AI-Automation-2fc0b6743c9680388dd1c6d3c55f60d6"
+    },
+    {
+      "id": "2f60b674-3c96-80fb-9026-f89f8e349389",
+      "name": "Upgrade EKS cluster to Kubernetes 1.32 and migrate nodes off AL2",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This has been completed. It will help on cost and then we’ll need to follow the Kubernetes upgrade schedule.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Upgrade-EKS-cluster-to-Kubernetes-1-32-and-migrate-nodes-off-AL2-2f60b6743c9680fb9026f89f8e349389"
+    },
+    {
+      "id": "2f60b674-3c96-8023-8796-cfffb600651a",
+      "name": "Your SSL Certificate will expire in 25 days.",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "I sent the update on this. Two will expire, one will still be active that we currently use.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Your-SSL-Certificate-will-expire-in-25-days-2f60b6743c9680238796cfffb600651a"
+    },
+    {
+      "id": "2f40b674-3c96-8078-a617-da458c62be4f",
+      "name": "Backlog Cleanup",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Since we’re waiting on others for most of the work we are cleaning the backlog to catch potential issues that we’ve identified before but haven’t had time to fix. We’ll continue going through this list until we’re caught up.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Backlog-Cleanup-2f40b6743c968078a617da458c62be4f"
+    },
+    {
+      "id": "2f40b674-3c96-8027-8756-c1a481b8587c",
+      "name": "Modifications to doc uploads page - IDology fast follow",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "This was released last week.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Modifications-to-doc-uploads-page-IDology-fast-follow-2f40b6743c9680278756c1a481b8587c"
+    },
+    {
+      "id": "2ef0b674-3c96-8021-9113-dd95d783a03d",
+      "name": "Sentry Error - Diego",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "Sentry reported a PLM Service Unavailable error that Diego needed to look into and resolve.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Sentry-Error-Diego-2ef0b6743c9680219113dd95d783a03d"
+    },
+    {
+      "id": "2e90b674-3c96-80e2-bbbf-ff6dc32f15e5",
+      "name": "JWT 500 error",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This has been fully resolved.",
+      "client": "CBB",
+      "url": "https://app.notion.com/p/JWT-500-error-2e90b6743c9680e2bbbfff6dc32f15e5"
+    },
+    {
+      "id": "2e80b674-3c96-80c3-8d74-ecc6e14d3784",
+      "name": "TX Agreement bug",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This was released on 1/13.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/TX-Agreement-bug-2e80b6743c9680c38d74ecc6e14d3784"
+    },
+    {
+      "id": "2e80b674-3c96-80b9-a160-e3ee3257ed95",
+      "name": "Leads Tekambi routing issue",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "It was a store configuration issue from when Anton set it up. We fixed the 3 that were impacted.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Leads-Tekambi-routing-issue-2e80b6743c9680b9a160e3ee3257ed95"
+    },
+    {
+      "id": "2e20b674-3c96-8032-8cb5-d294c17fa3f5",
+      "name": "Block LTL from all other states other than NV",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "We’re currently testing.",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Block-LTL-from-all-other-states-other-than-NV-2e20b6743c9680328cb5d294c17fa3f5"
+    },
+    {
+      "id": "2e10b674-3c96-8032-ab05-d433201e041f",
+      "name": "Application Loading Page Updates (Lili marketing)",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "In development and should be done this week.",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Application-Loading-Page-Updates-Lili-marketing-2e10b6743c968032ab05d433201e041f"
+    },
+    {
+      "id": "2dc0b674-3c96-80fb-a16c-d8b0922a017a",
+      "name": "Application verbiage update",
+      "status": "No status",
+      "priority": "2 - High",
+      "updates": "The change was made. You can confirm on the screenshot below. https://jam.dev/c/5ab67d35-3a9f-4ae6-89c8-90034f8c4a10",
+      "client": "DLC",
+      "url": "https://app.notion.com/p/Application-verbiage-update-2dc0b6743c9680fba16cd8b0922a017a"
+    },
+    {
+      "id": "2cc0b674-3c96-80a2-a7f5-f322b7d06c29",
+      "name": "Update uContact footer url",
+      "status": "No status",
+      "priority": "1 - URGENT",
+      "updates": "This is completed as of last week",
+      "client": "WL",
+      "url": "https://app.notion.com/p/Update-uContact-footer-url-2cc0b6743c9680a2a7f5f322b7d06c29"
     }
   ],
-  "fetchedAt": "2025-12-16T23:01:21.124Z",
+  "fetchedAt": "2026-09-04T14:13:27.865Z",
   "itemCount": 100
 }
